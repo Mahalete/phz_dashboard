@@ -1,0 +1,11 @@
+.side_menu {
+  position: absolute;
+  width: 265px;
+  height: 1024px;
+  left: 0px;
+  top: 0px;
+  margin-top: 4rem;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}

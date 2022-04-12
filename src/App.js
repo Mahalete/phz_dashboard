@@ -51,7 +51,7 @@ function App() {
   return (
     
     <div>
-      {" "}{promoters}
+      {" "}
       <h1 className="dashbord_body"> NPS Dashboard </h1>
       <SideMenu />
       <NpsCharts />

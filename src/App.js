@@ -15,7 +15,7 @@ function App() {
   const [npsScore, setNpsScore] = useState(0);
   useEffect(() => {
     getNpsdata();
-  }, []);
+  }, [neutral, detractors, promoters, total]);
   const getNpsdata = () => {
     axios
       .get("http://localhost:3010/api/npsdata")
@@ -25,23 +25,33 @@ function App() {
       .then((res) => {
         setNpsdata(res.data);
         setLoading(false);
-        console.log(res.data);
+        //console.log(res.data);
         let scores = [];
         res.data.forEach((element) => {
           scores.push(element.score);
-          //console.log(scores);
+          console.log(scores);
         });
+        let dedactor_val = 0;
+        let promoter_val = 0;
+        let neutral_val = 0;
         scores.forEach((score) => {
           if (score <= 6) {
-            setDetractors(detractors + 1);
+            console.log("Before" + dedactor_val);
+            dedactor_val = dedactor_val + 1;
+            console.log("After" + dedactor_val);
             console.log(score);
           } else if (score >= 9) {
-            setPromoters(promoters + 1);
+            promoter_val = promoter_val + 1;
+
             console.log(score);
           } else {
-            setNeutral(neutral + 1);
+            neutral_val = neutral_val + 1;
           }
         });
+        setDetractors(dedactor_val);
+        setNeutral(neutral_val);
+        setPromoters(promoter_val);
+        console.log(detractors);
       });
 
     setTotal(promoters + neutral + detractors);
@@ -67,6 +77,7 @@ function App() {
         ))}
         <p>Promoter{promoters}</p>
         <p>Detractor{detractors}</p>
+        <p>Neutral{neutral}</p>
         <p>NPS: {npsScore} </p>
       </div>
       {/* <SideMenu /> */}

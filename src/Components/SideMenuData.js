@@ -6,6 +6,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+
  export const SideMenuData = [
      {
          title: "Dashboard",

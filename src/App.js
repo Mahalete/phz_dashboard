@@ -5,6 +5,7 @@ import NpsSurveyStatus from "./Components/Dashbord-Content/Survey_Status/NpsSurv
 import RecentComments from "./Components/Dashbord-Content/Comments/RecentComments";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 function App() {
   const [npsdata, setNpsdata] = useState([]);
   const [detractors, setDetractors] = useState(0);
@@ -13,9 +14,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const [npsScore, setNpsScore] = useState(0);
+
   useEffect(() => {
     getNpsdata();
   }, [neutral, detractors, promoters, total]);
+
   const getNpsdata = () => {
     axios
       .get("http://localhost:3010/api/npsdata")
@@ -63,8 +66,14 @@ function App() {
   };
 
   return (
-    <div>
-      {" "}
+    <div className="App" >
+      
+      <SideMenu />
+      <NpsCharts />
+      <NpsSurveyStatus />
+      <RecentComments />
+
+      {/* {" "}
       <h1 className="dashbord_body"> NPS Dashboard </h1>
       <div>
         {npsdata.map((data) => (
@@ -79,11 +88,7 @@ function App() {
         <p>Detractor{detractors}</p>
         <p>Neutral{neutral}</p>
         <p>NPS: {npsScore} </p>
-      </div>
-      {/* <SideMenu /> */}
-      <NpsCharts />
-      <NpsSurveyStatus />
-      <RecentComments />
+      </div> */}
     </div>
   );
 }

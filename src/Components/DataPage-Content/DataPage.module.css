@@ -1,0 +1,7 @@
+.DataPageWrapper {
+  position: absolute;
+  border: solid grey 1px;
+  top: 204px;
+  right: 64px;
+  max-width: 1056px;
+}

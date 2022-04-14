@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
 }
@@ -12,4 +12,16 @@ li {
 
 body {
   font-family: "Open Sans", sans-serif;
+} */
+
+.App{
+  width: 100vw;
+  height: 100vh;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }

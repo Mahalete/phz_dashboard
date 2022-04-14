@@ -39,8 +39,20 @@
 }
 
 .side_menu_list #active {
-  background-color: #F8EADD;
+  background-color: #FAEFE6;
+  color: #D47E36;
+  position:relative;
 }
+.side_menu_list #active:after {
+  content:'';
+  position:absolute;
+  right:0;
+  background: #D47E36;
+  height: 60%;
+  width: 5px;
+  border-radius: 5px 0px 0px 5px;
+}
+
 .row .icon {
   flex:30%;
   display: grid;

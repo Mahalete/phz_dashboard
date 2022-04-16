@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./NpsCharts.module.css";
-
+import { PieChart } from "react-minimal-pie-chart";
 const NPS_Charts = ({ data }) => {
   const [detractors, setDetractors] = useState(0);
   const [promoters, setPromoters] = useState(0);
@@ -52,9 +52,29 @@ const NPS_Charts = ({ data }) => {
     detractors,
     total,
   ]);
+  
+  
+
 
   return (
     <div className={style.chart_container}>
+      <PieChart
+      lineWidth={35}
+      label={(props) => { return props.dataEntry.title;}}
+      labelPosition={110}
+      labelStyle={{
+        fontSize: '5px'
+      }}
+     
+      data={[
+    { title: `Promoters`, value: promoters, color: '#5FB566' },
+    { title: 'Detractors', value: detractors, color: '#F36158' },
+    { title: 'Neutrals', value: neutral, color: '#E1AA51' },
+  ]}
+  radius={30}
+  startAngle={0}
+/>
+ 
       {!loading && (
         <div>
           <p>Promoter{promoters}</p>
@@ -62,7 +82,9 @@ const NPS_Charts = ({ data }) => {
           <p>Neutral{neutral}</p>
           <p>NPS: {npsScore} </p>
         </div>
+        
       )}
+    
     </div>
   );
 };

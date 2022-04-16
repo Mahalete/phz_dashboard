@@ -76,7 +76,7 @@ const NPS_Charts = ({ data }) => {
 />
  
       {!loading && (
-        <div>
+        <div className={style.chart_values}>
           <p>Promoter{promoters}</p>
           <p>Detractor{detractors}</p>
           <p>Neutral{neutral}</p>

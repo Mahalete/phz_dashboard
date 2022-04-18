@@ -6,12 +6,12 @@
 
 .centralize {
   height: inherit;
-  width: inherit;
+  width: 85vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 150px;
+  left: 256px;
   flex-direction: column;
 }
 
@@ -33,9 +33,14 @@
   transform: scale(1.2);
 }
 
+.sorting {
+  padding-top: 7px;
+  transform: scale(1.7);
+}
+
 .DataPageWrapper {
   width: 75%;
-  height: 65%;
+  height: 630px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;

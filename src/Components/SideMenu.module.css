@@ -38,6 +38,15 @@
   background-color: #F8EADD;
 }
 
+a:link{
+  text-decoration: none;
+}
+
+a:active{
+  background-color: #FAEFE6;
+  color: #D47E36;
+  position:relative;
+}
 .side_menu_list #active {
   background-color: #FAEFE6;
   color: #D47E36;

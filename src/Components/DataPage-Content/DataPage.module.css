@@ -1,7 +1,100 @@
-.DataPageWrapper {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.centralize {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  border: solid grey 1px;
-  top: 204px;
-  right: 64px;
-  max-width: 1056px;
+  left: 150px;
+  flex-direction: column;
+}
+
+.nextPage {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 23px;
+  width: 75%;
+  align-items: center;
+}
+
+.pipe {
+  transform: rotate(90deg) scale(2);
+  margin: 29px;
+}
+
+.arrows {
+  margin: 21px;
+  transform: scale(1.2);
+}
+
+.DataPageWrapper {
+  width: 75%;
+  height: 65%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 170%;
+  display: flex;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+table {
+  position: absolute;
+  width: inherit;
+}
+
+thead,
+h3 {
+  color: #333333;
+}
+
+thead tr {
+  height: 50px;
+}
+
+thead tr th:nth-child(1),
+thead tr th:nth-child(2) {
+  width: 110px;
+}
+
+thead tr th:nth-child(3) {
+  width: 110px;
+}
+
+thead tr th:nth-child(4) {
+  max-width: 561px;
+}
+
+th,
+td {
+  position: static;
+  text-align: left;
+  padding-left: 24px;
+}
+
+tbody tr {
+  position: static;
+  color: #666666;
+  white-space: nowrap;
+  height: 56px;
+}
+
+tbody tr:nth-child(odd) {
+  background: #fbf2ea;
+}
+
+tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+tbody tr td:nth-child(4) {
+  padding-right: 24px;
 }

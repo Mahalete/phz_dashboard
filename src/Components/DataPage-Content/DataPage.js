@@ -3,6 +3,7 @@ import styles from "./DataPage.module.css";
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
 import Pipe from "@mui/icons-material/Remove";
+import Sorting from "@mui/icons-material/ArrowDropDown";
 
 const DataPage = ({ data }) => {
   const [answers, setAnswers] = useState(
@@ -28,6 +29,18 @@ const DataPage = ({ data }) => {
     }
     setPages(1);
     setAnswers(data.slice(0, 10));
+  };
+
+  const sorting = (sortingBase) => {
+    let result;
+    if (sortingBase === "score") {
+      result = data.sort((a, b) => a.score - b.score);
+    } else if (sortingBase === "id") {
+      result = data.sort((a, b) => a.id - b.id);
+    } else {
+      result = data.sort((a, b) => new Date(a.date) - new Date(b.date));
+    }
+    setAnswers(result.slice(0, 10));
   };
 
   const dateChanger = (date) => {
@@ -65,9 +78,27 @@ const DataPage = ({ data }) => {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Date</th>
-              <th>Score</th>
+              <th>
+                ID{" "}
+                <Sorting
+                  className={styles.sorting}
+                  onClick={() => sorting("id")}
+                />
+              </th>
+              <th>
+                Date{" "}
+                <Sorting
+                  className={styles.sorting}
+                  onClick={() => sorting("date")}
+                />
+              </th>
+              <th>
+                Score{" "}
+                <Sorting
+                  className={styles.sorting}
+                  onClick={() => sorting("score")}
+                />
+              </th>
               <th>Feedback</th>
             </tr>
           </thead>

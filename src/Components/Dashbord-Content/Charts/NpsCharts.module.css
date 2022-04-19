@@ -1,18 +1,46 @@
-.chart_container {
-  position: absolute;
-  width: 1047px;
-  height: 483px;
-  left: 0px;
-  top: 0px;
-  margin-left: 19rem;
-  margin-top: 4rem;
-
-  background: #ffffff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+.chart_title {
+  width: 149px;
+  height: 26px;
+  padding-top: 36px;
+  padding-bottom: 5px;
+  padding-left: 36px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+.circle {
+  position: relative;
+  width: 210px;
+  height: 210px;
 }
 .chart_values {
-  position: absolute;
-  left: 860px;
-  top: 0px;
+  padding-left: 350px;
+  padding-top: 50px;
+  width: 76px;
+  height: 27px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 170%;
+}
+.grinning_emj {
+  left: 3.12%;
+  right: 3.12%;
+  padding-top: 3.12%;
+  padding-bottom: 3.12%;
+  background: #77ca90;
+}
+
+.piechart {
+  width: 516px;
+  height: 362px;
+  margin-left: 320px;
+  margin-top: 122px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }

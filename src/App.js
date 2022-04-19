@@ -5,6 +5,7 @@ import CommentPage from "./Components/CommentPage-Content/CommentPage";
 import DataPage from "./Components/DataPage-Content/DataPage";
 import GraphPage from "./Components/GraphPage-Content/GraphPage";
 import SettingsPage from "./Components/SettingsPage-Content/SettingsPage";
+import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPage"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
@@ -43,6 +44,7 @@ function App() {
           path="/comment"
           element={!loading && <CommentPage data={npsdata} />}
         />
+        <Route path="/integration" element={<IntegrationPage />} />
         <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </div>

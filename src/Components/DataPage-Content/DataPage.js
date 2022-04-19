@@ -62,11 +62,16 @@ const DataPage = ({ data }) => {
     <div className={styles.centralize}>
       <div className={styles.nextPage}>
         <ArrowRight
+          data-testid="arrowRight"
           className={styles.arrows}
           onClick={() => pageChanger("next")}
         />
-        <h3>{pages}</h3>
-        <ArrowLeft className={styles.arrows} onClick={() => pageChanger("")} />
+        <h3 data-testid="pageNumber">{pages}</h3>
+        <ArrowLeft
+          data-testid="arrowLeft"
+          className={styles.arrows}
+          onClick={() => pageChanger("")}
+        />
         <h3> Page </h3>
         <Pipe className={styles.pipe} />
         <h3>
@@ -77,7 +82,7 @@ const DataPage = ({ data }) => {
         </h3>
       </div>
       <div className={styles.DataPageWrapper}>
-        <table>
+        <table data-testid="table">
           <thead>
             <tr>
               <th>
@@ -108,7 +113,7 @@ const DataPage = ({ data }) => {
           <tbody>
             {answers.map((val) => {
               return (
-                <tr>
+                <tr data-testid={"answer"} name={val.id} key={val.id}>
                   <td>#{val.id}</td>
                   <td>{dateChanger(val.date.substring(0, 10))}</td>
                   <td>{val.score}</td>

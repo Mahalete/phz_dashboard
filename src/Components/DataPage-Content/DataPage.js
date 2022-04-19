@@ -11,24 +11,23 @@ const DataPage = ({ data }) => {
   );
   const [pages, setPages] = useState(1);
 
-  const nextPage = () => {
-    if (data.length > 10 * pages) {
-      setPages(pages + 1);
-      let startIndex = pages * 10;
-      data.length > startIndex + 10
-        ? setAnswers(data.slice(startIndex, startIndex + 10))
-        : setAnswers(data.slice(startIndex));
-    }
-  };
-
-  const previousPage = () => {
+  const pageChanger = (change) => {
     let startIndex = pages * 10;
-    if (pages !== 1) {
-      setPages(pages - 1);
-      setAnswers(data.slice(startIndex, startIndex + 10));
+    if (change === "next") {
+      if (data.length > 10 * pages) {
+        setPages(pages + 1);
+        data.length > startIndex + 10
+          ? setAnswers(data.slice(startIndex, startIndex + 10))
+          : setAnswers(data.slice(startIndex));
+      }
+    } else {
+      if (pages !== 1) {
+        setPages(pages - 1);
+        setAnswers(data.slice(startIndex, startIndex + 10));
+      }
+      setPages(1);
+      setAnswers(data.slice(0, 10));
     }
-    setPages(1);
-    setAnswers(data.slice(0, 10));
   };
 
   const sorting = (sortingBase) => {
@@ -62,9 +61,12 @@ const DataPage = ({ data }) => {
   return (
     <div className={styles.centralize}>
       <div className={styles.nextPage}>
-        <ArrowRight className={styles.arrows} onClick={nextPage} />
+        <ArrowRight
+          className={styles.arrows}
+          onClick={() => pageChanger("next")}
+        />
         <h3>{pages}</h3>
-        <ArrowLeft className={styles.arrows} onClick={previousPage} />
+        <ArrowLeft className={styles.arrows} onClick={() => pageChanger("")} />
         <h3> Page </h3>
         <Pipe className={styles.pipe} />
         <h3>
@@ -89,7 +91,7 @@ const DataPage = ({ data }) => {
                 Date{" "}
                 <Sorting
                   className={styles.sorting}
-                  onClick={() => sorting("date")}
+                  onClick={() => sorting("")}
                 />
               </th>
               <th>

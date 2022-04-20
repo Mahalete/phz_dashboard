@@ -8,7 +8,7 @@ const Dashboard = ({ data }) => {
     <div>
       <NpsCharts data={data} />
       <RecentComments data={data} />
-      <NpsSurveyStatus />
+      <NpsSurveyStatus npsdata={data}/>
     </div>
   );
 };

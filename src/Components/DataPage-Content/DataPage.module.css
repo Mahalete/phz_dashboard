@@ -6,12 +6,12 @@
 
 .centralize {
   height: inherit;
-  width: 86vw;
+  width: 80vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 256px;
+  left: 20vw;
   flex-direction: column;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .DataPageWrapper {
-  width: 90%;
+  width: 72vw;
   height: 612px;
   font-family: "Roboto";
   font-style: normal;
@@ -50,12 +50,13 @@
   display: flex;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  overflow-x: auto;
 }
 
 table {
   position: absolute;
-  width: inherit;
   border-collapse: collapse;
+  width: 72vw;
 }
 
 thead,

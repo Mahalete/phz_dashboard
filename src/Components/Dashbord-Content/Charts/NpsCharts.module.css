@@ -29,12 +29,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between; 
+  align-items: center;
   margin: 0.5rem;
 }
 
 .total {
-  font-size: large;
-  font-weight: bold;
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+color: #262626;
 }
 
 .name {
@@ -42,6 +46,30 @@
   flex-direction: row;
   align-items: center;
   width: 70%;
+}
+
+.name p {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #737373;
+}
+
+.promoter {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #248F2C;
+}
+
+.neutral {
+  color: #B5740D;
+}
+
+.detractor {
+  color: #B6160D;
 }
 
 .emoji {

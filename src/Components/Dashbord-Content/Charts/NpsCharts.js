@@ -85,28 +85,28 @@ const NPS_Charts = ({ data }) => {
             <HappyFace className={style.emoji}/>
             <p>Promoter </p>
           </div>
-          <p>{promoters}</p>
+          <p className={style.promoter}>{promoters}</p>
         </div>
 
         <div className={style.score}>
           <div className={style.name}>
             <NeutralFace className={style.emoji}/>
-            <p>Neutral </p>
+            <p >Neutral </p>
           </div>
-          <p>{neutral}</p>
+          <p className={style.neutral}>{neutral}</p>
         </div>
 
         <div className={style.score}>
           <div className={style.name}>
             <AngryFace className={style.emoji}/>
-            <p>Detractor </p>
+            <p >Detractor </p>
           </div>
-          <p>{detractors}</p>
+          <p className={style.detractor}>{detractors}</p>
         </div>
 
         <div className={style.score}>
           <p className={style.total}>Total response: </p>
-          <p className={style.total}>30</p>
+          <p className={style.total}>{total}</p>
         </div>
 
         <div className={style.score}>

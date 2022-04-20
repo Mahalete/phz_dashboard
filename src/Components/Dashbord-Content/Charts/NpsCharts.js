@@ -53,11 +53,9 @@ const NPS_Charts = ({ data }) => {
     total,
   ]);
   
-  
-
-
   return (
     <div className={style.chart_container}>
+     
       <PieChart
       lineWidth={35}
       label={(props) => { return props.dataEntry.title;}}

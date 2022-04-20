@@ -40,6 +40,7 @@ const DataPage = ({ data }) => {
       result = data.sort((a, b) => new Date(a.date) - new Date(b.date));
     }
     setAnswers(result.slice(0, 10));
+    setPages(1);
   };
 
   const dateChanger = (date) => {

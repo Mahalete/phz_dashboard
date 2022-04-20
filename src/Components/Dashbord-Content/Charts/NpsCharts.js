@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import style from "./NpsCharts.module.css";
 import { PieChart } from "react-minimal-pie-chart";
+import { ReactComponent as HappyFace } from "../../../assets/happy_face.svg";
+import { ReactComponent as AngryFace } from "../../../assets/angry_face.svg";
+import { ReactComponent as NeutralFace } from "../../../assets/neutral_face.svg";
+
+
 const NPS_Charts = ({ data }) => {
   const [detractors, setDetractors] = useState(0);
   const [promoters, setPromoters] = useState(0);
@@ -56,7 +61,7 @@ const NPS_Charts = ({ data }) => {
   return (
     <div className={style.chart_container}>
      
-      <PieChart
+      <PieChart className={style.pieChart}
       lineWidth={35}
       label={(props) => { return props.dataEntry.title;}}
       labelPosition={110}
@@ -65,9 +70,9 @@ const NPS_Charts = ({ data }) => {
       }}
      
       data={[
-    { title: `Promoters`, value: promoters, color: '#5FB566' },
-    { title: 'Detractors', value: detractors, color: '#F36158' },
-    { title: 'Neutrals', value: neutral, color: '#E1AA51' },
+    { value: promoters, color: '#5FB566' },
+    {  value: detractors, color: '#F36158' },
+    { value: neutral, color: '#E1AA51' },
   ]}
   radius={30}
   startAngle={0}
@@ -75,11 +80,40 @@ const NPS_Charts = ({ data }) => {
  
       {!loading && (
         <div className={style.chart_values}>
-          <p>Promoter{promoters}</p>
-          <p>Detractor{detractors}</p>
-          <p>Neutral{neutral}</p>
-          <p>NPS: {npsScore} </p>
+        <div className={style.score}>
+          <div className={style.name}>
+            <HappyFace className={style.emoji}/>
+            <p>Promoter </p>
+          </div>
+          <p>{promoters}</p>
         </div>
+
+        <div className={style.score}>
+          <div className={style.name}>
+            <NeutralFace className={style.emoji}/>
+            <p>Neutral </p>
+          </div>
+          <p>{neutral}</p>
+        </div>
+
+        <div className={style.score}>
+          <div className={style.name}>
+            <AngryFace className={style.emoji}/>
+            <p>Detractor </p>
+          </div>
+          <p>{detractors}</p>
+        </div>
+
+        <div className={style.score}>
+          <p className={style.total}>Total response: </p>
+          <p className={style.total}>30</p>
+        </div>
+
+        <div className={style.score}>
+        <p>NPS:  </p>
+        <p>{npsScore}</p>
+        </div>
+      </div>
         
       )}
     
@@ -88,3 +122,4 @@ const NPS_Charts = ({ data }) => {
 };
 
 export default NPS_Charts;
+

@@ -60,8 +60,11 @@ const NPS_Charts = ({ data }) => {
   
   return (
     <div className={style.chart_container}>
-     
-      <PieChart className={style.pieChart}
+      <h1>Current ProScore</h1>
+
+      <div className={style.currentProScore}>
+        <div className={style.chart}>
+        <PieChart className={style.pieChart}
       lineWidth={35}
       label={(props) => { return props.dataEntry.title;}}
       labelPosition={110}
@@ -75,8 +78,10 @@ const NPS_Charts = ({ data }) => {
     { value: neutral, color: '#E1AA51' },
   ]}
   radius={30}
-  startAngle={0}
-/>
+    startAngle={0}
+        />
+        <p>{npsScore}</p>
+        </div>
  
       {!loading && (
         <div className={style.chart_values}>
@@ -116,7 +121,7 @@ const NPS_Charts = ({ data }) => {
       </div>
         
       )}
-    
+    </div>
     </div>
   );
 };

@@ -4,16 +4,15 @@
   border-radius: 20px;
   padding: 36px 36px 36px 0;
   height: 40vh;
-    width: 35vw;
+    width: 45vw;
     position: absolute;
     left: 20vw;
     margin: 8vh 1vw 2rem 4vw;
 }
 
-h1 {
+.chartContainer {
   position: absolute;
-left: 36px;
-top: 36px;
+  left: 36px;
   font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;

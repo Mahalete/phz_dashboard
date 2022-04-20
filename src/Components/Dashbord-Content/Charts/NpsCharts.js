@@ -60,7 +60,7 @@ const NPS_Charts = ({ data }) => {
   
   return (
     <div className={style.chart_container}>
-      <h1>Current ProScore</h1>
+      <h1 className={style.chartContainer}>Current ProScore</h1>
 
       <div className={style.currentProScore}>
         <div className={style.chart}>

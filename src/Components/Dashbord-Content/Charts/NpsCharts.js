@@ -13,6 +13,7 @@ const NPS_Charts = ({ data }) => {
 
   data.forEach((element) => {
     scores.push(element.score);
+    console.log(scores);
   });
 
   let dedactor_val = 0;
@@ -52,29 +53,27 @@ const NPS_Charts = ({ data }) => {
     detractors,
     total,
   ]);
-  
-  
-
 
   return (
     <div className={style.chart_container}>
       <PieChart
-      lineWidth={35}
-      label={(props) => { return props.dataEntry.title;}}
-      labelPosition={110}
-      labelStyle={{
-        fontSize: '5px'
-      }}
-     
-      data={[
-    { title: `Promoters`, value: promoters, color: '#5FB566' },
-    { title: 'Detractors', value: detractors, color: '#F36158' },
-    { title: 'Neutrals', value: neutral, color: '#E1AA51' },
-  ]}
-  radius={30}
-  startAngle={0}
-/>
- 
+        lineWidth={35}
+        label={(props) => {
+          return props.dataEntry.title;
+        }}
+        labelPosition={110}
+        labelStyle={{
+          fontSize: "5px",
+        }}
+        data={[
+          { title: `Promoters`, value: promoters, color: "#5FB566" },
+          { title: "Detractors", value: detractors, color: "#F36158" },
+          { title: "Neutrals", value: neutral, color: "#E1AA51" },
+        ]}
+        radius={30}
+        startAngle={0}
+      />
+
       {!loading && (
         <div className={style.chart_values}>
           <p>Promoter{promoters}</p>
@@ -82,9 +81,7 @@ const NPS_Charts = ({ data }) => {
           <p>Neutral{neutral}</p>
           <p>NPS: {npsScore} </p>
         </div>
-        
       )}
-    
     </div>
   );
 };

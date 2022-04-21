@@ -92,12 +92,11 @@ describe("PageChanger", () => {
     expect(Number(pageNumber.textContent)).toBe(1);
   });
 
-  /*
   test("When clicking the arrow to right the table shows next 10 data objects in the table (less if there is not 10).", async () => {
     render(<DataPage data={testData} />);
 
     const arrowRight = screen.getByTestId("arrowRight");
-    const dataObjects = screen.getAllByTestId("answer");
+    let dataObjects = screen.getAllByTestId("answer");
 
     expect(dataObjects.length).toBe(10);
 
@@ -109,13 +108,55 @@ describe("PageChanger", () => {
     });
 
     await fireEvent.click(arrowRight);
+    dataObjects = screen.getAllByTestId("answer");
 
-    i = 11;
+    i = 10;
 
-    console.log(dataObjects);
     dataObjects.forEach((o) => {
       expect(Number(o.getAttribute("name"))).toBe(testData[i].id);
       i++;
     });
-  }); */
+  });
+
+  test("When clicking the arrow to left the table shows previous 10 data objects in the table.", async () => {
+    render(<DataPage data={testData} />);
+
+    const arrowRight = screen.getByTestId("arrowRight");
+    const arrowLeft = screen.getByTestId("arrowLeft");
+
+    await fireEvent.click(arrowRight);
+    await fireEvent.click(arrowRight);
+
+    let dataObjects = screen.getAllByTestId("answer");
+
+    let i = 20;
+
+    dataObjects.forEach((o) => {
+      expect(Number(o.getAttribute("name"))).toBe(testData[i].id);
+      i++;
+    });
+
+    await fireEvent.click(arrowLeft);
+    dataObjects = screen.getAllByTestId("answer");
+
+    i = 10;
+
+    dataObjects.forEach((o) => {
+      expect(Number(o.getAttribute("name"))).toBe(testData[i].id);
+      i++;
+    });
+  });
+});
+
+describe("Sorting", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
+  test("When clicking Date arrow table shows the data in date order starting from oldest.", () => {
+    render(<DataPage data={testData} />);
+
+    const date = screen.getByTestId("date");
+    let dataObjects = screen.getAllByTestId("answer");
+  });
 });

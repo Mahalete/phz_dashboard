@@ -12,21 +12,19 @@ const Recent_comments = ({ data }) => {
   return (
     <div className={style.comments_container}>
       <div className={style.title_feedback}>
-      <h1>Recent comments</h1>
-      <Link to="/data">
-        See all
-      </Link>
+        <h1>Recent comments</h1>
+        <Link to="/comment">See all</Link>
       </div>
 
       <div className={style.comments}>
-      {comment_data.map(({ id, date, score, feedback }) => (
-        <div className={style.feedback} key={id}>
-          <p className={style.feedback_display}>{feedback}</p>
-          <span className={style.date_display}>
-            {moment([date], "YYYYMMDD").fromNow()}
-          </span>
-        </div>
-      ))}
+        {comment_data.map(({ id, date, score, feedback }) => (
+          <div className={style.feedback} key={id}>
+            <p className={style.feedback_display}>{feedback}</p>
+            <span className={style.date_display}>
+              {moment([date], "YYYYMMDD").fromNow()}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

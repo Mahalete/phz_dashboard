@@ -19,6 +19,7 @@ const Recent_comments = ({ data }) => {
       <div className={style.comments}>
         {comment_data.map(({ id, date, score, feedback }) => (
           <div className={style.feedback} key={id}>
+            {feedback.length > 0}
             <p className={style.feedback_display}>{feedback}</p>
             <span className={style.date_display}>
               {moment([date], "YYYYMMDD").fromNow()}

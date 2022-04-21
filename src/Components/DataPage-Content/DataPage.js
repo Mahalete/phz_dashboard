@@ -90,6 +90,7 @@ const DataPage = ({ data }) => {
               <th>
                 ID{" "}
                 <Sorting
+                  data-testid="id"
                   className={styles.sorting}
                   onClick={() => sorting("id")}
                 />
@@ -105,6 +106,7 @@ const DataPage = ({ data }) => {
               <th>
                 Score{" "}
                 <Sorting
+                  data-testid="score"
                   className={styles.sorting}
                   onClick={() => sorting("score")}
                 />
@@ -118,7 +120,9 @@ const DataPage = ({ data }) => {
               return (
                 <tr data-testid={"answer"} name={val.id} key={val.id}>
                   <td>#{val.id}</td>
-                  <td>{dateChanger(val.date.substring(0, 10))}</td>
+                  <td data-testid={String("Id:" + val.id)}>
+                    {dateChanger(val.date.substring(0, 10))}
+                  </td>
                   <td>{val.score}</td>
                   <td>{val.feedback}</td>
                 </tr>

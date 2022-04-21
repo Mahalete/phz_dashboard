@@ -67,13 +67,15 @@ const NPS_Charts = ({ data }) => {
           <PieChart
             className={style.pieChart}
             lineWidth={35}
-            label={(props) => {
-              return props.dataEntry.title;
-            }}
-            labelPosition={110}
+            label={()=>`${npsScore}`}
+            labelPosition={0}
             labelStyle={{
-              fontSize: "5px",
+              fontSize: "20px",
+              fontColor: "FFFFFA",
+              fontWeight: "400",
+              fontFamily:"Roboto"
             }}
+            paddingAngle={3}
             data={[
               { value: promoters, color: "#5FB566" },
               { value: detractors, color: "#F36158" },
@@ -82,7 +84,6 @@ const NPS_Charts = ({ data }) => {
             radius={30}
             startAngle={0}
           />
-          <p>{npsScore}</p>
         </div>
 
         {!loading && (

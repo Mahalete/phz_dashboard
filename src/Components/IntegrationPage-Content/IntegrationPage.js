@@ -7,7 +7,7 @@ const IntegrationPage = () => {
       <h1 className={styles.hOne}>
         Please copy the code below and add to your own webpage!
       </h1>
-      <p className={styles.instructions}>
+      <p data-testid="instructions" className={styles.instructions}>
         You can adjust the size the of survey on your page by changing the
         values in the{" "}
         <span
@@ -15,7 +15,7 @@ const IntegrationPage = () => {
         >{`<iframe min-height: 100vh" width="100%">`}</span>
         .
       </p>
-      <div className={styles.box}>
+      <div data-testid="box" className={styles.box}>
         <p>{'<html lang="en">'}</p>
         <p>{" <head>"}</p>
         <p>{'  <meta charset="UTF-8" />'}</p>

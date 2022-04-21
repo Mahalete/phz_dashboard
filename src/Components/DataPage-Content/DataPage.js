@@ -23,10 +23,11 @@ const DataPage = ({ data }) => {
     } else {
       if (pages !== 1) {
         setPages(pages - 1);
-        setAnswers(data.slice(startIndex, startIndex + 10));
+        setAnswers(data.slice((pages - 1) * 10 - 10, (pages - 1) * 10));
+      } else {
+        setPages(1);
+        setAnswers(data.slice(0, 10));
       }
-      setPages(1);
-      setAnswers(data.slice(0, 10));
     }
   };
 
@@ -96,6 +97,7 @@ const DataPage = ({ data }) => {
               <th>
                 Date{" "}
                 <Sorting
+                  data-testid="date"
                   className={styles.sorting}
                   onClick={() => sorting("")}
                 />

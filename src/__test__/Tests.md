@@ -24,7 +24,7 @@
 #### DateChanger
 
 1. When date is inserted in the format of 2022-01-01 it returns date in format 01.01.2022.
-2. When date is inserted in the format of 2001-05-11 it returns date in format 11.05.2001.
+2. When date is inserted in the format of 2016-09-10 it returns date in format 10.09.2016.
 3. When date is inserted in the format of 2010-12-28 it returns date in format 28.12.2010.
 
 ### CommentPage.js

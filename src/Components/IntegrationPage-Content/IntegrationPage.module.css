@@ -1,0 +1,60 @@
+.IntegrationPage {
+  width: 80vw;
+  height: 80vh;
+  margin-left: 20vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Roboto";
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.hOne {
+  font-weight: 500;
+  font-size: 30px;
+  color: #262626;
+}
+
+.instructions {
+  margin: 4vh;
+}
+
+.heightWidth {
+  color: #d2782d;
+}
+
+.box {
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  width: 60vw;
+  text-align: center;
+  margin: 2vh 10vw;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 16px;
+  color: #595959;
+  overflow: scroll;
+}
+
+.copy {
+  margin-left: 60vw;
+  padding: 2px 13px;
+  width: 9vw;
+  height: 48px;
+  background: #d2782d;
+  border: 1px solid #d2782d;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}

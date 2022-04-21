@@ -1,13 +1,11 @@
-
 import React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import DataThresholdingIcon from "@mui/icons-material/DataThresholding";
 import MessageIcon from "@mui/icons-material/Message";
-import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
 
 export const SideMenuData = [
   {
@@ -36,7 +34,7 @@ export const SideMenuData = [
     link: "/integration",
   },
   {
-    title: "Setting",
+    title: "Settings",
     icon: <SettingsIcon />,
     link: "/settings",
   },

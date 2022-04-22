@@ -12,3 +12,29 @@
     margin: 2vh 4vw 2vh 4vw;
   
 }
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #D2782D;
+border: none;
+}
+select:focus{
+  border: 1px solid rgba(210, 120, 45, 0.45) !important;
+    box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+    -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+    -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+    outline-offset: 0px !important;
+    outline: none !important;
+    padding: 0.2rem;
+    border-radius: 5px;
+}

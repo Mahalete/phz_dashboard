@@ -117,10 +117,7 @@ const NPS_Charts = ({ data }) => {
               <p className={style.total}>{total}</p>
             </div>
 
-            <div className={style.score}>
-              <p>NPS: </p>
-              <p>{npsScore}</p>
-            </div>
+            
           </div>
         )}
       </div>

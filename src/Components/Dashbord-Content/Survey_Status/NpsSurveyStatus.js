@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import style from "./NpsSurveyStatus.module.css";
 import { Line as Linejs} from 'chart.js/auto'
 import { Line } from "react-chartjs-2";
+import { GradientSharp } from "@mui/icons-material";
+
 const NPS_Survey_Status = ({npsdata}) => {
   const [npsScoreJan, setNpsScoreJan] = useState(0);
   const [npsScoreFeb, setNpsScoreFeb] = useState(0);
@@ -17,6 +19,8 @@ const NPS_Survey_Status = ({npsdata}) => {
   const [npsScoreDec, setNpsScoreDec] = useState(0);
   const [loading, setLoading] = useState(true);
   const [year,setYear]=useState("2022");
+
+  
   
    const lineChartData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
@@ -25,13 +29,13 @@ const NPS_Survey_Status = ({npsdata}) => {
         data: [npsScoreJan, npsScoreFeb, npsScoreMar, npsScoreApr, npsScoreMay, npsScoreJun,npsScoreJul,npsScoreAug,npsScoreSep,npsScoreOct,npsScoreNov,npsScoreDec],
         label: "NPS",
         borderColor: "#D2782D",
-        fill: false,
+        backgroundColor: "rgba(249, 237, 227, 0.8)",
+        fill: true,
         lineTension: 0.1
       }
     ]
   }; 
   
-
   
   let janPromoter=0;
     let janDetractor=0;
@@ -356,21 +360,24 @@ console.log('febTotal'+febTotal)  ;
   ]); 
   
   return <div className={style.survey_status_container}>
+    <div className={style.title}>
+    <h1>ProScore Overtime</h1>
     <select name="year"  onChange={e => setYear(e.target.value)}>
-    <option value="2022">2022</option>
+              <option value="2022">2022</option>
               <option value="2021">2021</option>
-              <option value="2020">2020</option>
+              <option value="2020">2020</option>       
+    </select>
+
+    </div>
+           
               
-            </select>
-            <div>
-              <p>Proscore overtime</p>
             <Line
       type="line"
       width={160}
       height={45} 
       data={lineChartData}
     />
-            </div>
+           
   </div>;
 };
 

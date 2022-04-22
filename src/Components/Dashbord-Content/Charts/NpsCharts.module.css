@@ -3,11 +3,11 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 36px 36px 36px 0;
-  height: 40vh;
+  height: 38vh;
     width: 45vw;
     position: absolute;
     left: 20vw;
-    margin: 8vh 1vw 2rem 4vw;
+    margin: 10vh 1vw 2rem 4vw;
 }
 
 .chartContainer {

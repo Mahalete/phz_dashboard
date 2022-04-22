@@ -2,17 +2,17 @@
   background: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  padding: 36px 36px 36px 0;
+  padding: 28px 28px 28px 0;
   height: 38vh;
     width: 45vw;
     position: absolute;
-    left: 20vw;
+    left: 18vw;
     margin: 10vh 1vw 2rem 4vw;
 }
 
 .chartContainer {
   position: absolute;
-  left: 36px;
+  left: 28px;
   font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;

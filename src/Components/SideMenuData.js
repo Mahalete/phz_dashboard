@@ -32,7 +32,11 @@ export const SideMenuData = [
     title: "Integration",
     icon: <IntegrationInstructionsIcon />,
     link: "/integration",
-  },
+  }
+];
+
+export const SideMenuData2 = [
+  
   {
     title: "Settings",
     icon: <SettingsIcon />,

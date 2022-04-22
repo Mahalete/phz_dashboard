@@ -7,7 +7,14 @@ const Recent_comments = ({ data }) => {
   const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
   console.log(latestData);
 
-  const comment_data = latestData.length > 4 ? data.slice(0, 4) : data;
+  let filteredData = latestData.filter(
+    (element) => element.feedback.length > 0
+  );
+  console.log(filteredData);
+
+  const comment_data =
+    filteredData.length > 4 ? filteredData.slice(0, 4) : filteredData;
+  console.log(comment_data);
 
   return (
     <div className={style.comments_container}>
@@ -19,7 +26,6 @@ const Recent_comments = ({ data }) => {
       <div className={style.comments}>
         {comment_data.map(({ id, date, score, feedback }) => (
           <div className={style.feedback} key={id}>
-            {feedback.length > 0}
             <p className={style.feedback_display}>{feedback}</p>
             <span className={style.date_display}>
               {moment([date], "YYYYMMDD").fromNow()}

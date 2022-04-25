@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./IntegrationPage.module.css";
+import Header from "../Header";
 
 const IntegrationPage = () => {
   return (
     <div className={styles.IntegrationPage}>
+      <Header />
       <h1 className={styles.hOne}>
         Please copy the code below and add to your own webpage!
       </h1>

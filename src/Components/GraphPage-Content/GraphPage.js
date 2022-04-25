@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./GraphPage.module.css";
+import Header from "../Header";
 
 const GraphPage = ({ data }) => {
   return (
     <div>
-      <h1>Graph Page</h1>
+      <Header />
     </div>
   );
 };

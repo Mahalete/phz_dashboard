@@ -4,6 +4,7 @@ import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
 import Pipe from "@mui/icons-material/Remove";
 import Sorting from "@mui/icons-material/ArrowDropDown";
+import Header from "../Header";
 
 const DataPage = ({ data }) => {
   const [answers, setAnswers] = useState(
@@ -62,6 +63,7 @@ const DataPage = ({ data }) => {
 
   return (
     <div className={styles.centralize}>
+      <Header/>
       <div className={styles.nextPage}>
         <ArrowRight
           data-testid="arrowRight"

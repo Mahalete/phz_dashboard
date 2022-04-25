@@ -3,6 +3,7 @@ import style from "./CommentPage.module.css";
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
 import Pipe from "@mui/icons-material/Remove";
+import Header from "../Header";
 
 const CommentPage = ({ data }) => {
   const [feedbacks, setFeedbacks] = useState(
@@ -32,7 +33,7 @@ const CommentPage = ({ data }) => {
 
   return (
     <div className={style.center_data}>
-      <h1 className={style.title_commentsPage}>Comments</h1>
+      <Header />
 
       <div className={style.nextPage}>
         <ArrowRight className={style.arrows} onClick={nextPage} />

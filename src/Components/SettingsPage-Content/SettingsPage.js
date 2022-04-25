@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./SettingsPage.module.css";
+import Header from "../Header";
 
 const SettingsPage = () => {
   return (
     <div>
-      <h1>Settings Page</h1>
+      <Header />
     </div>
   );
 };

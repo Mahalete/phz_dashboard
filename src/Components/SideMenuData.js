@@ -28,6 +28,7 @@ export const SideMenuData = [
     icon: <MessageIcon />,
     link: "/comment",
   },
+
   {
     title: "Integration",
     icon: <IntegrationInstructionsIcon />,

@@ -3,11 +3,58 @@ import style from "./CommentPage.module.css";
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
 import Pipe from "@mui/icons-material/Remove";
-
+const FILTERS = {
+  PROMOTER: "promoter",
+  DETRACTOR: "detractor",
+  NEUTRAL: "neutral",
+  ALL: "all",
+};
 const CommentPage = ({ data }) => {
   const [feedbacks, setFeedbacks] = useState(
-    data.length > 10 ? data.slice(0, 20) : data
+    data.length > 20 ? data.slice(0, 20) : data
   );
+
+  const onFilterChange = (filter) => {
+    let filteredData = [];
+    switch (filter) {
+      case FILTERS.PROMOTER:
+        filteredData = data.filter((element) => element.score >= 9);
+        break;
+      case FILTERS.NEUTRAL:
+        filteredData = data.filter(
+          (element) => element.score > 6 && element.score < 9
+        );
+
+        break;
+      case FILTERS.DETRACTOR:
+        console.log(filter, filteredData);
+        filteredData = data.filter((element) => element.score <= 6);
+        break;
+
+      default:
+        filteredData = data;
+        break;
+    }
+    console.log(filter, filteredData);
+    filteredData =
+      filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
+    setFeedbacks(filteredData);
+  };
+
+  // let filteredData = feedbacks.filter((element) => element.score >= 6);
+  // console.log(filteredData);
+
+  // console.log(feedbacks.filter(checkScore));
+  // let score = feedbacks.score;
+
+  // function checkScore(feedbacks) {
+  //   if (feedbacks.score <= 6) {
+  //     return detractor;
+  //   } else if (feedbacks.score >= 9) {
+  //     return feedbacks;
+  //   }
+  // }
+
   const [pages, setPages] = useState(1);
 
   const nextPage = () => {
@@ -47,10 +94,16 @@ const CommentPage = ({ data }) => {
           / {data.length}
         </h3>
         <div className={style.listMenu_button}>
-          <button>ALL</button>
-          <button>PROMOTERS</button>
-          <button>DETRACTORS</button>
-          <button>NEUTRALS</button>
+          <button onClick={() => onFilterChange(FILTERS.ALL)}>ALL</button>
+          <button onClick={() => onFilterChange(FILTERS.PROMOTER)}>
+            PROMOTERS
+          </button>
+          <button onClick={() => onFilterChange(FILTERS.DETRACTOR)}>
+            DETRACTORS
+          </button>
+          <button onClick={() => onFilterChange(FILTERS.NEUTRAL)}>
+            NEUTRALS
+          </button>
         </div>
       </div>
       <div className={style.DataPageWrapper}>

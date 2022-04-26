@@ -62,8 +62,10 @@ const DataPage = ({ data }) => {
   };
 
   return (
+    <div>
+    <Header/>
     <div className={styles.centralize}>
-      <Header/>
+      
       <div className={styles.nextPage}>
         <ArrowRight
           data-testid="arrowRight"
@@ -133,6 +135,7 @@ const DataPage = ({ data }) => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };

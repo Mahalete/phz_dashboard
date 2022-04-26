@@ -30,13 +30,14 @@ button {
   margin-right: 60px;
 }
 .center_data {
-  height: 100vh;
+  height: 90vh;
   width: 80vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   left: 20vw;
+  bottom: 0;
   flex-direction: column;
 }
 
@@ -50,16 +51,11 @@ button {
 .nextPage {
   display: flex;
   flex-direction: row-reverse;
- 
-  align-items: center;
+  margin: 2vh 4vw 2vh 4vw;
+  width: 72vw;
   height: 6vh;
-    width: 72vw;
-    
-    margin: 10vh 4vw 2vh 4vw;
-  
-    justify-content: space-between;
-  
-  
+  align-items: center;
+  justify-content: space-between;
 }
 
 .pipe {
@@ -76,7 +72,7 @@ button {
 
 .DataPageWrapper {
   width: 72vw;
-  height: 76vh;
+  height: 80vh;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -85,7 +81,7 @@ button {
   display: flex;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  margin-top: 2vh;
+  overflow-x: auto;
 }
 
 table {

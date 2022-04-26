@@ -14,7 +14,7 @@ const FILTERS = {
 
 const CommentPage = ({ data }) => {
   const [feedbacks, setFeedbacks] = useState(
-    data.length > 10 ? data.slice(0, 10) : data
+    data.length > 10 ? data.slice(0, 20) : data
   );
   const [pages, setPages] = useState(1);
 
@@ -41,28 +41,28 @@ const CommentPage = ({ data }) => {
     }
     console.log(filter, filteredData);
     filteredData =
-      filteredData.length > 20 ? filteredData.slice(0, 10) : filteredData;
+      filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
     setFeedbacks(filteredData);
   };
 
   const nextPage = () => {
-    if (data.length > 10 * pages) {
+    if (data.length > 20 * pages) {
       setPages(pages + 1);
-      let startIndex = pages * 10;
-      data.length > startIndex + 10
-        ? setFeedbacks(data.slice(startIndex, startIndex + 10))
+      let startIndex = pages * 20;
+      data.length > startIndex + 20
+        ? setFeedbacks(data.slice(startIndex, startIndex + 20))
         : setFeedbacks(data.slice(startIndex));
     }
   };
 
   const previousPage = () => {
-    let startIndex = pages * 10;
+    let startIndex = pages * 20;
     if (pages !== 1) {
       setPages(pages - 1);
-      setFeedbacks(data.slice(startIndex, startIndex + 10));
+      setFeedbacks(data.slice(startIndex, startIndex + 20));
     }
     setPages(1);
-    setFeedbacks(data.slice(0, 10));
+    setFeedbacks(data.slice(0, 20));
   };
 
   return (
@@ -77,9 +77,9 @@ const CommentPage = ({ data }) => {
         <h3> Page </h3>
         <Pipe className={style.pipe} />
         <h3>
-          {data.length < 11
+          {data.length < 21
             ? feedbacks.length
-            : (pages - 1) * 10 + feedbacks.length}{" "}
+            : (pages - 1) * 20 + feedbacks.length}{" "}
           / {data.length}
         </h3>
         </div>

@@ -66,9 +66,9 @@ const CommentPage = ({ data }) => {
   };
 
   return (
+    <div>
+    <Header />
     <div className={style.center_data}>
-      <Header />
-
       <div className={style.nextPage}>
         <div className={style.indicator}>
         <ArrowRight className={style.arrows} onClick={nextPage} />
@@ -117,6 +117,7 @@ const CommentPage = ({ data }) => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };

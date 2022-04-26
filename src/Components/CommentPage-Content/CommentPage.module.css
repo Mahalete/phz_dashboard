@@ -22,7 +22,6 @@
   text-decoration: none;
   margin-top: 2rem;
   margin-bottom: 18px;
-  padding-left: 80px;
 }
 button {
   border: none;
@@ -31,23 +30,31 @@ button {
   margin-right: 60px;
 }
 .center_data {
-  height: inherit;
-  width: 1056px;
-  height: 812px;
+  height: 100vh;
+  width: 80vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 256px;
+  left: 20vw;
   flex-direction: column;
 }
 
 .nextPage {
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 23px;
-  width: 90%;
+ 
   align-items: center;
+  height: 6vh;
+    width: 72vw;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2vh 4vw 2vh 4vw;
+  
+    justify-content: space-between;
+  
+  
 }
 
 .pipe {

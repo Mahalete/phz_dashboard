@@ -70,6 +70,7 @@ const CommentPage = ({ data }) => {
       <Header />
 
       <div className={style.nextPage}>
+        <div className={style.indicator}>
         <ArrowRight className={style.arrows} onClick={nextPage} />
         <h3>{pages}</h3>
         <ArrowLeft className={style.arrows} onClick={previousPage} />
@@ -81,6 +82,7 @@ const CommentPage = ({ data }) => {
             : (pages - 1) * 20 + feedbacks.length}{" "}
           / {data.length}
         </h3>
+        </div>
         <div className={style.listMenu_button}>
           <button onClick={() => onFilterChange(FILTERS.ALL)}>ALL</button>
           <button onClick={() => onFilterChange(FILTERS.PROMOTER)}>

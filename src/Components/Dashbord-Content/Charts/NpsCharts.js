@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./NpsCharts.module.css";
 import { PieChart } from "react-minimal-pie-chart";
 import { ReactComponent as HappyFace } from "../../../assets/happy_face.svg";
@@ -6,12 +7,14 @@ import { ReactComponent as AngryFace } from "../../../assets/angry_face.svg";
 import { ReactComponent as NeutralFace } from "../../../assets/neutral_face.svg";
 
 const NPS_Charts = ({ data }) => {
+  const navigate = useNavigate();
   const [detractors, setDetractors] = useState(0);
   const [promoters, setPromoters] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [total, setTotal] = useState(0);
   const [npsScore, setNpsScore] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState(0);
 
   let scores = [];
 
@@ -57,6 +60,11 @@ const NPS_Charts = ({ data }) => {
     detractors,
     total,
   ]);
+  const pieChartData = [
+    { key: "promoter", value: promoters, color: "#5FB566" },
+    { key: "detractor", value: detractors, color: "#F36158" },
+    { key: "neutral", value: neutral, color: "#E1AA51" },
+  ];
 
   return (
     <div className={style.chart_container}>
@@ -67,22 +75,22 @@ const NPS_Charts = ({ data }) => {
           <PieChart
             className={style.pieChart}
             lineWidth={35}
-            label={()=>`${npsScore}`}
+            label={() => `${npsScore}`}
             labelPosition={0}
             labelStyle={{
               fontSize: "20px",
               fontColor: "FFFFFA",
               fontWeight: "400",
-              fontFamily:"Roboto"
+              fontFamily: "Roboto",
             }}
             paddingAngle={3}
-            data={[
-              { value: promoters, color: "#5FB566" },
-              { value: detractors, color: "#F36158" },
-              { value: neutral, color: "#E1AA51" },
-            ]}
+            data={pieChartData}
             radius={30}
-            startAngle={0}
+            onClick={(event, selectedIndex) => {
+              const queryString = pieChartData[selectedIndex].key;
+              console.log(event, selectedIndex, queryString);
+              navigate(`/comment?filter=${queryString}`);
+            }}
           />
         </div>
 
@@ -116,8 +124,6 @@ const NPS_Charts = ({ data }) => {
               <p className={style.total}>Total response: </p>
               <p className={style.total}>{total}</p>
             </div>
-
-            
           </div>
         )}
       </div>

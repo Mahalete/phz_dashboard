@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./CommentPage.module.css";
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
@@ -12,11 +12,25 @@ const FILTERS = {
   ALL: "all",
 };
 
+const getQueryString = () => {
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+  return params.get("filter");
+};
+
 const CommentPage = ({ data }) => {
   const [feedbacks, setFeedbacks] = useState(
     data.length > 10 ? data.slice(0, 10) : data
   );
   const [pages, setPages] = useState(1);
+
+  useEffect(() => {
+    const filter = getQueryString();
+    console.log("Inside Comment Page", filter);
+    if (filter) {
+      onFilterChange(filter);
+    }
+  }, []);
 
   const onFilterChange = (filter) => {
     let filteredData = [];

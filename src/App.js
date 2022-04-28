@@ -5,7 +5,7 @@ import CommentPage from "./Components/CommentPage-Content/CommentPage";
 import DataPage from "./Components/DataPage-Content/DataPage";
 import GraphPage from "./Components/GraphPage-Content/GraphPage";
 import SettingsPage from "./Components/SettingsPage-Content/SettingsPage";
-import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPage"
+import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPage";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ function App() {
 
   const getNpsdata = () => {
     axios
-      .get("http://localhost:3010/api/npsdata")
+      .get(process.env.REACT_APP_URL)
       .catch((error) => {
         console.log(error);
       })

@@ -4,12 +4,12 @@ import NpsSurveyStatus from "./Survey_Status/NpsSurveyStatus";
 import RecentComments from "./Comments/RecentComments";
 import Header from "../Header";
 
-const Dashboard = ({ data }) => {
+const Dashboard = ({ data ,dateRangeData}) => {
   return (
     <div>
       <Header />
-      <NpsCharts data={data} />
-      <RecentComments data={data} />
+      <NpsCharts data={dateRangeData} />
+      <RecentComments data={dateRangeData} />
       <NpsSurveyStatus npsdata={data}/>
     </div>
   );

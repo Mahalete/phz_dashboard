@@ -69,13 +69,8 @@ thead tr {
   height: 50px;
 }
 
-thead tr th:nth-child(1),
-thead tr th:nth-child(2) {
-  width: 110px;
-}
-
 thead tr th:nth-child(3) {
-  width: 110px;
+  width: 130px;
 }
 
 thead tr th:nth-child(4) {

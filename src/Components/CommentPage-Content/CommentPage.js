@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import style from "./CommentPage.module.css";
-import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
-import ArrowRight from "@mui/icons-material/ArrowForwardIos";
-import Pipe from "@mui/icons-material/Remove";
 import Header from "../Header";
 import TableScrollbar from "react-table-scrollbar";
 
@@ -23,7 +20,6 @@ const CommentPage = ({ data }) => {
   const [feedbacks, setFeedbacks] = useState(
     data.length > 10 ? data.slice(0, 20) : data
   );
-  const [pages, setPages] = useState(1);
 
   useEffect(() => {
     const filter = getQueryString();

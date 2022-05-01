@@ -69,8 +69,7 @@ table th {
   background: #fff;
 }
 
-thead,
-h3 {
+thead {
   weight: 200 Medium;
   font-size: 100px;
 }

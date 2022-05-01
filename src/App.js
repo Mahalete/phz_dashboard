@@ -9,24 +9,26 @@ import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPag
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import DatePicker from "react-datepicker";  
+import DatePicker from "react-datepicker";
 import moment from "moment";
-  
-import "react-datepicker/dist/react-datepicker.css";  
+
+import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   const [npsdata, setNpsdata] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingDaterange, setLoadingDaterange] = useState(true);
   const [npsdatawithdaterange, setNpsdatawithdaterange] = useState([]);
-  const [startDate, setStartDate] = useState(new Date().setMonth(new Date().getMonth() - 6));
-  const [endDate, setEndDate] = useState(new Date()); 
-  console.log('startdate',startDate);
-  console.log('enddate',endDate);
-let formatedStartDate = moment(startDate).format('YYYY-MM-DD');
-let formatedEndDate = moment(endDate).format('YYYY-MM-DD');
-console.log('formatdate',formatedStartDate);
-console.log('formatenddate',formatedEndDate);
+  const [startDate, setStartDate] = useState(
+    new Date().setMonth(new Date().getMonth() - 6)
+  );
+  const [endDate, setEndDate] = useState(new Date());
+  console.log("startdate", startDate);
+  console.log("enddate", endDate);
+  let formatedStartDate = moment(startDate).format("YYYY-MM-DD");
+  let formatedEndDate = moment(endDate).format("YYYY-MM-DD");
+  console.log("formatdate", formatedStartDate);
+  console.log("formatenddate", formatedEndDate);
 
   const getNpsdata = () => {
     axios
@@ -39,13 +41,15 @@ console.log('formatenddate',formatedEndDate);
         setLoading(false);
       });
   };
-  console.log('npsdata ',npsdata);
-  
+  console.log("npsdata ", npsdata);
+
   useEffect(() => {
     getNpsdata();
     const getNpsdataWithDateRange = () => {
       axios
-        .get(`http://localhost:3010/api/npsdata/${formatedStartDate}/${formatedEndDate}`)
+        .get(
+          `${process.env.REACT_APP_URL}/${formatedStartDate}/${formatedEndDate}`
+        )
         .catch((error) => {
           console.log(error);
         })
@@ -55,33 +59,53 @@ console.log('formatenddate',formatedEndDate);
         });
     };
     getNpsdataWithDateRange();
-  }, [formatedEndDate,formatedStartDate,startDate,endDate]); 
-  console.log('npsdata with daterange',npsdatawithdaterange); 
-  
+  }, [formatedEndDate, formatedStartDate, startDate, endDate]);
+  console.log("npsdata with daterange", npsdatawithdaterange);
 
   return (
     <div className="App">
       <SideMenu />
       <div className="datePicker">
-<DatePicker dateFormat="yyyy-MM-dd" selected={endDate} onChange={(date) =>   
-setEndDate(date)
-}   /> 
+        <DatePicker
+          dateFormat="yyyy-MM-dd"
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+        />
 
-      <DatePicker dateFormat="yyyy-MM-dd" selected={startDate} onChange={(date) =>   
-setStartDate(date)
-}   /> 
-</div>
+        <DatePicker
+          dateFormat="yyyy-MM-dd"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+      </div>
 
       <Routes>
-        <Route path="/" element={!loading && !loadingDaterange && <Dashboard data={npsdata} dateRangeData={npsdatawithdaterange} />} />
+        <Route
+          path="/"
+          element={
+            !loading &&
+            !loadingDaterange && (
+              <Dashboard data={npsdata} dateRangeData={npsdatawithdaterange} />
+            )
+          }
+        />
         <Route
           path="/graph"
           element={!loading && <GraphPage data={npsdata} />}
         />
-        <Route path="/data" element={!loading && !loadingDaterange && <DataPage data={npsdatawithdaterange} />} />
+        <Route
+          path="/data"
+          element={
+            !loading &&
+            !loadingDaterange && <DataPage data={npsdatawithdaterange} />
+          }
+        />
         <Route
           path="/comment"
-          element={!loading && !loadingDaterange && <CommentPage data={npsdatawithdaterange} />}
+          element={
+            !loading &&
+            !loadingDaterange && <CommentPage data={npsdatawithdaterange} />
+          }
         />
         <Route path="/integration" element={<IntegrationPage />} />
         <Route path="/settings" element={<SettingsPage />} />

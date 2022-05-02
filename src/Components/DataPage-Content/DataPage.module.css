@@ -110,6 +110,6 @@ tbody tr td:nth-child(2) {
 }
 
 .feedback {
-  width: 40vw;
+  width: 50vw;
   overflow-y: scroll;
 }

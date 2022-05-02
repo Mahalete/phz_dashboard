@@ -1,16 +1,14 @@
 .survey_status_container {
-
   background: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 36px;
   height: 46vh;
-    width: 72vw;
-    position: absolute;
-    right: 0;
-    bottom:0;
-    margin: 2vh 4vw 2vh 4vw;
-  
+  width: 72vw;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 2vh 4vw 1vh 4vw;
 }
 
 .title {
@@ -21,20 +19,20 @@
 }
 
 select {
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #D2782D;
-border: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #d2782d;
+  border: none;
 }
-select:focus{
+select:focus {
   border: 1px solid rgba(210, 120, 45, 0.45) !important;
-    box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
-    -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
-    -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
-    outline-offset: 0px !important;
-    outline: none !important;
-    padding: 0.2rem;
-    border-radius: 5px;
+  box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+  -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+  -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
+  outline-offset: 0px !important;
+  outline: none !important;
+  padding: 0.2rem;
+  border-radius: 5px;
 }

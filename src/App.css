@@ -14,15 +14,21 @@ body {
   font-family: "Open Sans", sans-serif;
 } */
 
-.App{
+.App {
   width: 100vw;
   height: 100vh;
-
 }
-
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.datePicker {
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  left: 320px;
+  top: 45px;
 }

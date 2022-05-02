@@ -63,79 +63,78 @@ const DataPage = ({ data }) => {
 
   return (
     <div>
-    <Header/>
-    <div className={styles.centralize}>
-      
-      <div className={styles.nextPage}>
-        <ArrowRight
-          data-testid="arrowRight"
-          className={styles.arrows}
-          onClick={() => pageChanger("next")}
-        />
-        <h3 data-testid="pageNumber">{pages}</h3>
-        <ArrowLeft
-          data-testid="arrowLeft"
-          className={styles.arrows}
-          onClick={() => pageChanger("")}
-        />
-        <h3> Page </h3>
-        <Pipe className={styles.pipe} />
-        <h3>
-          {data.length < 11
-            ? answers.length
-            : (pages - 1) * 10 + answers.length}{" "}
-          / {data.length}
-        </h3>
-      </div>
-      <div className={styles.DataPageWrapper}>
-        <table data-testid="table">
-          <thead>
-            <tr>
-              <th>
-                ID{" "}
-                <Sorting
-                  data-testid="id"
-                  className={styles.sorting}
-                  onClick={() => sorting("id")}
-                />
-              </th>
-              <th>
-                Date{" "}
-                <Sorting
-                  data-testid="date"
-                  className={styles.sorting}
-                  onClick={() => sorting("")}
-                />
-              </th>
-              <th>
-                Score{" "}
-                <Sorting
-                  data-testid="score"
-                  className={styles.sorting}
-                  onClick={() => sorting("score")}
-                />
-              </th>
-              <th>Feedback</th>
-            </tr>
-          </thead>
+      <Header />
+      <div className={styles.centralize}>
+        <div className={styles.nextPage}>
+          <ArrowRight
+            data-testid="arrowRight"
+            className={styles.arrows}
+            onClick={() => pageChanger("next")}
+          />
+          <h3 data-testid="pageNumber">{pages}</h3>
+          <ArrowLeft
+            data-testid="arrowLeft"
+            className={styles.arrows}
+            onClick={() => pageChanger("")}
+          />
+          <h3> Page </h3>
+          <Pipe className={styles.pipe} />
+          <h3>
+            {data.length < 11
+              ? answers.length
+              : (pages - 1) * 10 + answers.length}{" "}
+            / {data.length}
+          </h3>
+        </div>
+        <div className={styles.DataPageWrapper}>
+          <table data-testid="table">
+            <thead>
+              <tr>
+                <th>
+                  ID{" "}
+                  <Sorting
+                    data-testid="id"
+                    className={styles.sorting}
+                    onClick={() => sorting("id")}
+                  />
+                </th>
+                <th>
+                  Date{" "}
+                  <Sorting
+                    data-testid="date"
+                    className={styles.sorting}
+                    onClick={() => sorting("")}
+                  />
+                </th>
+                <th>
+                  Score{" "}
+                  <Sorting
+                    data-testid="score"
+                    className={styles.sorting}
+                    onClick={() => sorting("score")}
+                  />
+                </th>
+                <th>Feedback</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {answers.map((val) => {
-              return (
-                <tr data-testid={"answer"} name={val.id} key={val.id}>
-                  <td>#{val.id}</td>
-                  <td data-testid={String("Id:" + val.id)}>
-                    {dateChanger(val.date.substring(0, 10))}
-                  </td>
-                  <td>{val.score}</td>
-                  <td>{val.feedback}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            <tbody>
+              {answers.map((val) => {
+                return (
+                  <tr data-testid={"answer"} name={val.id} key={val.id}>
+                    <td>#{val.id}</td>
+                    <td data-testid={String("Id:" + val.id)}>
+                      {dateChanger(val.date.substring(0, 10))}
+                    </td>
+                    <td>{val.score}</td>
+                    <td>{val.feedback}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -20,14 +20,17 @@
 .listMenu_button {
   display: flex;
   text-decoration: none;
-  margin-top: 2rem;
-  margin-bottom: 18px;
+  margin-right: 20rem;
+  padding-bottom: 2rem;
 }
 button {
   border: none;
   background: white;
-  font-size: 12px;
-  margin-right: 60px;
+  font-size: 13px;
+  margin-right: 80px;
+}
+.btn_select {
+  background: rgb(212, 126, 53);
 }
 .center_data {
   height: 90vh;
@@ -40,35 +43,6 @@ button {
   bottom: 0;
   flex-direction: column;
 }
-
-.indicator {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: center;
-}
-
-.nextPage {
-  display: flex;
-  flex-direction: row-reverse;
-  margin: 2vh 4vw 2vh 4vw;
-  width: 72vw;
-  height: 6vh;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.pipe {
-  transform: rotate(90deg) scale(2);
-  margin: 29px;
-}
-
-.arrows {
-  margin: 21px;
-  transform: scale(1.2);
-}
-
-
 
 .DataPageWrapper {
   width: 72vw;
@@ -88,11 +62,16 @@ table {
   position: absolute;
   width: inherit;
 }
+table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+}
 
-thead,
-h3 {
-  weight: 500 Medium;
-  font-size: 16px;
+thead {
+  weight: 200 Medium;
+  font-size: 100px;
 }
 
 thead tr {

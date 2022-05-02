@@ -8,7 +8,7 @@ const SideMenu = () => {
 
   let location =useLocation();
   return (
-    <div className={styles.side_menu}>
+    <div data-testid="menu" className={styles.side_menu}>
       <Logo className={styles.logo} />
       <ul className={styles.side_menu_list}>
         {SideMenuData.map((val, key) => {

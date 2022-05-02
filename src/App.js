@@ -13,6 +13,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [npsdata, setNpsdata] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log(process.env.REACT_APP_URL);
 
   const getNpsdata = () => {
     axios
@@ -21,6 +22,7 @@ function App() {
         console.log(error);
       })
       .then((res) => {
+        console.log(res);
         setNpsdata(res.data);
         setLoading(false);
       });

@@ -74,9 +74,9 @@ const CommentPage = ({ data }) => {
             </button>
           </div>
         </div>
-        <TableScrollbar height="400px">
+        <TableScrollbar height="500px">
           <div className={style.DataPageWrapper}>
-            <table>
+            <table data-testid="table">
               <thead className={style.column_headers}>
                 <tr>
                   <th>Score </th>

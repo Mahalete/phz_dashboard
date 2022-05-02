@@ -17,6 +17,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function App() {
   const [npsdata, setNpsdata] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const [loadingDaterange, setLoadingDaterange] = useState(true);
   const [npsdatawithdaterange, setNpsdatawithdaterange] = useState([]);
   const [startDate, setStartDate] = useState(
@@ -30,6 +31,7 @@ function App() {
   console.log("formatdate", formatedStartDate);
   console.log("formatenddate", formatedEndDate);
 
+
   const getNpsdata = () => {
     axios
       .get(process.env.REACT_APP_URL)
@@ -37,6 +39,7 @@ function App() {
         console.log(error);
       })
       .then((res) => {
+        console.log(res);
         setNpsdata(res.data);
         setLoading(false);
       });

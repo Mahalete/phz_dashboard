@@ -108,3 +108,8 @@ tbody tr td:nth-child(2) {
   width: 130px;
   padding-right: 50px;
 }
+
+.feedback {
+  width: 50vw;
+  overflow-y: scroll;
+}

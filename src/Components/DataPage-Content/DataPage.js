@@ -127,7 +127,9 @@ const DataPage = ({ data }) => {
                       {dateChanger(val.date.substring(0, 10))}
                     </td>
                     <td>{val.score}</td>
-                    <td>{val.feedback}</td>
+                    <td>
+                      <div className={styles.feedback}>{val.feedback}</div>
+                    </td>
                   </tr>
                 );
               })}

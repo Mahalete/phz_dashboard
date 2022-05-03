@@ -4,20 +4,21 @@
   border-radius: 20px;
   padding: 36px 36px 36px 0;
   height: 38vh;
-    width: 45vw;
-    position: absolute;
-    left: 20vw;
-    margin: 10vh 1vw 2rem 4vw;
+  width: 45vw;
+  position: absolute;
+  left: 20vw;
+  margin: 2vh 1vw 1vw 4vw;
+  padding-bottom: 10px;
 }
 
 .chartContainer {
   position: absolute;
   left: 36px;
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 20px;
-color: #262626;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #262626;
 }
 
 .currentProScore {
@@ -32,37 +33,36 @@ color: #262626;
 }
 
 .chart p {
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 60px;
-text-align: center;
-position: absolute;
-bottom: 30%;
-left: 25%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  text-align: center;
+  position: absolute;
+  bottom: 30%;
+  left: 25%;
 }
 
-.chart_values{
+.chart_values {
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 .score {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   margin: 0.5rem;
 }
 
 .total {
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-color: #262626;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #262626;
 }
 
 .name {
@@ -73,30 +73,29 @@ color: #262626;
 }
 
 .name p {
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #737373;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #737373;
 }
 
 .promoter {
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #248F2C;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #248f2c;
 }
 
 .neutral {
-  color: #B5740D;
+  color: #b5740d;
 }
 
 .detractor {
-  color: #B6160D;
+  color: #b6160d;
 }
 
 .emoji {
   margin-right: 0.8rem;
 }
-

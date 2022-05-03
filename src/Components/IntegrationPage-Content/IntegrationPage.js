@@ -36,7 +36,7 @@ const IntegrationPage = () => {
         <p>{'  <body style="min-height: 100vh">'}</p>
         <p>
           {`  <iframe 
-              src="https://6250087de54f4a00086ddc56--profound-pithivier-7c3ab2.netlify.app/"
+              src="https://6250087de54f4a00086ddc56--profound-pithivier-7c3ab2.netlify.app/#popup1"
               style="border: none; min-height: 100vh"
               width="100%"
             ></iframe>`}
@@ -55,7 +55,7 @@ const IntegrationPage = () => {
           <title>Survey</title>
           </head>
           <body style="min-height: 100vh">
-          <iframe src="https://6250087de54f4a00086ddc56--profound-pithivier-7c3ab2.netlify.app/" style="border: none; min-height: 100vh" width="100%" ></iframe>
+          <iframe src="https://6250087de54f4a00086ddc56--profound-pithivier-7c3ab2.netlify.app/#popup1" style="border: none; min-height: 100vh" width="100%" ></iframe>
           </body>
           </html>`);
         }}

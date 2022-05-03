@@ -59,13 +59,12 @@ function App() {
     new Date().setMonth(new Date().getMonth() - 6)
   );
   const [endDate, setEndDate] = useState(new Date());
-  console.log("startdate", startDate);
-  console.log("enddate", endDate);
+  // console.log("startdate", startDate);
+  // console.log("enddate", endDate);
   let formatedStartDate = moment(startDate).format("YYYY-MM-DD");
   let formatedEndDate = moment(endDate).format("YYYY-MM-DD");
-  console.log("formatdate", formatedStartDate);
-  console.log("formatenddate", formatedEndDate);
-
+  // console.log("formatdate", formatedStartDate);
+  // console.log("formatenddate", formatedEndDate);
 
   const getNpsdata = () => {
     axios
@@ -102,21 +101,8 @@ function App() {
 
   return (
     <div className="App">
-      
-      <div className="datePicker">
-        <DatePicker
-          dateFormat="yyyy-MM-dd"
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-        />
 
-        <DatePicker
-          dateFormat="yyyy-MM-dd"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
-      </div>
-
+      <SideMenu />
       <Routes>
         <Route
           path="/"

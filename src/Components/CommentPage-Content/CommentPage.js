@@ -52,8 +52,8 @@ const CommentPage = ({ data }) => {
     }
     console.log(filter, filteredData);
     filteredData =
-      filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
-    setFeedbacks(filteredData);
+      // filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
+      setFeedbacks(filteredData);
   };
 
   return (
@@ -62,14 +62,28 @@ const CommentPage = ({ data }) => {
       <div className={style.center_data}>
         <div>
           <div className={style.listMenu_button}>
-            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.ALL)}>ALL</button>
-            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.PROMOTER)}>
+            <button
+              className={style.listMenuAll_button}
+              onClick={() => onFilterChange(FILTERS.ALL)}
+            >
+              ALL
+            </button>
+            <button
+              className={style.listMenuAll_button}
+              onClick={() => onFilterChange(FILTERS.PROMOTER)}
+            >
               PROMOTERS
             </button>
-            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.DETRACTOR)}>
+            <button
+              className={style.listMenuAll_button}
+              onClick={() => onFilterChange(FILTERS.DETRACTOR)}
+            >
               DETRACTORS
             </button>
-            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.NEUTRAL)}>
+            <button
+              className={style.listMenuAll_button}
+              onClick={() => onFilterChange(FILTERS.NEUTRAL)}
+            >
               NEUTRALS
             </button>
           </div>

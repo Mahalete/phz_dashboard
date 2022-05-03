@@ -62,14 +62,14 @@ const CommentPage = ({ data }) => {
       <div className={style.center_data}>
         <div>
           <div className={style.listMenu_button}>
-            <button onClick={() => onFilterChange(FILTERS.ALL)}>ALL</button>
-            <button onClick={() => onFilterChange(FILTERS.PROMOTER)}>
+            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.ALL)}>ALL</button>
+            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.PROMOTER)}>
               PROMOTERS
             </button>
-            <button onClick={() => onFilterChange(FILTERS.DETRACTOR)}>
+            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.DETRACTOR)}>
               DETRACTORS
             </button>
-            <button onClick={() => onFilterChange(FILTERS.NEUTRAL)}>
+            <button className={style.listMenuAll_button} onClick={() => onFilterChange(FILTERS.NEUTRAL)}>
               NEUTRALS
             </button>
           </div>

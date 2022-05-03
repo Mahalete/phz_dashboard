@@ -18,7 +18,7 @@ test('full app rendering/navigating data page', async () => {
       </Router>,
     )
     const user = userEvent.setup()
-    expect(screen.getByText(/dashboard/i)).toBeInTheDocument()
+    expect(screen.getByText(/data/i)).toBeInTheDocument()
   
     await user.click(screen.getByText(/data/i))
   

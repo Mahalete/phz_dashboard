@@ -17,9 +17,9 @@ const getQueryString = () => {
 };
 
 const CommentPage = ({ data }) => {
-  const [feedbacks, setFeedbacks] = useState(
-    data.length > 10 ? data.slice(0, 20) : data
-  );
+  const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const readyData = latestData.filter((element) => element.feedback.length > 0);
+  const [feedbacks, setFeedbacks] = useState(readyData);
 
   useEffect(() => {
     const filter = getQueryString();
@@ -33,21 +33,21 @@ const CommentPage = ({ data }) => {
     let filteredData = [];
     switch (filter) {
       case FILTERS.PROMOTER:
-        filteredData = data.filter((element) => element.score >= 9);
+        filteredData = readyData.filter((element) => element.score >= 9);
         break;
       case FILTERS.NEUTRAL:
-        filteredData = data.filter(
+        filteredData = readyData.filter(
           (element) => element.score > 6 && element.score < 9
         );
 
         break;
       case FILTERS.DETRACTOR:
         console.log(filter, filteredData);
-        filteredData = data.filter((element) => element.score <= 6);
+        filteredData = readyData.filter((element) => element.score <= 6);
         break;
 
       default:
-        filteredData = data;
+        filteredData = readyData;
         break;
     }
     console.log(filter, filteredData);

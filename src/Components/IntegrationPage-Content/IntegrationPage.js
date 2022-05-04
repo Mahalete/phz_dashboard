@@ -32,14 +32,15 @@ const IntegrationPage = () => {
         <p>{`  iFrame.style.setProperty("top", "unset");`}</p>
         <p>{`  iFrame.style.setProperty("left", "0vw");`}</p>
         <p>{` iFrame.style.setProperty("bottom", "0px");`}</p>
+        <p>{` iFrame.style.setProperty("display, "unset");`}</p>
         <p>{`  } else if (ev.data.message === "submitted") {`}</p>
         <p>{`   iFrame.style.setProperty("display", "none");`}</p>
-        <p>{`  document.getElementById("iframe").remove();`}</p>
         <p>{` } else if (ev.data.message === "open") {`}</p>
         <p>{`  iFrame.style.setProperty("height", "100vh");`}</p>
         <p>{`  iFrame.style.setProperty("width", "100vw");`}</p>
         <p>{`  iFrame.style.setProperty("top", "0px");`}</p>
         <p>{`  iFrame.style.setProperty("left", "unset");`}</p>
+        <p>{` iFrame.style.setProperty("display, "unset");`}</p>
         <p>{`  iFrame.style.setProperty("bottom", "unset");}})};</script></body>`}</p>
       </div>
       <button
@@ -60,7 +61,7 @@ const IntegrationPage = () => {
             }}
             title="survey"
             src="
-                  http://localhost:3001/survey"
+                      http://localhost:3001/survey"
           ></iframe>
           <script>
             {window.addEventListener("message", (ev) => {
@@ -80,15 +81,16 @@ const IntegrationPage = () => {
                 iFrame.style.setProperty("top", "unset");
                 iFrame.style.setProperty("left", "0vw");
                 iFrame.style.setProperty("bottom", "0px");
+                iFrame.style.setProperty("display", "unset");
               } else if (ev.data.message === "submitted") {
                 iFrame.style.setProperty("display", "none");
-                document.getElementById("iframe").remove();
               } else if (ev.data.message === "open") {
                 iFrame.style.setProperty("height", "100vh");
                 iFrame.style.setProperty("width", "100vw");
                 iFrame.style.setProperty("top", "0px");
                 iFrame.style.setProperty("left", "unset");
                 iFrame.style.setProperty("bottom", "unset");
+                iFrame.style.setProperty("display", "unset");
               }
             })}
             ;

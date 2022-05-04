@@ -9,15 +9,71 @@ import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPag
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import DatePicker from "react-datepicker";
-import moment from "moment";
-
-import "react-datepicker/dist/react-datepicker.css";
 
 import styles from "../src/Components/SideMenu.module.css";
 import { SideMenuData } from "../src/Components/SideMenuData";
 import { ReactComponent as Logo } from "../src/assets/PHZ _ ProScore.svg";
 import { Link, useLocation } from "react-router-dom";
+
+import headerStyle from "../src/Components/Header.module.css";
+import avatar from "../src/assets/unsplash_ILip77SbmOE.png";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+
+export const Header = () => {
+  const [loadingDaterange, setLoadingDaterange] = useState(true);
+  const [npsdatawithdaterange, setNpsdatawithdaterange] = useState([]);
+  const [startDate, setStartDate] = useState(
+    new Date().setMonth(new Date().getMonth() - 6)
+  );
+  const [endDate, setEndDate] = useState(new Date());
+  let location = useLocation();
+  return (
+    <>
+      <div className={headerStyle.header}>
+        {SideMenuData.map((val, key) => {
+          if (location.pathname === val.link) {
+            return (
+              <div key={key}>
+                <p className={headerStyle.title}>{val.title}</p>
+              </div>
+            );
+          }
+          return null;
+        })}
+        <div className={headerStyle.datePickerContainer}>
+          <div className={headerStyle.datePicker}>
+            <p className={headerStyle.startTitle}>Start_Date: </p>
+            <DatePicker
+              wrapperClassName={headerStyle.startDatePicker}
+              dateFormat="yyyy-MM-dd"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+            />
+
+            <p className={headerStyle.endTitle}> End_Date: </p>
+            <br></br>
+            <DatePicker
+              className={headerStyle.endDatePicker}
+              dateFormat="yyyy-MM-dd"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+            />
+          </div>
+        </div>
+
+        <div className={headerStyle.titleRight}>
+          <img className={headerStyle.avatar} src={avatar} alt="avatar" />
+          <div className={headerStyle.userName}>
+            <p className={headerStyle.fullName}>Antti Hätinen</p>
+            <p className={headerStyle.ocupation}>CEO</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export const SideMenu = () => {
   let location = useLocation();
@@ -96,6 +152,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <SideMenu />
       <Routes>
         <Route

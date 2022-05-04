@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import style from "./CommentPage.module.css";
-import Header from "../Header";
 import TableScrollbar from "react-table-scrollbar";
 
 const FILTERS = {
@@ -58,7 +57,7 @@ const CommentPage = ({ data }) => {
 
   return (
     <div>
-      <Header />
+      
       <div className={style.center_data}>
         <div>
           <div className={style.listMenu_button}>

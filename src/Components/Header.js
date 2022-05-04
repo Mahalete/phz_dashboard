@@ -18,24 +18,6 @@ const Header = () => {
   let location = useLocation();
   return (
     <>
-      <div className={style.datePicker}>
-        <p className={style.startTitle}>Start_Date: </p>
-        <DatePicker
-          wrapperClassName={style.startDatePicker}
-          dateFormat="yyyy-MM-dd"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
-
-        <p className={style.endTitle}> End_Date: </p>
-        <br></br>
-        <DatePicker
-          className={style.endDatePicker}
-          dateFormat="yyyy-MM-dd"
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-        />
-      </div>
       <div className={style.header}>
         {SideMenuData.map((val, key) => {
           if (location.pathname === val.link) {
@@ -47,6 +29,26 @@ const Header = () => {
           }
           return null;
         })}
+        <div className={style.datePickerContainer}>
+          <div className={style.datePicker}>
+            <p className={style.startTitle}>Start_Date: </p>
+            <DatePicker
+              wrapperClassName={style.startDatePicker}
+              dateFormat="yyyy-MM-dd"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+            />
+
+            <p className={style.endTitle}> End_Date: </p>
+            <br></br>
+            <DatePicker
+              className={style.endDatePicker}
+              dateFormat="yyyy-MM-dd"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+            />
+          </div>
+        </div>
 
         <div className={style.titleRight}>
           <img className={style.avatar} src={avatar} alt="avatar" />

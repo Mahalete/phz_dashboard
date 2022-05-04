@@ -71,6 +71,9 @@
 }
 .startTitle {
   margin-right: 1.2vw;
+  font-size: 1em;
+  margin-top: 0.4vh;
+  font-size: 0.9em;
 }
 .endDatePicker {
   margin-right: 2vw;
@@ -78,8 +81,11 @@
 .endTitle {
   margin-right: 1.2vw;
   padding-left: 25px;
+  margin-top: 0.4vh;
+  font-size: 0.9em;
 }
 input {
   width: 8vw;
   text-align: center;
+  font-size: 0.75em;
 }

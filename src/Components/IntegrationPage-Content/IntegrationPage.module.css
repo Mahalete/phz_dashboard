@@ -2,6 +2,7 @@
   width: 80vw;
   height: 80vh;
   margin-left: 20vw;
+  margin-top: 15vh;
   display: flex;
   justify-content: center;
   flex-direction: column;

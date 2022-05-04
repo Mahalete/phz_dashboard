@@ -55,6 +55,12 @@ h1 {
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #404040;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .date_display {
   padding-top: 10px;

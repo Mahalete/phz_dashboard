@@ -10,10 +10,10 @@ const Recent_comments = ({ data }) => {
   let filteredData = latestData.filter(
     (element) => element.feedback.length > 0
   );
-  console.log(filteredData);
+  //Display part og the paragraph wne greater than 20 characters
 
   const comment_data =
-    filteredData.length > 4 ? filteredData.slice(0, 4) : filteredData;
+    filteredData.length > 3 ? filteredData.slice(0, 3) : filteredData;
   console.log(comment_data);
 
   return (

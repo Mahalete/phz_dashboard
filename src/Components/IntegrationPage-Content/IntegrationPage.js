@@ -12,16 +12,18 @@ const IntegrationPage = () => {
         attribute values in the html element {`<body>`}.
       </p>
       <div data-testid="box" className={styles.box}>
-        <p>{` <body id="body" style={{ height: "unset" }}> `}</p>
+        <p>{`   <body id="body" style="height: unset"> `}</p>
         <p>{` <iframe id="iframe"`}</p>
-        <p>{`  style={{`}</p>
-        <p>{`    height: "100vh",`}</p>
-        <p>{`    width: "100vw",`}</p>
-        <p>{`    position: "absolute",`}</p>
-        <p>{`    top: "0px",`}</p>
-        <p>{`   bottom: "unset",`}</p>
-        <p>{`   left: "unset",`}</p>
-        <p>{`   zIndex: "100",}}`}</p>
+        <p>{` style="
+              height: 100vh;
+              width: 100vw;
+              position: absolute;
+              top: 0px;
+              bottom: unset;
+              left: unset;
+              z-index: 100;
+            "`}</p>
+
         <p>{` title="survey"`}</p>
         <p>{`  src="https://phz-survey.herokuapp.com/"></iframe> `}</p>
         <p>{`  <script>{window.addEventListener("message", (ev) => {`}</p>
@@ -57,56 +59,57 @@ const IntegrationPage = () => {
         className={styles.copy}
         onClick={() => {
           navigator.clipboard.writeText(`
-          <body id="body" style={{ height: "unset" }}>
-      <iframe
-        id="iframe"
-        style={{
-          height: "100vh",
-          width: "100vw",
-          position: "absolute",
-          top: "0px",
-          bottom: "unset",
-          left: "unset",
-          zIndex: "100",
-        }}
-        title="survey"
-        src="https://phz-survey.herokuapp.com/"
-      ></iframe>
-      <script>
-        {window.addEventListener("message", (ev) => {
-          let iFrame = document.getElementById("iframe");
-          let body = document.getElementById("body");
-          if (ev.origin === "https://phz-survey.herokuapp.com/") {
-            if (typeof ev.data !== "object")
-              return console.log("postMessage was not an object");
-            if (!ev.data.type)
-              return console.log("there was not postMessage data type");
-            if (!ev.data.message)
-              return console.log("there was not postMessage message");
-          }
-          if (ev.data.message === "closed") {
-            body.style.setProperty("height", "100vh");
-            iFrame.style.setProperty("height", "10vh");
-            iFrame.style.setProperty("width", "20vw");
-            iFrame.style.setProperty("top", "unset");
-            iFrame.style.setProperty("left", "0vw");
-            iFrame.style.setProperty("bottom", "0px");
-            iFrame.style.setProperty("display", "unset");
-          } else if (ev.data.message === "submitted") {
-            iFrame.style.setProperty("display", "none");
-          } else if (ev.data.message === "open") {
-            body.style.setProperty("height", "100vh");
-            iFrame.style.setProperty("height", "100vh");
-            iFrame.style.setProperty("width", "100vw");
-            iFrame.style.setProperty("top", "0px");
-            iFrame.style.setProperty("left", "unset");
-            iFrame.style.setProperty("bottom", "unset");
-            iFrame.style.setProperty("display", "unset");
-          }
-        })}
-        ;
-      </script>
-    </body>
+          <body id="body" style="height: unset">
+          <iframe
+            id="iframe"
+            style="
+              height: 100vh;
+              width: 100vw;
+              position: absolute;
+              top: 0px;
+              bottom: unset;
+              left: unset;
+              z-index: 100;
+            "
+            title="survey"
+            src="http://localhost:3000/survey"
+          ></iframe>
+          <script>
+            {
+              window.addEventListener("message", (ev) => {
+                let iFrame = document.getElementById("iframe");
+                let body = document.getElementById("body");
+                if (ev.origin === "http://localhost:3000") {
+                  if (typeof ev.data !== "object")
+                    return console.log("postMessage was not an object");
+                  if (!ev.data.type)
+                    return console.log("there was not postMessage data type");
+                  if (!ev.data.message)
+                    return console.log("there was not postMessage message");
+                }
+                if (ev.data.message === "closed") {
+                  body.style.setProperty("height", "100vh");
+                  iFrame.style.setProperty("height", "10vh");
+                  iFrame.style.setProperty("width", "20vw");
+                  iFrame.style.setProperty("top", "unset");
+                  iFrame.style.setProperty("left", "0vw");
+                  iFrame.style.setProperty("bottom", "0px");
+                  iFrame.style.setProperty("display", "unset");
+                } else if (ev.data.message === "submitted") {
+                  iFrame.style.setProperty("display", "none");
+                } else if (ev.data.message === "open") {
+                  body.style.setProperty("height", "100vh");
+                  iFrame.style.setProperty("height", "100vh");
+                  iFrame.style.setProperty("width", "100vw");
+                  iFrame.style.setProperty("top", "0px");
+                  iFrame.style.setProperty("left", "unset");
+                  iFrame.style.setProperty("bottom", "unset");
+                  iFrame.style.setProperty("display", "unset");
+                }
+              });
+            }
+          </script>
+        </body>
           `);
         }}
       >

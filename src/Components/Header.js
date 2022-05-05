@@ -16,6 +16,17 @@ const Header = ({ dateGiver }) => {
     new Date().setMonth(new Date().getMonth() - 6)
   );
   const [endDate, setEndDate] = useState(new Date());
+
+  const dateSetter = (setter, date) => {
+    if (setter === "startDate") {
+      dateGiver(setter, date);
+      setStartDate(date);
+    } else {
+      dateGiver("endDate", date);
+      setEndDate(date);
+    }
+  };
+
   let location = useLocation();
   return (
     <>
@@ -37,7 +48,7 @@ const Header = ({ dateGiver }) => {
               wrapperClassName={style.startDatePicker}
               dateFormat="yyyy-MM-dd"
               selected={startDate}
-              onChange={(date) => dateGiver("startDate", date)}
+              onChange={(date) => dateSetter("startDate", date)}
             />
 
             <p className={style.endTitle}> End_Date: </p>
@@ -46,7 +57,7 @@ const Header = ({ dateGiver }) => {
               className={style.endDatePicker}
               dateFormat="yyyy-MM-dd"
               selected={endDate}
-              onChange={(date) => dateGiver("endDate", date)}
+              onChange={(date) => dateSetter("endDate", date)}
             />
           </div>
         </div>

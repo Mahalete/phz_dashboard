@@ -72,14 +72,14 @@ const IntegrationPage = () => {
               z-index: 100;
             "
             title="survey"
-            src="http://localhost:3000/survey"
+            src="https://phz-survey.herokuapp.com/"
           ></iframe>
           <script>
             {
               window.addEventListener("message", (ev) => {
                 let iFrame = document.getElementById("iframe");
                 let body = document.getElementById("body");
-                if (ev.origin === "http://localhost:3000") {
+                if (ev.origin === "https://phz-survey.herokuapp.com/") {
                   if (typeof ev.data !== "object")
                     return console.log("postMessage was not an object");
                   if (!ev.data.type)

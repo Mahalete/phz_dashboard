@@ -27,7 +27,7 @@ const IntegrationPage = () => {
         <p>{`  <script>{window.addEventListener("message", (ev) => {`}</p>
         <p>{`  let iFrame = document.getElementById("iframe");`}</p>
         <p>{`  let body = document.getElementById("body");`}</p>
-        <p>{`  if (ev.origin === "http://localhost:3001/") {`}</p>
+        <p>{`  if (ev.origin === "https://phz-survey.herokuapp.com/") {`}</p>
         <p>{`   if (typeof ev.data !== "object")`}</p>
         <p>{`    return console.log("postMessage was not an object");`}</p>
         <p>{`  if (!ev.data.type)`}</p>
@@ -76,7 +76,7 @@ const IntegrationPage = () => {
         {window.addEventListener("message", (ev) => {
           let iFrame = document.getElementById("iframe");
           let body = document.getElementById("body");
-          if (ev.origin === "http://localhost:3001/") {
+          if (ev.origin === "https://phz-survey.herokuapp.com/") {
             if (typeof ev.data !== "object")
               return console.log("postMessage was not an object");
             if (!ev.data.type)

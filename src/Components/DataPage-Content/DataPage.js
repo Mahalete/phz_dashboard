@@ -71,7 +71,7 @@ const DataPage = ({ data }) => {
             className={styles.arrows}
             onClick={() => pageChanger("next")}
           />
-          <h3 data-testid="pageNumber">{pages}</h3>
+          <span><h3 data-testid="pageNumber">{pages}</h3></span>
           <ArrowLeft
             data-testid="arrowLeft"
             className={styles.arrows}

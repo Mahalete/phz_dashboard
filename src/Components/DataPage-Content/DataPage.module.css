@@ -16,6 +16,11 @@
   flex-direction: column;
 }
 
+.centralize span {
+  width: 2rem;
+  text-align: center;
+}
+
 .nextPage {
   display: flex;
   flex-direction: row-reverse;
@@ -32,6 +37,7 @@
 
 .arrows {
   margin: 21px;
+  cursor: pointer;
   transform: scale(1.2);
 }
 

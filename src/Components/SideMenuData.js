@@ -9,36 +9,43 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 export const SideMenuData = [
   {
+    id: 1,
     title: "Dashboard",
     icon: <DashboardIcon />,
     link: "/",
   },
   {
+    id: 2,
     title: "Graph",
     icon: <EqualizerIcon />,
     link: "/graph",
   },
   {
+    id: 3,
     title: "Data",
     icon: <DataThresholdingIcon />,
     link: "/data",
   },
   {
+    id: 4,
     title: "Comment",
     icon: <MessageIcon />,
     link: "/comment",
   },
   {
+    id: 5,
     title: "Integration",
     icon: <IntegrationInstructionsIcon />,
     link: "/integration",
   },
   {
+    id: 6,
     title: "Settings",
     icon: <SettingsIcon />,
     link: "/settings",
   },
   {
+    id: 7,
     title: "Logout",
     icon: <LogoutIcon />,
     link: "/Logout",

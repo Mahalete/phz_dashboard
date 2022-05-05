@@ -24,14 +24,14 @@ const Header = ({ dateGiver }) => {
           if (location.pathname === val.link) {
             return (
               <div key={key}>
-                <p className={style.title}>{val.title}</p>
+                <p data-testid ={`title-${val.id}`} className={style.title}>{val.title}</p>
               </div>
             );
           }
           return null;
         })}
         <div className={style.datePickerContainer}>
-          <div className={style.datePicker}>
+          <div data-testid = "datePicker" className={style.datePicker}>
             <p className={style.startTitle}>Start_Date: </p>
             <DatePicker
               wrapperClassName={style.startDatePicker}
@@ -52,7 +52,7 @@ const Header = ({ dateGiver }) => {
         </div>
 
         <div className={style.titleRight}>
-          <img className={style.avatar} src={avatar} alt="avatar" />
+          <img data-testid = "image" className={style.avatar} src={avatar} alt="avatar" />
           <div className={style.userName}>
             <p className={style.fullName}>Antti Hätinen</p>
             <p className={style.ocupation}>CEO</p>

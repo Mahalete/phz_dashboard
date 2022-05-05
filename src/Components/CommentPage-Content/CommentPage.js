@@ -57,29 +57,32 @@ const CommentPage = ({ data }) => {
 
   return (
     <div>
-      
       <div className={style.center_data}>
         <div>
           <div className={style.listMenu_button}>
             <button
+              data-testid="all_data"
               className={style.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.ALL)}
             >
               ALL
             </button>
             <button
+              data-testid="promoter_data"
               className={style.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.PROMOTER)}
             >
               PROMOTERS
             </button>
             <button
+              data-testid="detractor_data"
               className={style.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.DETRACTOR)}
             >
               DETRACTORS
             </button>
             <button
+              data-testid="neutral_data"
               className={style.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.NEUTRAL)}
             >
@@ -89,7 +92,7 @@ const CommentPage = ({ data }) => {
         </div>
         <TableScrollbar height="500px">
           <div className={style.DataPageWrapper}>
-            <table data-testid="table">
+            <table data-testid="tableA">
               <thead className={style.column_headers}>
                 <tr>
                   <th>Score </th>
@@ -100,7 +103,7 @@ const CommentPage = ({ data }) => {
               <tbody>
                 {feedbacks.map((val) => {
                   return (
-                    <tr>
+                    <tr data-testid="answer" name={val.id} key={val.id}>
                       <td>{val.score}</td>
                       <td>{val.feedback}</td>
                     </tr>

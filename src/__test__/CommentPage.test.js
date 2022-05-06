@@ -26,16 +26,27 @@ const testData = [
   { id: 14, date: "2016-09-10", score: 2, feedback: "" },
   { id: 15, date: "2022-01-27", score: 4, feedback: "" },
   { id: 16, date: "2010-12-28", score: 5, feedback: "fqfd" },
-  { id: 17, date: "2016-11-21", score: 7, feedback: "" },
+  {
+    id: 17,
+    date: "2016-11-21",
+    score: 7,
+    feedback: "I think this was not bad",
+  },
   { id: 18, date: "2022-11-21", score: 10, feedback: "" },
   { id: 19, date: "2021-11-21", score: 9, feedback: "dqefqf" },
   { id: 20, date: "2010-12-28", score: 10, feedback: "" },
   { id: 21, date: "2022-11-11", score: 3, feedback: "" },
   {
     id: 22,
-    date: "2022-01-27",
+    date: "2022-9-27",
     score: 10,
-    feedback: "pdjqwdjiqpdfioqdjnioöqwdioöqjdioqwjdoqwo",
+    feedback: "Great Job ",
+  },
+  {
+    id: 23,
+    date: "2022-03-27",
+    score: 6,
+    feedback: "Needs more effort",
   },
 ];
 
@@ -47,7 +58,7 @@ const testData = [
 
 //   cleanup();
 // });
-test("When clicking All button the table shows the data starting from the recent intered date-all the dat.", () => {
+test("When clicking All button the table shows the data starting from the recent entered data ,filtering data which have feedbacks.", () => {
   render(<CommentPage data={testData} />);
 
   const all = screen.getByTestId("all_data");
@@ -58,5 +69,48 @@ test("When clicking All button the table shows the data starting from the recent
 
   expect(Number(dataObjects[0].getAttribute("name"))).toBe(11);
   expect(Number(dataObjects[1].getAttribute("name"))).toBe(22);
-  expect(Number(dataObjects[3].getAttribute("name"))).toBe(19);
+  expect(Number(dataObjects[2].getAttribute("name"))).toBe(23);
+  expect(Number(dataObjects[3].getAttribute("name"))).toBe(1);
+  expect(Number(dataObjects[4].getAttribute("name"))).toBe(19);
+  expect(Number(dataObjects[5].getAttribute("name"))).toBe(17);
+  expect(Number(dataObjects[6].getAttribute("name"))).toBe(7);
+  expect(Number(dataObjects[7].getAttribute("name"))).toBe(16);
+});
+test("When clicking Detractor button the table shows the data starting from the recent entered data ,filtering promoter data(score <6) which has feedback.", () => {
+  render(<CommentPage data={testData} />);
+
+  const detractor = screen.getByTestId("detractor_data");
+
+  fireEvent.click(detractor);
+
+  let dataObjects = screen.getAllByTestId("answer");
+
+  expect(Number(dataObjects[0].getAttribute("name"))).toBe(11);
+  expect(Number(dataObjects[1].getAttribute("name"))).toBe(23);
+  expect(Number(dataObjects[2].getAttribute("name"))).toBe(7);
+  expect(Number(dataObjects[3].getAttribute("name"))).toBe(16);
+});
+test("When clicking Promoter button the table shows the data starting from the recent entered data ,filtering promoter data(score > 9) which has feedback.", () => {
+  render(<CommentPage data={testData} />);
+
+  const promoter = screen.getByTestId("promoter_data");
+
+  fireEvent.click(promoter);
+
+  let dataObjects = screen.getAllByTestId("answer");
+
+  expect(Number(dataObjects[0].getAttribute("name"))).toBe(22);
+  expect(Number(dataObjects[1].getAttribute("name"))).toBe(1);
+  expect(Number(dataObjects[2].getAttribute("name"))).toBe(19);
+});
+test("When clicking Neutral button the table shows the data starting from the recent entered data ,filtering promoter data(score >6 and score<9) which has feedback.", () => {
+  render(<CommentPage data={testData} />);
+
+  const neutral = screen.getByTestId("neutral_data");
+
+  fireEvent.click(neutral);
+
+  let dataObjects = screen.getAllByTestId("answer");
+
+  expect(Number(dataObjects[0].getAttribute("name"))).toBe(17);
 });

@@ -58,36 +58,36 @@
   overflow-x: auto;
 }
 
-table {
+.commentTable {
   position: absolute;
   width: inherit;
 }
-table th {
+.commentTable th {
   position: sticky;
   top: 0;
   z-index: 1;
   background: #fff;
 }
 
-thead {
+.column_headers {
   weight: 200 Medium;
   font-size: 100px;
 }
 
-thead tr {
+.column_headers .commentTr {
   height: 40px;
 }
 
-thead tr th:nth-child(1),
-thead tr th:nth-child(2) {
+.column_headers .commentTr th:nth-child(1),
+.column_headers .commentTr th:nth-child(2) {
   width: 120px;
 }
 
-thead tr th:nth-child(3) {
+.column_headers .commentTr th:nth-child(3) {
   width: 110px;
 }
 
-thead tr th:nth-child(4) {
+.column_headers .commentTr th:nth-child(4) {
   max-width: 561px;
 }
 
@@ -99,21 +99,21 @@ td {
   font-size: 16px;
 }
 
-tbody tr {
+tbody .commentTr {
   position: static;
   color: #666666;
   white-space: nowrap;
   height: 56px;
 }
 
-tbody tr:nth-child(odd) {
+tbody .commentTr:nth-child(odd) {
   background: #fbf2ea;
 }
 
-tbody tr:nth-child(even) {
+tbody .commentTr:nth-child(even) {
   background: #ffffff;
 }
 
-tbody tr td:nth-child(4) {
+tbody .commentTr td:nth-child(4) {
   padding-right: 24px;
 }

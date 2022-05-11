@@ -88,45 +88,51 @@ const DataPage = ({ data }) => {
         </div>
         <div className={styles.DataPageWrapper}>
           <table data-testid="table">
-            <thead>
-              <tr>
-                <th>
+            <thead className={styles.thead}>
+              <tr className={styles.trHeaderStyle}>
+                <th className={styles.thStyle}>
+                <div className={styles.id}>
                   ID{" "}
                   <Sorting
                     data-testid="id"
                     className={styles.sorting}
                     onClick={() => sorting("id")}
                   />
+                  </div>
                 </th>
-                <th>
+                <th className={styles.thStyle}>
+                <div className={styles.date}>
                   Date{" "}
                   <Sorting
                     data-testid="date"
                     className={styles.sorting}
                     onClick={() => sorting("")}
                   />
+                  </div>
                 </th>
-                <th>
-                  Score{" "}
+                <th className={styles.thStyle}>
+                  <div className={styles.score}>
+                  <p>Score{" "}</p>
                   <Sorting
                     data-testid="score"
                     className={styles.sorting}
                     onClick={() => sorting("score")}
                   />
+                  </div>
                 </th>
-                <th>Feedback</th>
+                <th className={styles.thStyle}>Feedback</th>
               </tr>
             </thead>
 
             <tbody>
               {answers.map((val) => {
                 return (
-                  <tr data-testid={"answer"} name={val.id} key={val.id}>
-                    <td>#{val.id}</td>
-                    <td data-testid={String("Id:" + val.id)}>
+                  <tr className={styles.trStyle} data-testid={"answer"} name={val.id} key={val.id}>
+                    <td className={styles.tdStyle}>#{val.id}</td>
+                    <td className={styles.tdStyle} data-testid={String("Id:" + val.id)}>
                       {dateChanger(val.date.substring(0, 10))}
                     </td>
-                    <td>{val.score}</td>
+                    <td className={styles.tdStyle}>{val.score}</td>
                     <td>
                       <div className={styles.feedback}>{val.feedback}</div>
                     </td>

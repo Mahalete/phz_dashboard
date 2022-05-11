@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "./CommentPage.module.css";
+import comment from "./CommentPage.module.css";
 import TableScrollbar from "react-table-scrollbar";
 
 const FILTERS = {
@@ -57,33 +57,33 @@ const CommentPage = ({ data }) => {
 
   return (
     <div>
-      <div className={style.center_data}>
+      <div className={comment.center_data}>
         <div>
-          <div className={style.listMenu_button}>
+          <div className={comment.listMenu_button}>
             <button
               data-testid="all_data"
-              className={style.listMenuAll_button}
+              className={comment.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.ALL)}
             >
               ALL
             </button>
             <button
               data-testid="promoter_data"
-              className={style.listMenuAll_button}
+              className={comment.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.PROMOTER)}
             >
               PROMOTERS
             </button>
             <button
               data-testid="detractor_data"
-              className={style.listMenuAll_button}
+              className={comment.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.DETRACTOR)}
             >
               DETRACTORS
             </button>
             <button
               data-testid="neutral_data"
-              className={style.listMenuAll_button}
+              className={comment.listMenuAll_button}
               onClick={() => onFilterChange(FILTERS.NEUTRAL)}
             >
               NEUTRALS
@@ -91,10 +91,10 @@ const CommentPage = ({ data }) => {
           </div>
         </div>
         <TableScrollbar height="500px">
-          <div className={style.DataPageWrapper}>
-            <table data-testid="tableA">
-              <thead className={style.column_headers}>
-                <tr>
+          <div className={comment.DataPageWrapper}>
+            <table className={comment.commentTable} data-testid="tableA">
+              <thead className={comment.column_headers}>
+                <tr className={comment.commentTr}>
                   <th>Score </th>
                   <th>Feedback</th>
                 </tr>
@@ -103,7 +103,7 @@ const CommentPage = ({ data }) => {
               <tbody>
                 {feedbacks.map((val) => {
                   return (
-                    <tr data-testid="answer" name={val.id} key={val.id}>
+                    <tr className={comment.commentTr} data-testid="answer" name={val.id} key={val.id}>
                       <td>{val.score}</td>
                       <td>{val.feedback}</td>
                     </tr>

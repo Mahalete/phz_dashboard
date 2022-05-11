@@ -25,7 +25,7 @@ const IntegrationPage = () => {
             "`}</p>
 
         <p>{` title="survey"`}</p>
-        <p>{`  src="https://phz-survey.herokuapp.com/"></iframe> `}</p>
+        <p>{`  src="https://phz-survey.herokuapp.com/survey"></iframe> `}</p>
         <p>{`  <script>{window.addEventListener("message", (ev) => {`}</p>
         <p>{`  let iFrame = document.getElementById("iframe");`}</p>
         <p>{`  let body = document.getElementById("body");`}</p>
@@ -72,7 +72,7 @@ const IntegrationPage = () => {
               z-index: 100;
             "
             title="survey"
-            src="https://phz-survey.herokuapp.com/"
+            src="https://phz-survey.herokuapp.com/survey"
           ></iframe>
           <script>
             {

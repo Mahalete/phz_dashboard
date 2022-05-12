@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./NpsSurveyStatus.module.css";
 import { Line as Linejs } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { GradientSharp } from "@mui/icons-material";
 
 const NPS_Survey_Status = ({ npsdata }) => {
@@ -19,6 +20,7 @@ const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreDec, setNpsScoreDec] = useState(0);
   const [loading, setLoading] = useState(true);
   const [year, setYear] = useState("2022");
+  const [status, setStatus] = useState(1);
 
   const lineChartData = {
     labels: [
@@ -369,10 +371,57 @@ const NPS_Survey_Status = ({ npsdata }) => {
     sepScore,
   ]);
 
+  const radioHandler = (status) => {
+    setStatus(status);
+  };
+
+  const barChartData = {
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    datasets: [
+      {
+        data: [
+          janTotal,
+          febTotal,
+          marTotal,
+          aprTotal,
+          mayTotal,
+          junTotal,
+          julTotal,
+          augTotal,
+          sepTotal,
+          octTotal,
+          novTotal,
+          decTotal,
+        ],
+        label: 'Number of res',
+        borderColor: "#D2782D",
+        backgroundColor: "#F4DAC3",
+        fill: true,
+      },
+    ],
+  };
+ 
   return (
     <div className={style.survey_status_container}>
       <div className={style.title}>
         <h1>ProScore Overtime</h1>
+        <div>
+        <input type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score
+        <input type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
+        </div>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
@@ -380,7 +429,9 @@ const NPS_Survey_Status = ({ npsdata }) => {
         </select>
       </div>
 
-      <Line type="line" width={160} height={45} data={lineChartData} />
+      {status === 1 && <Line type="line" width={160} height={45} data={lineChartData} />}
+      {status === 2 && <Bar type="bar" width={160} height={45} data={barChartData} />}
+      
     </div>
   );
 };

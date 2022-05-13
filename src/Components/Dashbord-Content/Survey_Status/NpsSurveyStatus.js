@@ -441,9 +441,9 @@ const NPS_Survey_Status = ({ npsdata }) => {
     <div className={style.survey_status_container}>
       <div className={style.title}>
         
-        <div>
-        <input type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score Overtime
-        <input type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
+        <div className={style.inputArea}>
+        <input className={style.input} type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score Overtime
+        <input className={style.input}type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
         </div>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
           <option value="2022">2022</option>

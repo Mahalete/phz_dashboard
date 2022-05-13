@@ -16,8 +16,19 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
+.inputArea {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #262626;
+}
+.input {
+  width: 4vw;
+}
 select {
   font-family: "Roboto";
   font-style: normal;

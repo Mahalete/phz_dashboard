@@ -5,6 +5,8 @@ import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 import { GradientSharp } from "@mui/icons-material";
 
+
+
 const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreJan, setNpsScoreJan] = useState(0);
   const [npsScoreFeb, setNpsScoreFeb] = useState(0);
@@ -375,6 +377,21 @@ const NPS_Survey_Status = ({ npsdata }) => {
     setStatus(status);
   };
 
+  const options = {
+
+    plugins: {
+    
+    legend: {
+    
+    display: false,
+    
+    },
+    
+    },
+    
+    };
+
+ 
   const barChartData = {
     labels: [
       "Jan",
@@ -406,31 +423,42 @@ const NPS_Survey_Status = ({ npsdata }) => {
           novTotal,
           decTotal,
         ],
-        label: 'Number of res',
+        label: "",
         borderColor: "#D2782D",
         backgroundColor: "#F4DAC3",
         fill: true,
       },
     ],
+    
   };
+
+//   const yearSelector = (new Date()).getFullYear();
+// const years = Array.from(new Array(20),( val, index) => index + yearSelector);
+
+  
  
   return (
     <div className={style.survey_status_container}>
       <div className={style.title}>
-        <h1>ProScore Overtime</h1>
+        
         <div>
-        <input type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score
+        <input type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score Overtime
         <input type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
         </div>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
+          {/* {
+       this.years.map((year, index) => {
+         return <option key={`year${index}`} value={year}>{year}</option>
+       })
+     } */}
         </select>
       </div>
 
-      {status === 1 && <Line type="line" width={160} height={45} data={lineChartData} />}
-      {status === 2 && <Bar type="bar" width={160} height={45} data={barChartData} />}
+      {status === 1 && <Line options= {options} type="line" width={160} height={45} data={lineChartData} />}
+      {status === 2 && <Bar options= {options} type="bar" width={160} height={45} data={barChartData} />}
       
     </div>
   );

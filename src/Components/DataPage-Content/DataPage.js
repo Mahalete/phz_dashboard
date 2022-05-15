@@ -10,6 +10,8 @@ const DataPage = ({ data }) => {
     data.length > 10 ? data.slice(0, 10) : data
   );
   const [pages, setPages] = useState(1);
+  const [date, setDate] = useState();
+  const [score, setScore] = useState();
 
   const pageChanger = (change) => {
     let startIndex = pages * 10;
@@ -34,11 +36,25 @@ const DataPage = ({ data }) => {
   const sorting = (sortingBase) => {
     let result;
     if (sortingBase === "score") {
-      result = data.sort((a, b) => a.score - b.score);
+      if (score === true) {
+        result = data.sort((a, b) => a.score - b.score);
+        setScore(false);
+      } else {
+        result = data.sort((a, b) => b.score - a.score);
+        setScore(true);
+      }
     } else if (sortingBase === "id") {
-      result = data.sort((a, b) => a.id - b.id);
+      answers[0].id > answers[1].id
+        ? (result = data.sort((a, b) => a.id - b.id))
+        : (result = data.sort((a, b) => b.id - a.id));
     } else {
-      result = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      if (date === false) {
+        result = data.sort((a, b) => new Date(a.date) - new Date(b.date));
+        setDate(true);
+      } else {
+        result = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setDate(false);
+      }
     }
     setAnswers(result.slice(0, 10));
     setPages(1);

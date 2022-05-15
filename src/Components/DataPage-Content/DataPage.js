@@ -5,7 +5,6 @@ import ArrowRight from "@mui/icons-material/ArrowForwardIos";
 import Pipe from "@mui/icons-material/Remove";
 import Sorting from "@mui/icons-material/ArrowDropDown";
 
-
 const DataPage = ({ data }) => {
   const [answers, setAnswers] = useState(
     data.length > 10 ? data.slice(0, 10) : data
@@ -39,7 +38,7 @@ const DataPage = ({ data }) => {
     } else if (sortingBase === "id") {
       result = data.sort((a, b) => a.id - b.id);
     } else {
-      result = data.sort((a, b) => new Date(a.date) - new Date(b.date));
+      result = data.sort((a, b) => new Date(b.date) - new Date(a.date));
     }
     setAnswers(result.slice(0, 10));
     setPages(1);
@@ -63,7 +62,6 @@ const DataPage = ({ data }) => {
 
   return (
     <div>
-      
       <div className={styles.centralize}>
         <div className={styles.nextPage}>
           <ArrowRight
@@ -71,7 +69,9 @@ const DataPage = ({ data }) => {
             className={styles.arrows}
             onClick={() => pageChanger("next")}
           />
-          <span><h3 data-testid="pageNumber">{pages}</h3></span>
+          <span>
+            <h3 data-testid="pageNumber">{pages}</h3>
+          </span>
           <ArrowLeft
             data-testid="arrowLeft"
             className={styles.arrows}
@@ -91,33 +91,33 @@ const DataPage = ({ data }) => {
             <thead className={styles.thead}>
               <tr className={styles.trHeaderStyle}>
                 <th className={styles.thStyle}>
-                <div className={styles.id}>
-                  ID{" "}
-                  <Sorting
-                    data-testid="id"
-                    className={styles.sorting}
-                    onClick={() => sorting("id")}
-                  />
+                  <div className={styles.id}>
+                    ID{" "}
+                    <Sorting
+                      data-testid="id"
+                      className={styles.sorting}
+                      onClick={() => sorting("id")}
+                    />
                   </div>
                 </th>
                 <th className={styles.thStyle}>
-                <div className={styles.date}>
-                  Date{" "}
-                  <Sorting
-                    data-testid="date"
-                    className={styles.sorting}
-                    onClick={() => sorting("")}
-                  />
+                  <div className={styles.date}>
+                    Date{" "}
+                    <Sorting
+                      data-testid="date"
+                      className={styles.sorting}
+                      onClick={() => sorting("")}
+                    />
                   </div>
                 </th>
                 <th className={styles.thStyle}>
                   <div className={styles.score}>
-                  <p>Score{" "}</p>
-                  <Sorting
-                    data-testid="score"
-                    className={styles.sorting}
-                    onClick={() => sorting("score")}
-                  />
+                    <p>Score </p>
+                    <Sorting
+                      data-testid="score"
+                      className={styles.sorting}
+                      onClick={() => sorting("score")}
+                    />
                   </div>
                 </th>
                 <th className={styles.thStyle}>Feedback</th>
@@ -127,9 +127,17 @@ const DataPage = ({ data }) => {
             <tbody>
               {answers.map((val) => {
                 return (
-                  <tr className={styles.trStyle} data-testid={"answer"} name={val.id} key={val.id}>
+                  <tr
+                    className={styles.trStyle}
+                    data-testid={"answer"}
+                    name={val.id}
+                    key={val.id}
+                  >
                     <td className={styles.tdStyle}>#{val.id}</td>
-                    <td className={styles.tdStyle} data-testid={String("Id:" + val.id)}>
+                    <td
+                      className={styles.tdStyle}
+                      data-testid={String("Id:" + val.id)}
+                    >
                       {dateChanger(val.date.substring(0, 10))}
                     </td>
                     <td className={styles.tdStyle}>{val.score}</td>

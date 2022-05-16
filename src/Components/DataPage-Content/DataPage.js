@@ -75,6 +75,7 @@ const DataPage = ({ data }) => {
     }
     return newDate.substring(0, 10).replace("-", ".");
   };
+  console.log("DataPage ", data.length, answers.length);
 
   return (
     <div>

@@ -17,12 +17,19 @@
   letter-spacing: -0.02em;
   color: #262626;
 }
+
+.feedback_empty {
+  color: rgb(212, 126, 53);
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
 .listMenu_button {
   display: flex;
   text-decoration: none;
   margin-right: 20rem;
   padding-bottom: 2rem;
 }
+
 .listMenuAll_button {
   border: none;
   background: white;

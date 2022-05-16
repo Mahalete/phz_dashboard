@@ -5,8 +5,6 @@ import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 import { GradientSharp } from "@mui/icons-material";
 
-
-
 const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreJan, setNpsScoreJan] = useState(0);
   const [npsScoreFeb, setNpsScoreFeb] = useState(0);
@@ -127,7 +125,7 @@ const NPS_Survey_Status = ({ npsdata }) => {
   let result = npsdata.filter(
     (element) => element.date.substring(0, 4) === year
   );
-  console.log(result);
+  // console.log(result);
   result.forEach((element) => {
     let date = element.date.substring(5, 7);
     switch (date) {
@@ -326,10 +324,10 @@ const NPS_Survey_Status = ({ npsdata }) => {
     decScore = ((decPromoter - decDetractor) / decTotal) * 100;
   }
 
-  console.log("febpromo" + febPromoter);
-  console.log("febdetr" + febDetractor);
-  console.log("febneu" + febNeutral);
-  console.log("febTotal" + febTotal);
+  // console.log("febpromo" + febPromoter);
+  // console.log("febdetr" + febDetractor);
+  // console.log("febneu" + febNeutral);
+  // console.log("febTotal" + febTotal);
 
   useEffect(() => {
     setNpsScoreJan(janScore);
@@ -378,20 +376,13 @@ const NPS_Survey_Status = ({ npsdata }) => {
   };
 
   const options = {
-
     plugins: {
-    
-    legend: {
-    
-    display: false,
-    
+      legend: {
+        display: false,
+      },
     },
-    
-    },
-    
-    };
+  };
 
- 
   const barChartData = {
     labels: [
       "Jan",
@@ -429,21 +420,33 @@ const NPS_Survey_Status = ({ npsdata }) => {
         fill: true,
       },
     ],
-    
   };
 
-//   const yearSelector = (new Date()).getFullYear();
-// const years = Array.from(new Array(20),( val, index) => index + yearSelector);
+  //   const yearSelector = (new Date()).getFullYear();
+  // const years = Array.from(new Array(20),( val, index) => index + yearSelector);
 
-  
- 
   return (
     <div className={style.survey_status_container}>
       <div className={style.title}>
-        
         <div className={style.inputArea}>
-        <input className={style.input} type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score Overtime
-        <input className={style.input}type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
+          <input
+            className={style.input}
+            type="radio"
+            value="NPS Score"
+            name="chart"
+            checked={status === 1}
+            onClick={(e) => radioHandler(1)}
+          />
+          NPS Score Overtime
+          <input
+            className={style.input}
+            type="radio"
+            value="Number of respondents"
+            name="chart"
+            checked={status === 2}
+            onClick={(e) => radioHandler(2)}
+          />
+          Number of respondents
         </div>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
           <option value="2022">2022</option>
@@ -457,9 +460,24 @@ const NPS_Survey_Status = ({ npsdata }) => {
         </select>
       </div>
 
-      {status === 1 && <Line options= {options} type="line" width={160} height={45} data={lineChartData} />}
-      {status === 2 && <Bar options= {options} type="bar" width={160} height={45} data={barChartData} />}
-      
+      {status === 1 && (
+        <Line
+          options={options}
+          type="line"
+          width={160}
+          height={45}
+          data={lineChartData}
+        />
+      )}
+      {status === 2 && (
+        <Bar
+          options={options}
+          type="bar"
+          width={160}
+          height={45}
+          data={barChartData}
+        />
+      )}
     </div>
   );
 };

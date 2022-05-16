@@ -5,8 +5,9 @@ import { PieChart } from "react-minimal-pie-chart";
 import { ReactComponent as HappyFace } from "../../../assets/happy_face.svg";
 import { ReactComponent as AngryFace } from "../../../assets/angry_face.svg";
 import { ReactComponent as NeutralFace } from "../../../assets/neutral_face.svg";
+import Recent_comments from "../Comments/RecentComments";
 
-const NPS_Charts = ({ data }) => {
+const NPS_Charts = ({ data, setFilter }) => {
   const navigate = useNavigate();
   const [detractors, setDetractors] = useState(0);
   const [promoters, setPromoters] = useState(0);
@@ -21,6 +22,7 @@ const NPS_Charts = ({ data }) => {
   data.forEach((element) => {
     scores.push(element.score);
   });
+  console.log(data, scores);
 
   let dedactor_val = 0;
   let promoter_val = 0;
@@ -89,7 +91,8 @@ const NPS_Charts = ({ data }) => {
             onClick={(event, selectedIndex) => {
               const queryString = pieChartData[selectedIndex].key;
               console.log(event, selectedIndex, queryString);
-              navigate(`/comment?filter=${queryString}`);
+              setFilter(queryString);
+              // navigate(`/comment?filter=${queryString}`);
             }}
           />
         </div>

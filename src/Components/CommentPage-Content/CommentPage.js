@@ -2,57 +2,58 @@ import React, { useState, useEffect } from "react";
 import comment from "./CommentPage.module.css";
 import TableScrollbar from "react-table-scrollbar";
 
-const FILTERS = {
+export const FILTERS = {
   PROMOTER: "promoter",
   DETRACTOR: "detractor",
   NEUTRAL: "neutral",
   ALL: "all",
 };
 
-const getQueryString = () => {
-  const search = window.location.search;
-  const params = new URLSearchParams(search);
-  return params.get("filter");
-};
+// const getQueryString = () => {
+//   const search = window.location.search;
+//   const params = new URLSearchParams(search);
+//   return params.get("filter");
+// };
 
 const CommentPage = ({ data }) => {
-  const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const readyData = latestData.filter((element) => element.feedback.length > 0);
-  const [feedbacks, setFeedbacks] = useState(readyData);
+  // const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // const readyData = latestData.filter((element) => element.feedback.length > 0);
+  const getPreparedData = (item) =>
+    item
+      .filter((element) => element.feedback.length > 0)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const [feedbacks, setFeedbacks] = useState(data);
 
   useEffect(() => {
-    const filter = getQueryString();
-    console.log("Inside Comment Page", filter);
-    if (filter) {
-      onFilterChange(filter);
-    }
-  }, []);
+    // if (filter) {
+    //   onFilterChange(filter);
+    // }
+    setFeedbacks(data);
+  }, [data]);
+  console.log("CommentsPage ", data.length, feedbacks.length);
 
   const onFilterChange = (filter) => {
-    let filteredData = [];
     switch (filter) {
       case FILTERS.PROMOTER:
-        filteredData = readyData.filter((element) => element.score >= 9);
-        break;
+        return data.filter((element) => element.score >= 9);
+      // break;
       case FILTERS.NEUTRAL:
-        filteredData = readyData.filter(
-          (element) => element.score > 6 && element.score < 9
-        );
+        return data.filter((element) => element.score > 6 && element.score < 9);
 
-        break;
+      // break;
       case FILTERS.DETRACTOR:
-        console.log(filter, filteredData);
-        filteredData = readyData.filter((element) => element.score <= 6);
-        break;
+        console.log(filter);
+        return data.filter((element) => element.score <= 6);
+      // break;
 
       default:
-        filteredData = readyData;
-        break;
+        return data;
+      // break;
     }
-    console.log(filter, filteredData);
-    filteredData =
-      // filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
-      setFeedbacks(filteredData);
+    // console.log(filter, filteredData);
+    // filteredData =
+    // filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
+    // setFeedbacks(feedbacks);
   };
 
   return (
@@ -63,28 +64,28 @@ const CommentPage = ({ data }) => {
             <button
               data-testid="all_data"
               className={comment.listMenuAll_button}
-              onClick={() => onFilterChange(FILTERS.ALL)}
+              onClick={() => setFeedbacks(onFilterChange(FILTERS.ALL))}
             >
               ALL
             </button>
             <button
               data-testid="promoter_data"
               className={comment.listMenuAll_button}
-              onClick={() => onFilterChange(FILTERS.PROMOTER)}
+              onClick={() => setFeedbacks(onFilterChange(FILTERS.PROMOTER))}
             >
               PROMOTERS
             </button>
             <button
               data-testid="detractor_data"
               className={comment.listMenuAll_button}
-              onClick={() => onFilterChange(FILTERS.DETRACTOR)}
+              onClick={() => setFeedbacks(onFilterChange(FILTERS.DETRACTOR))}
             >
               DETRACTORS
             </button>
             <button
               data-testid="neutral_data"
               className={comment.listMenuAll_button}
-              onClick={() => onFilterChange(FILTERS.NEUTRAL)}
+              onClick={() => setFeedbacks(onFilterChange(FILTERS.NEUTRAL))}
             >
               NEUTRALS
             </button>
@@ -101,14 +102,23 @@ const CommentPage = ({ data }) => {
               </thead>
 
               <tbody>
-                {feedbacks.map((val) => {
-                  return (
-                    <tr className={comment.commentTr} data-testid="answer" name={val.id} key={val.id}>
-                      <td>{val.score}</td>
-                      <td>{val.feedback}</td>
-                    </tr>
-                  );
-                })}
+                {getPreparedData(feedbacks).length === 0 && (
+                  <p className={comment.feedback_empty}>No comments found.</p>
+                )}
+                {getPreparedData(feedbacks).length > 0 &&
+                  getPreparedData(feedbacks).map((val) => {
+                    return (
+                      <tr
+                        className={comment.commentTr}
+                        data-testid="answer"
+                        name={val.id}
+                        key={val.id}
+                      >
+                        <td>{val.score}</td>
+                        <td>{val.feedback}</td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>

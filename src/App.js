@@ -38,11 +38,12 @@ function App() {
         console.log(error);
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setNpsdata(res.data);
       });
   };
-  console.log("npsdata ", npsdata);
+  // console.log("npsdata ", npsdata);
+  console.log("AppsData ", npsdatawithdaterange.length);
 
   const setDates = (setter, date) => {
     if (setter === "startDate") {
@@ -70,7 +71,7 @@ function App() {
     getNpsdataWithDateRange();
     setLoading(false);
   }, [formatedEndDate, formatedStartDate, startDate, endDate]);
-  console.log("npsdata with daterange", npsdatawithdaterange);
+  // console.log("npsdata with daterange", npsdatawithdaterange);
 
   return (
     <div className="App">

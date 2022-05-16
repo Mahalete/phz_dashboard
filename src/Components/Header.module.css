@@ -12,7 +12,6 @@
 }
 
 .header .title {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -32,7 +31,6 @@
 }
 
 .fullName {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -43,7 +41,6 @@
   height: 5vh;
 }
 .ocupation {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

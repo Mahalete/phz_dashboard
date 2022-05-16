@@ -3,9 +3,7 @@ import style from "./NpsSurveyStatus.module.css";
 import { Line as Linejs } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
-import { GradientSharp } from "@mui/icons-material";
-
-
+import { ForkLeft, GradientSharp } from "@mui/icons-material";
 
 const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreJan, setNpsScoreJan] = useState(0);
@@ -23,46 +21,6 @@ const NPS_Survey_Status = ({ npsdata }) => {
   const [loading, setLoading] = useState(true);
   const [year, setYear] = useState("2022");
   const [status, setStatus] = useState(1);
-
-  const lineChartData = {
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    datasets: [
-      {
-        data: [
-          npsScoreJan,
-          npsScoreFeb,
-          npsScoreMar,
-          npsScoreApr,
-          npsScoreMay,
-          npsScoreJun,
-          npsScoreJul,
-          npsScoreAug,
-          npsScoreSep,
-          npsScoreOct,
-          npsScoreNov,
-          npsScoreDec,
-        ],
-        label: "NPS",
-        borderColor: "#D2782D",
-        backgroundColor: "rgba(249, 237, 227, 0.8)",
-        fill: true,
-        lineTension: 0.1,
-      },
-    ],
-  };
 
   let janPromoter = 0;
   let janDetractor = 0;
@@ -373,25 +331,52 @@ const NPS_Survey_Status = ({ npsdata }) => {
     sepScore,
   ]);
 
-  const radioHandler = (status) => {
+  /*const radioHandler = (status) => {
     setStatus(status);
-  };
+  }; */
 
   const options = {
-
     plugins: {
-    
-    legend: {
-    
-    display: false,
-    
+      legend: {
+        //display: false,
+        align: "end",
+        labels: {
+          padding: 10,
+        },
+      },
     },
-    
+    scales: {
+      y: {
+        grid: {
+          color: (context) => {
+            if (context.tick.value === 30) {
+              return "black";
+            } else {
+              return "grey";
+            }
+          },
+          lineWidth: (context) => {
+            if (context.tick.value === 30) {
+              return 5;
+            } else {
+              return 1;
+            }
+          },
+        },
+        ticks: {
+          stepSize: 10,
+          /*   callback: (context) => {
+            if (context === 30) {
+              return "Bonus limit 30";
+            } else {
+              return context;
+            }
+          },*/
+        },
+      },
     },
-    
-    };
-
- 
+  };
+  /*
   const barChartData = {
     labels: [
       "Jan",
@@ -429,21 +414,145 @@ const NPS_Survey_Status = ({ npsdata }) => {
         fill: true,
       },
     ],
-    
+  };
+*/
+  //   const yearSelector = (new Date()).getFullYear();
+  // const years = Array.from(new Array(20),( val, index) => index + yearSelector);
+
+  const lineChartData = {
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    datasets: [
+      {
+        data: [
+          npsScoreJan,
+          npsScoreFeb,
+          npsScoreMar,
+          npsScoreApr,
+          npsScoreMay,
+          npsScoreJun,
+          npsScoreJul,
+          npsScoreAug,
+          npsScoreSep,
+          npsScoreOct,
+          npsScoreNov,
+          npsScoreDec,
+        ],
+        label: "NPS Score",
+        borderColor: "#D2782D",
+        backgroundColor: "rgba(249, 237, 227, 0.6 )",
+        fill: true,
+        lineTension: 0.1,
+      },
+      {
+        data: [
+          janTotal,
+          febTotal,
+          marTotal,
+          aprTotal,
+          mayTotal,
+          junTotal,
+          julTotal,
+          augTotal,
+          sepTotal,
+          octTotal,
+          novTotal,
+          decTotal,
+        ],
+        type: "bar",
+        label: "Number of respondants",
+        borderColor: "#D2782D",
+        backgroundColor: "orange",
+        fill: true,
+      },
+      {
+        data: [
+          janPromoter,
+          febPromoter,
+          marPromoter,
+          aprPromoter,
+          mayPromoter,
+          junPromoter,
+          julPromoter,
+          augPromoter,
+          sepPromoter,
+          octPromoter,
+          novPromoter,
+          decPromoter,
+        ],
+        type: "bar",
+        label: "Number of promoters",
+        borderColor: "#D2782D",
+        backgroundColor: "#5FB566",
+        fill: true,
+      },
+      {
+        data: [
+          janDetractor,
+          febDetractor,
+          marDetractor,
+          aprDetractor,
+          mayDetractor,
+          junDetractor,
+          julDetractor,
+          augDetractor,
+          sepDetractor,
+          octDetractor,
+          novDetractor,
+          decDetractor,
+        ],
+        type: "bar",
+        label: "Number of detractors",
+        borderColor: "#D2782D",
+        backgroundColor: "#F36158",
+        fill: true,
+      },
+      {
+        data: [],
+        label: "Bonus limit",
+        //borderColor: "#D2782D",
+        backgroundColor: "black",
+        fill: true,
+      },
+    ],
   };
 
-//   const yearSelector = (new Date()).getFullYear();
-// const years = Array.from(new Array(20),( val, index) => index + yearSelector);
-
-  
- 
   return (
     <div className={style.survey_status_container}>
       <div className={style.title}>
-        
         <div className={style.inputArea}>
-        <input className={style.input} type="radio" value="NPS Score" name="chart" checked={status === 1} onClick={(e) => radioHandler(1)} />NPS Score Overtime
-        <input className={style.input}type="radio" value="Number of respondents" name="chart" checked={status === 2} onClick={(e) => radioHandler(2)} />Number of respondents
+          {/*
+          <input
+            className={style.input}
+            type="radio"
+            value="NPS Score"
+            name="chart"
+            checked={status === 1}
+            onClick={(e) => radioHandler(1)}
+          />
+          NPS Score Overtime
+          <input
+            className={style.input}
+            type="radio"
+            value="Number of respondents"
+            name="chart"
+            checked={status === 2}
+            onClick={(e) => radioHandler(2)}
+          />
+          Number of respondents
+  */}{" "}
         </div>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
           <option value="2022">2022</option>
@@ -457,9 +566,16 @@ const NPS_Survey_Status = ({ npsdata }) => {
         </select>
       </div>
 
-      {status === 1 && <Line options= {options} type="line" width={160} height={45} data={lineChartData} />}
-      {status === 2 && <Bar options= {options} type="bar" width={160} height={45} data={barChartData} />}
-      
+      {status === 1 && (
+        <Line
+          options={options}
+          type="line"
+          width={160}
+          height={55}
+          data={lineChartData}
+        />
+      )}
+      {/*status === 2 && <Bar options= {options} type="bar" width={160} height={45} data={barChartData} />*/}
     </div>
   );
 };

@@ -2,7 +2,7 @@
   background: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  padding: 36px 36px 36px 0;
+  padding: 24px 24px 24px 0;
   height: 38vh;
   width: 45vw;
   position: absolute;
@@ -31,7 +31,6 @@
 }
 
 .chart p {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 60px;
@@ -56,10 +55,9 @@
 }
 
 .total {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   color: #262626;
 }
 
@@ -71,7 +69,6 @@
 }
 
 .name p {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -79,7 +76,6 @@
 }
 
 .promoter {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

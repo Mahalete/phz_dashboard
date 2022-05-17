@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./DataPage.module.css";
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew";
 import ArrowRight from "@mui/icons-material/ArrowForwardIos";
@@ -12,6 +12,14 @@ const DataPage = ({ data }) => {
   const [pages, setPages] = useState(1);
   const [date, setDate] = useState();
   const [score, setScore] = useState();
+
+  useEffect(() => {
+    // if (filter) {
+    //   onFilterChange(filter);
+    // }
+    setAnswers(data);
+  }, [data]);
+  console.log("DataPage ", data.length, answers.length);
 
   const pageChanger = (change) => {
     let startIndex = pages * 10;
@@ -142,28 +150,33 @@ const DataPage = ({ data }) => {
             </thead>
 
             <tbody>
-              {answers.map((val) => {
-                return (
-                  <tr
-                    className={styles.trStyle}
-                    data-testid={"answer"}
-                    name={val.id}
-                    key={val.id}
-                  >
-                    <td className={styles.tdStyle}>#{val.id}</td>
-                    <td
-                      className={styles.tdStyle}
-                      data-testid={String("Id:" + val.id)}
+              {answers.length === 0 && (
+                <p className={styles.feedback_empty}>No data found.</p>
+              )}
+
+              {answers.length > 0 &&
+                answers.map((val) => {
+                  return (
+                    <tr
+                      className={styles.trStyle}
+                      data-testid={"answer"}
+                      name={val.id}
+                      key={val.id}
                     >
-                      {dateChanger(val.date.substring(0, 10))}
-                    </td>
-                    <td className={styles.tdStyle}>{val.score}</td>
-                    <td>
-                      <div className={styles.feedback}>{val.feedback}</div>
-                    </td>
-                  </tr>
-                );
-              })}
+                      <td className={styles.tdStyle}>#{val.id}</td>
+                      <td
+                        className={styles.tdStyle}
+                        data-testid={String("Id:" + val.id)}
+                      >
+                        {dateChanger(val.date.substring(0, 10))}
+                      </td>
+                      <td className={styles.tdStyle}>{val.score}</td>
+                      <td>
+                        <div className={styles.feedback}>{val.feedback}</div>
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>

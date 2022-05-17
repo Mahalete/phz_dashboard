@@ -58,7 +58,7 @@ const CommentPage = ({ data }) => {
     // setFeedbacks(feedbacks);
   };
 
-  
+
 
   return (
     <div>
@@ -69,7 +69,10 @@ const CommentPage = ({ data }) => {
               open-active
               data-testid="all_data"
               className={comment.listMenuAll_button}
-              onClick={() => setFeedbacks(onFilterChange(FILTERS.ALL))}
+              onClick={ () => {
+                setFeedbacks(onFilterChange(FILTERS.ALL));
+                
+              }}
             >
               ALL
             </button>

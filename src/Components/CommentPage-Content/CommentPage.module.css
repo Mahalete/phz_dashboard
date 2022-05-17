@@ -30,9 +30,6 @@
   padding-bottom: 2rem;
 }
 
-.listMenu_button > .listMenuAll_button[open-active]{
-  color: rgb(212, 126, 53)
-}
 .listMenuAll_button {
   border: none;
   background: white;

@@ -64,7 +64,7 @@ const Recent_comments = ({ data, filter }) => {
   return (
     <div className={style.comments_container}>
       <div className={style.title_feedback}>
-        <h1>Recent comments</h1>
+        <h1>Comments</h1>
         <Link to="/comment">See all</Link>
       </div>
       <Scrollbars style={{ width: "20vw", height: "50vh" }}>

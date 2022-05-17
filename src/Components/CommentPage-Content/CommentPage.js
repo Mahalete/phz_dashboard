@@ -9,6 +9,7 @@ export const FILTERS = {
   ALL: "all",
 };
 
+
 // const getQueryString = () => {
 //   const search = window.location.search;
 //   const params = new URLSearchParams(search);
@@ -56,12 +57,15 @@ const CommentPage = ({ data }) => {
     // setFeedbacks(feedbacks);
   };
 
+  
+
   return (
     <div>
       <div className={comment.center_data}>
         <div>
           <div className={comment.listMenu_button}>
             <button
+              open-active
               data-testid="all_data"
               className={comment.listMenuAll_button}
               onClick={() => setFeedbacks(onFilterChange(FILTERS.ALL))}

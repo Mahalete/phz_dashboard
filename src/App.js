@@ -3,8 +3,6 @@ import "./App.css";
 import Dashboard from "./Components/Dashbord-Content/Dashboard";
 import CommentPage from "./Components/CommentPage-Content/CommentPage";
 import DataPage from "./Components/DataPage-Content/DataPage";
-import GraphPage from "./Components/GraphPage-Content/GraphPage";
-import SettingsPage from "./Components/SettingsPage-Content/SettingsPage";
 import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPage";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -88,10 +86,6 @@ function App() {
           }
         />
         <Route
-          path="/graph"
-          element={!loading && <GraphPage data={npsdata} />}
-        />
-        <Route
           path="/data"
           element={
             !loading &&
@@ -106,7 +100,7 @@ function App() {
           }
         />
         <Route path="/integration" element={<IntegrationPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+       
       </Routes>
       <SideMenu />
     </div>

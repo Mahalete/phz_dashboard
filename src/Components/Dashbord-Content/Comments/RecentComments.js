@@ -64,7 +64,7 @@ const Recent_comments = ({ data, filter }) => {
   return (
     <div className={style.comments_container}>
       <div className={style.title_feedback}>
-        <h1>Recent comments</h1>
+        <h1>Comments</h1>
         <Link to="/comment">See all</Link>
       </div>
       <Scrollbars style={{ width: "20vw", height: "50vh" }}>
@@ -88,10 +88,9 @@ const Recent_comments = ({ data, filter }) => {
                   {score}
                 </p>
                 <p className={style.feedback_display}>{feedback}</p>
-
-                <span className={style.date_display}>
-                  {moment([date], "YYYYMMDD").fromNow()}
-                </span>
+                <div className={style.date_display}>
+                  <span>{moment([date], "YYYYMMDD").fromNow()}</span>
+                </div>
               </div>
             ))}
         </div>

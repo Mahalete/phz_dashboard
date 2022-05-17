@@ -43,6 +43,7 @@ h1 {
   height: 80%;
 }
 .feedback {
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 0.5rem;
@@ -50,22 +51,28 @@ h1 {
   border-bottom: 1px solid #e6e6e6;
 }
 .feedback_promoter {
-  border-left: 4px solid #5fb566;
+  padding-left: 0.5rem;
+  border-left: 5px solid #5fb566;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 .feedback_detractor {
-  border-left: 4px solid #f36158;
+  padding-left: 0.5rem;
+  border-left: 5px solid #f36158;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 .feedback_neutral {
-  border-left: 4px solid #e1aa51;
+  padding-left: 0.5rem;
+
+  border-left: 5px solid #e1aa51;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
 .feedback_score {
+  padding-top: 0.25rem;
+  padding-left: 0.5rem;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -90,7 +97,9 @@ h1 {
   color: #e1aa51;
 }
 .feedback_display {
+  padding-top: 0.25rem;
   display: flex;
+  width: 60%;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -104,13 +113,12 @@ h1 {
   white-space: nowrap;
 }
 .date_display {
-  padding-top: 10px;
+  padding-top: 20px;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-
   text-align: right;
-  margin-left: 2rem;
+
   letter-spacing: -0.02em;
   color: #b3b3b3;
 }

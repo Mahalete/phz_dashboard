@@ -81,9 +81,8 @@ const NPS_Charts = ({ data, setFilter }) => {
             labelPosition={0}
             labelStyle={{
               fontSize: "20px",
-              fontColor: "FFFFFA",
+              fontColor: "#262626",
               fontWeight: "400",
-              fontFamily: "Roboto",
             }}
             paddingAngle={3}
             data={pieChartData}

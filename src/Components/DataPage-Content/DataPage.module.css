@@ -46,6 +46,11 @@
   transform: scale(1.5);
   cursor: pointer;
 }
+.feedback_empty {
+  color: rgb(212, 126, 53);
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
 
 .DataPageWrapper {
   width: 72vw;
@@ -75,7 +80,9 @@ h3 {
   height: 50px;
 }
 
-.score, .id, .date {
+.score,
+.id,
+.date {
   display: flex;
   width: 65px;
   height: 50px;
@@ -87,7 +94,6 @@ td {
   position: static;
   text-align: left;
   padding-left: 24px;
- 
 }
 
 tbody .trStyle {
@@ -122,5 +128,4 @@ tbody .trStyle td:nth-child(2) {
 
 .tdStyle {
   width: 150px;
-  
 }

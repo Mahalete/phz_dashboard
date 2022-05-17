@@ -7,7 +7,7 @@
   width: 45vw;
   position: absolute;
   left: 20vw;
-  margin: 10vh 1vw 2rem 4vw;
+  margin: 10vh 1rem 2rem 4vw;
 }
 
 .chartContainer {
@@ -15,7 +15,7 @@
   left: 36px;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   color: #262626;
 }
 

@@ -16,12 +16,6 @@ export const SideMenuData = [
   },
   {
     id: 2,
-    title: "Graph",
-    icon: <EqualizerIcon />,
-    link: "/graph",
-  },
-  {
-    id: 3,
     title: "Data",
     icon: <DataThresholdingIcon />,
     link: "/data",
@@ -38,16 +32,16 @@ export const SideMenuData = [
     icon: <IntegrationInstructionsIcon />,
     link: "/integration",
   },
-  {
-    id: 6,
-    title: "Settings",
-    icon: <SettingsIcon />,
-    link: "/settings",
-  },
-  {
-    id: 7,
-    title: "Logout",
-    icon: <LogoutIcon />,
-    link: "/Logout",
-  },
+  // {
+  //   id: 6,
+  //   title: "Settings",
+  //   icon: <SettingsIcon />,
+  //   link: "/settings",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Logout",
+  //   icon: <LogoutIcon />,
+  //   link: "/Logout",
+  // },
 ];

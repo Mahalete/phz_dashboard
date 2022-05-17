@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import comment from "./CommentPage.module.css";
 import TableScrollbar from "react-table-scrollbar";
+import Moment from "moment";
 
 export const FILTERS = {
   PROMOTER: "promoter",
@@ -96,6 +97,7 @@ const CommentPage = ({ data }) => {
             <table className={comment.commentTable} data-testid="tableA">
               <thead className={comment.column_headers}>
                 <tr className={comment.commentTr}>
+                  <th>Date </th>
                   <th>Score </th>
                   <th>Feedback</th>
                 </tr>
@@ -114,6 +116,7 @@ const CommentPage = ({ data }) => {
                         name={val.id}
                         key={val.id}
                       >
+                        <td>{Moment(val.date).format("DD-MM-YYYY")}</td>
                         <td>{val.score}</td>
                         <td>{val.feedback}</td>
                       </tr>

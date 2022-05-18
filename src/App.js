@@ -9,8 +9,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import moment from "moment";
-import Header from "./Components/Header";
-import { SideMenu } from "./SideMenu";
+// import Header from "./Components/Header";
+import SideMenu from "./Components/SideMenu";
 
 function App() {
   const [npsdata, setNpsdata] = useState([]);
@@ -36,13 +36,9 @@ function App() {
       });
   };
 
-  const setDates = (setter, date) => {
-    console.log(setter, date);
-    if (setter === "startDate") {
-      setStartDate(date);
-    } else {
-      setEndDate(date);
-    }
+  const setDates = (start, end) => {
+    setStartDate(start);
+    setEndDate(end);
   };
 
   useEffect(() => {
@@ -63,7 +59,6 @@ function App() {
     getNpsdataWithDateRange();
     setLoading(false);
   }, [formatedEndDate, formatedStartDate, startDate, endDate]);
-  // console.log("npsdata with daterange", npsdatawithdaterange);
 
   return (
     <div className="App">
@@ -95,7 +90,6 @@ function App() {
         />
         <Route path="/integration" element={<IntegrationPage />} />
       </Routes>
-      <SideMenu />
     </div>
   );
 }

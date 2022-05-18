@@ -4,7 +4,7 @@
   border-radius: 20px;
   padding: 36px;
   padding-top: 20px;
-  height: 48vh;
+  height: 50vh;
   width: 72vw;
   position: absolute;
   right: 0;
@@ -14,10 +14,7 @@
 
 .title {
   display: flex;
-  /* flex-direction: row; 
-  justify-content: space-between; */
   align-items: center;
-  /*margin-bottom: 1rem; */
 }
 
 .inputArea {
@@ -39,6 +36,7 @@ select {
   border: 1px solid rgba(210, 120, 45, 0.45) !important;
   height: 3.5vh;
   border-radius: 5px;
+  padding: 0.2rem;
 }
 select:focus {
   box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
@@ -46,5 +44,4 @@ select:focus {
   -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   outline-offset: 0px !important;
   outline: none !important;
-  padding: 0.2rem;
 }

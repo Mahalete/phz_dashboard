@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./NpsSurveyStatus.module.css";
-import { Line as Linejs } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-import { Bar } from "react-chartjs-2";
-
-import { GradientSharp } from "@mui/icons-material";
-
+import { Line as Linejs } from "chart.js/auto";
 
 const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreJan, setNpsScoreJan] = useState(0);
@@ -22,6 +18,16 @@ const NPS_Survey_Status = ({ npsdata }) => {
   const [npsScoreDec, setNpsScoreDec] = useState(0);
   const [loading, setLoading] = useState(true);
   const [year, setYear] = useState("2022");
+
+  let getYears = [];
+
+  npsdata.forEach((val) => {
+    getYears.includes(val.date.substring(0, 4))
+      ? console.log(val.date + "is already in the years array")
+      : getYears.push(val.date.substring(0, 4));
+  });
+
+  getYears = getYears.sort((a, b) => b - a);
 
   let janPromoter = 0;
   let janDetractor = 0;
@@ -83,6 +89,7 @@ const NPS_Survey_Status = ({ npsdata }) => {
   let decNeutral = 0;
   let decTotal = 0;
   let decScore = 0;
+
   let result = npsdata.filter(
     (element) => element.date.substring(0, 4) === year
   );
@@ -285,7 +292,6 @@ const NPS_Survey_Status = ({ npsdata }) => {
     decScore = ((decPromoter - decDetractor) / decTotal) * 100;
   }
 
-
   useEffect(() => {
     setNpsScoreJan(janScore);
     setNpsScoreFeb(febScore);
@@ -328,7 +334,6 @@ const NPS_Survey_Status = ({ npsdata }) => {
     sepScore,
   ]);
 
-
   const options = {
     plugins: {
       legend: {
@@ -362,7 +367,6 @@ const NPS_Survey_Status = ({ npsdata }) => {
       },
     },
   };
-
 
   const lineChartData = {
     labels: [
@@ -477,24 +481,23 @@ const NPS_Survey_Status = ({ npsdata }) => {
     <div className={style.survey_status_container}>
       <div className={style.title}>
         <select name="year" onChange={(e) => setYear(e.target.value)}>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          {/* {
-       this.years.map((year, index) => {
-         return <option key={`year${index}`} value={year}>{year}</option>
-       })
-     } */}
+          {getYears.map((year, index) => {
+            return (
+              <option key={`year${index}`} value={year}>
+                {year}
+              </option>
+            );
+          })}
         </select>
       </div>
 
-  <Line
-          options={options}
-          type="line"
-          width={160}
-          height={55}
-          data={lineChartData}
-        />
+      <Line
+        options={options}
+        type="line"
+        width={160}
+        height={55}
+        data={lineChartData}
+      />
     </div>
   );
 };

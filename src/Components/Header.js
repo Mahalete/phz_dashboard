@@ -1,17 +1,12 @@
 import React from "react";
 import style from "./Header.module.css";
-import avatar from "../assets/unsplash_ILip77SbmOE.png";
 import { SideMenuData } from "./SideMenuData";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
-import moment from "moment";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 const Header = ({ dateGiver }) => {
-  const [loadingDaterange, setLoadingDaterange] = useState(true);
-  const [npsdatawithdaterange, setNpsdatawithdaterange] = useState([]);
   const [startDate, setStartDate] = useState(
     new Date().setMonth(new Date().getMonth() - 6)
   );
@@ -61,19 +56,6 @@ const Header = ({ dateGiver }) => {
               selected={endDate}
               onChange={(date) => dateSetter("endDate", date)}
             />
-          </div>
-        </div>
-
-        <div className={style.titleRight}>
-          <img
-            data-testid="image"
-            className={style.avatar}
-            src={avatar}
-            alt="avatar"
-          />
-          <div className={style.userName}>
-            <p className={style.fullName}>Antti Hätinen</p>
-            <p className={style.ocupation}>CEO</p>
           </div>
         </div>
       </div>

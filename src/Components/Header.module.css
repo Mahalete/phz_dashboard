@@ -5,6 +5,7 @@
   right: 0;
   top: 0;
   margin: 2vh 4vw 2vh 4vw;
+  padding-top: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -48,10 +49,11 @@
 }
 .datePickerContainer {
   margin-top: 0.5vh;
-  width: 45%;
+  width: 36%;
   background: rgb(250, 238, 230);
-  padding-bottom: 0.5vh;
-  padding-left: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
   margin-left: -15vw;
   border: none;
   border-radius: 6px;

@@ -65,19 +65,6 @@
   width: 20vw;
 }
 
-
-.startDatePicker {
-  width: 31%;
-}
-
-.startTitle {
-  margin-right: 1.2vw;
-  font-size: 1em;
-  margin-top: 0.4vh;
-  font-size: 0.9em;
-}
-
-
 .endTitle {
   font-size: 14px;
   color: #a3a3a3;
@@ -96,7 +83,7 @@ input {
   font-size: 16px;
   border: 1.5px solid rgba(210, 120, 45, 0.75) !important;
 }
-input:focus{
+input:focus {
   box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;

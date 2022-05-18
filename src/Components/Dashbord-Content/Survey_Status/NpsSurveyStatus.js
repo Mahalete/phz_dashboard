@@ -339,7 +339,7 @@ const NPS_Survey_Status = ({ npsdata }) => {
       legend: {
         align: "end",
         labels: {
-          padding: 10,
+          padding: 8,
         },
       },
     },

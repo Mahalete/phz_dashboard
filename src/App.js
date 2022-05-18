@@ -37,6 +37,7 @@ function App() {
   };
 
   const setDates = (setter, date) => {
+    console.log(setter, date);
     if (setter === "startDate") {
       setStartDate(date);
     } else {
@@ -66,8 +67,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header dateGiver={setDates} />
-      <SideMenu />
+      {/*<Header dateGiver={setDates} /> */}
+      <SideMenu dateGiver={setDates} />
       <Routes>
         <Route
           path="/"

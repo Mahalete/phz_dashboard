@@ -78,6 +78,10 @@ table {
 h3 {
   color: #333333;
 }
+h3 {
+  font-size: 13px;
+  font-weight: 400;
+}
 
 .thead .trStyle {
   height: 50px;

@@ -45,7 +45,7 @@ const Header = ({ dateGiver }) => {
         })}
         <div className={style.datePickerContainer}>
           <div data-testid="datePicker" className={style.datePicker}>
-            <p className={style.startTitle}>From: </p>
+           
             <DatePicker
               wrapperClassName={style.startDatePicker}
               dateFormat="yyyy-MM-dd"
@@ -53,7 +53,7 @@ const Header = ({ dateGiver }) => {
               onChange={(date) => dateSetter("startDate", date)}
             />
 
-            <p className={style.endTitle}> To: </p>
+            <p className={style.endTitle}> to </p>
             <br></br>
             <DatePicker
               className={style.endDatePicker}
@@ -64,7 +64,7 @@ const Header = ({ dateGiver }) => {
           </div>
         </div>
 
-        <div className={style.titleRight}>
+        {/* <div className={style.titleRight}>
           <img
             data-testid="image"
             className={style.avatar}
@@ -75,7 +75,7 @@ const Header = ({ dateGiver }) => {
             <p className={style.fullName}>Antti Hätinen</p>
             <p className={style.ocupation}>CEO</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,26 +1,40 @@
 import React, { useState } from "react";
-import styles from "../src/Components/SideMenu.module.css";
-import { SideMenuData } from "../src/Components/SideMenuData";
-import { ReactComponent as Logo } from "../src/assets/PHZ _ ProScore.svg";
+import styles from "./SideMenu.module.css";
+import { SideMenuData } from "./SideMenuData";
 import { Link, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export const SideMenu = ({ dateGiver }) => {
+const SideMenu = ({ dateGiver }) => {
   const [startDate, setStartDate] = useState(
     new Date().setMonth(new Date().getMonth() - 6)
   );
   const [endDate, setEndDate] = useState(new Date());
+  const [showStart, setShowStart] = useState(
+    new Date().setMonth(new Date().getMonth() - 6)
+  );
+  const [showEnd, setShowEnd] = useState(new Date());
 
   const dateSetter = (setter, date) => {
-    console.log(setter, date);
     if (setter === "startDate") {
-      dateGiver(setter, date);
       setStartDate(date);
+      setShowStart(date);
     } else {
-      dateGiver("endDate", date);
       setEndDate(date);
+      setShowEnd(date);
     }
+  };
+
+  const filter = () => {
+    dateGiver(new Date(startDate), new Date(endDate));
+    setStartDate(new Date().setMonth(new Date().getMonth() - 6));
+    setEndDate(new Date());
+  };
+
+  const reset = () => {
+    setShowStart(new Date().setMonth(new Date().getMonth() - 6));
+    setShowEnd(new Date());
+    dateGiver(new Date(startDate), new Date(endDate));
   };
 
   let location = useLocation();
@@ -50,9 +64,9 @@ export const SideMenu = ({ dateGiver }) => {
           <div className={styles.labelWrapper}>
             <p className={styles.titles}> From </p>
             <DatePicker
-              wrapperClassName={styles.startDatePicker}
+              className={styles.dates}
               dateFormat="yyyy-MM-dd"
-              selected={startDate}
+              selected={showStart}
               onChange={(date) => dateSetter("startDate", date)}
             />
           </div>
@@ -60,14 +74,22 @@ export const SideMenu = ({ dateGiver }) => {
             <p className={styles.titles}> To </p>
             <br></br>
             <DatePicker
-              className={styles.endDatePicker}
+              className={styles.dates}
               dateFormat="yyyy-MM-dd"
-              selected={endDate}
+              selected={showEnd}
               onChange={(date) => dateSetter("endDate", date)}
             />
           </div>
         </div>
+        <button onClick={filter} className={styles.button}>
+          Filter
+        </button>
+        <button onClick={reset} className={styles.button}>
+          Reset
+        </button>
       </div>
     </div>
   );
 };
+
+export default SideMenu;

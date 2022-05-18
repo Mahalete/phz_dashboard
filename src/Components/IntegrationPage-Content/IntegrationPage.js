@@ -7,95 +7,75 @@ const IntegrationPage = () => {
       <h1 className={styles.hOne}>
         Please copy the code below and add to your own webpage!
       </h1>
-      <p data-testid="instructions" className={styles.instructions}>
-        You can adjust the size the of survey on your page by changing the style
-        attribute values in the html element {`<body>`}.
-      </p>
-      <div data-testid="box" className={styles.box}>
-        <p>{`   <body id="body" style="height: unset"> `}</p>
-        <p>{` <iframe id="iframe"`}</p>
-        <p>{` style="
-              height: 100vh;
-              width: 100vw;
-              position: absolute;
-              top: 0px;
-              bottom: unset;
-              left: unset;
-              z-index: 100;
-            "`}</p>
 
-        <p>{` title="survey"`}</p>
-        <p>{`  src="${process.env.REACT_APP_SURVEY_URL}"></iframe> `}</p>
-        <p>{`  <script>{window.addEventListener("message", (ev) => {`}</p>
-        <p>{`  let iFrame = document.getElementById("iframe");`}</p>
-        <p>{`  let body = document.getElementById("body");`}</p>
-        <p>{`  if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {`}</p>
-        <p>{` if (ev.data.message === "closed") {`}</p>
-        <p>{`  body.style.setProperty("height", "100vh");`}</p>
-        <p>{`  iFrame.style.setProperty("height", "10vh");`}</p>
-        <p>{`  iFrame.style.setProperty("width", "20vw");`}</p>
-        <p>{`  iFrame.style.setProperty("top", "unset");`}</p>
-        <p>{`  iFrame.style.setProperty("left", "0vw");`}</p>
-        <p>{`  iFrame.style.setProperty("bottom", "0px");`}</p>
-        <p>{`  iFrame.style.setProperty("display", "unset");`}</p>
-        <p>{` } else if (ev.data.message === "submitted") {`}</p>
-        <p>{`   iFrame.style.setProperty("display", "none");`}</p>
-        <p>{`  } else if (ev.data.message === "open") {`}</p>
-        <p>{`   body.style.setProperty("height", "100vh");`}</p>
-        <p>{`   iFrame.style.setProperty("height", "100vh");`}</p>
-        <p>{`   iFrame.style.setProperty("width", "100vw");`}</p>
-        <p>{`   iFrame.style.setProperty("top", "0px");`}</p>
-        <p>{`   iFrame.style.setProperty("left", "unset");`}</p>
-        <p>{`   iFrame.style.setProperty("bottom", "unset");`}</p>
-        <p>{`   iFrame.style.setProperty("display", "unset");}}})}; </script></body>`}</p>
+      <div data-testid="box" className={styles.box}>
+        <p>{` <body id="body" style="height: unset"> `}</p>
+        <p>{`    <iframe id="iframe"`}</p>
+        <p>{`     style=`}</p>
+        <p>{`     "height: 100vh;`}</p>
+        <p>{`   width: 100vw;`}</p>
+        <p>{`    position: absolute;`}</p>
+        <p>{`    top: 0px;`}</p>
+        <p>{`    z-index: 100;`}</p>
+        <p>{`   border-radius: 10px;"`}</p>
+        <p>{`   title="survey"`}</p>
+        <p>{`    src="${process.env.REACT_APP_SURVEY_URL}"></iframe>`}</p>
+        <p>{`   <script>`}</p>
+        <p>{`     {window.addEventListener("message", (ev) => {`}</p>
+        <p>{`      let iFrame = document.getElementById("iframe");`}</p>
+        <p>{`      let body = document.getElementById("body");`}</p>
+        <p>{`     if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {`}</p>
+        <p>{`       body.style.setProperty("height", ev.data.message.bodyHeight);`}</p>
+        <p>{`      body.style.setProperty("position", ev.data.message.bodyPosition);`}</p>
+        <p>{`     body.style.setProperty("top", ev.data.message.bodyTop);`}</p>
+        <p>{`      body.style.setProperty("left", ev.data.message.bodyLeft);`}</p>
+        <p>{`     iFrame.style.setProperty("height", ev.data.message.iFrameHeight);`}</p>
+        <p>{`     iFrame.style.setProperty("width", ev.data.message.width);`}</p>
+        <p>{`    iFrame.style.setProperty("top", ev.data.message.top);`}</p>
+        <p>{`    iFrame.style.setProperty("left", ev.data.message.left);`}</p>
+        <p>{`    iFrame.style.setProperty("bottom", ev.data.message.bottom);`}</p>
+        <p>{`    iFrame.style.setProperty("display", ev.data.message.display);`}</p>
+        <p>{`    iFrame.style.setProperty("borderRadius", ev.data.message.border);}})}</script> </body>`}</p>
       </div>
       <button
         className={styles.copy}
         onClick={() => {
-          navigator.clipboard.writeText(`
-          <body id="body" style="height: unset">
+          navigator.clipboard.writeText(` <body
+          id="body"
+          style="height: unset"
+        >
           <iframe
             id="iframe"
             style="
-              height: 100vh;
-              width: 100vw;
-              position: absolute;
-              top: 0px;
-              bottom: unset;
-              left: unset;
-              z-index: 100;
-            "
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0px;
+            z-index: 100;
+            border-radius: 10px;
+          "
+            
             title="survey"
             src="${process.env.REACT_APP_SURVEY_URL}"
           ></iframe>
           <script>
-            {
-              window.addEventListener("message", (ev) => {
-                let iFrame = document.getElementById("iframe");
-                let body = document.getElementById("body");
-                if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {
-                if (ev.data.message === "closed") {
-                  body.style.setProperty("height", "100vh");
-                  iFrame.style.setProperty("height", "10vh");
-                  iFrame.style.setProperty("width", "20vw");
-                  iFrame.style.setProperty("top", "unset");
-                  iFrame.style.setProperty("left", "0vw");
-                  iFrame.style.setProperty("bottom", "0px");
-                  iFrame.style.setProperty("display", "unset");
-                } else if (ev.data.message === "submitted") {
-                  iFrame.style.setProperty("display", "none");
-                } else if (ev.data.message === "open") {
-                  body.style.setProperty("height", "100vh");
-                  iFrame.style.setProperty("height", "100vh");
-                  iFrame.style.setProperty("width", "100vw");
-                  iFrame.style.setProperty("top", "0px");
-                  iFrame.style.setProperty("left", "unset");
-                  iFrame.style.setProperty("bottom", "unset");
-                  iFrame.style.setProperty("display", "unset");
-                }
+            {window.addEventListener("message", (ev) => {
+              let iFrame = document.getElementById("iframe");
+              let body = document.getElementById("body");
+              if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {
+                body.style.setProperty("height", ev.data.message.bodyHeight);
+                body.style.setProperty("position", ev.data.message.bodyPosition);
+                body.style.setProperty("top", ev.data.message.bodyTop);
+                body.style.setProperty("left", ev.data.message.bodyLeft);
+                iFrame.style.setProperty("height", ev.data.message.iFrameHeight);
+                iFrame.style.setProperty("width", ev.data.message.width);
+                iFrame.style.setProperty("top", ev.data.message.top);
+                iFrame.style.setProperty("left", ev.data.message.left);
+                iFrame.style.setProperty("bottom", ev.data.message.bottom);
+                iFrame.style.setProperty("display", ev.data.message.display);
+                iFrame.style.setProperty("borderRadius", ev.data.message.border);
               }
-            });        
-          }
+            })}
           </script>
         </body>
           `);

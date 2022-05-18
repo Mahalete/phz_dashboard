@@ -1,0 +1,9 @@
+.activeComment {
+    color: rgb(212, 126, 53);
+    border-bottom: solid 2px rgb(212, 126, 53);
+    font-weight: bold;
+}
+
+.active {
+    color: rgb(212, 126, 53);
+}

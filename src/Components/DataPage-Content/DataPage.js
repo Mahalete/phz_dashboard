@@ -6,6 +6,10 @@ import Pipe from "@mui/icons-material/Remove";
 import Sorting from "@mui/icons-material/ArrowDropDown";
 
 const DataPage = ({ data }) => {
+  const [activeId, setActiveId] = useState();
+  const [activeDate, setActiveDate] = useState();
+  const [activeScore, setActiveScore] = useState();
+
   const [answers, setAnswers] = useState(
     data.length > 10 ? data.slice(0, 10) : data
   );
@@ -45,21 +49,39 @@ const DataPage = ({ data }) => {
     let result;
     if (sortingBase === "score") {
       if (score === true) {
+        setActiveDate("")
+        setActiveId("")
+        setActiveScore("active")
         result = data.sort((a, b) => a.score - b.score);
         setScore(false);
       } else {
+        
         result = data.sort((a, b) => b.score - a.score);
         setScore(true);
       }
-    } else if (sortingBase === "id") {
-      answers[0].id > answers[1].id
-        ? (result = data.sort((a, b) => a.id - b.id))
-        : (result = data.sort((a, b) => b.id - a.id));
+    // } else if (sortingBase === "id") {
+    //   answers[0].id > answers[1].id
+    //     ? (result = data.sort((a, b) => a.id - b.id))
+    //     : (result = data.sort((a, b) => b.id - a.id));
+  } else if (sortingBase === "id") {
+    if (answers[0].id > answers[1].id){
+        setActiveScore("")
+        setActiveId("")
+        setActiveId("active")
+      result = data.sort((a, b) => a.id - b.id)
+    } else {
+        
+      result = data.sort((a, b) => b.id - a.id)
+    }
     } else {
       if (date === false) {
+        setActiveScore("")
+        setActiveId("")
+        setActiveDate("active")
         result = data.sort((a, b) => new Date(a.date) - new Date(b.date));
         setDate(true);
       } else {
+       
         result = data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setDate(false);
       }
@@ -116,32 +138,32 @@ const DataPage = ({ data }) => {
             <thead className={styles.thead}>
               <tr className={styles.trHeaderStyle}>
                 <th className={styles.thStyle}>
-                  <div className={styles.id}>
+                  <div className={styles.id + ' ' + activeId}>
                     ID{" "}
                     <Sorting
                       data-testid="id"
-                      className={styles.sorting}
-                      onClick={() => sorting("id")}
+                      className={ styles.sorting }
+                      onClick={() =>  sorting("id")}
                     />
                   </div>
                 </th>
                 <th className={styles.thStyle}>
-                  <div className={styles.date}>
+                  <div className={styles.date + ' ' + activeDate}>
                     Date{" "}
                     <Sorting
                       data-testid="date"
-                      className={styles.sorting}
+                      className={styles.sorting }
                       onClick={() => sorting("")}
                     />
                   </div>
                 </th>
                 <th className={styles.thStyle}>
-                  <div className={styles.score}>
+                  <div className={styles.score + ' ' + activeScore}>
                     <p>Score </p>
                     <Sorting
                       data-testid="score"
                       className={styles.sorting}
-                      onClick={() => sorting("score")}
+                      onClick={() =>  sorting("score")}
                     />
                   </div>
                 </th>

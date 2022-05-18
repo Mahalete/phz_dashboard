@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import comment from "./CommentPage.module.css";
+import "./CommentPage.css"
+import "./CommentPage.module.css"
 import TableScrollbar from "react-table-scrollbar";
 import Moment from "moment";
 
@@ -11,6 +13,7 @@ export const FILTERS = {
 };
 
 
+
 // const getQueryString = () => {
 //   const search = window.location.search;
 //   const params = new URLSearchParams(search);
@@ -18,6 +21,11 @@ export const FILTERS = {
 // };
 
 const CommentPage = ({ data }) => {
+  const [activeNeutral, setActiveNeutral] = useState();
+  const [activeAll, setActiveAll] = useState("activeComment");
+  const [activePromoter, setActivePromoter] = useState();
+  const [activeDetractor, setActiveDetractor] = useState();
+
   // const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
   // const readyData = latestData.filter((element) => element.feedback.length > 0);
   const getPreparedData = (item) =>
@@ -37,18 +45,33 @@ const CommentPage = ({ data }) => {
   const onFilterChange = (filter) => {
     switch (filter) {
       case FILTERS.PROMOTER:
+        setActiveDetractor("")
+        setActiveAll("")
+        setActiveNeutral("")
+        setActivePromoter("activeComment")
         return data.filter((element) => element.score >= 9);
       // break;
       case FILTERS.NEUTRAL:
+        setActiveDetractor("")
+        setActiveAll("")
+        setActivePromoter("")
+        setActiveNeutral("activeComment")
         return data.filter((element) => element.score > 6 && element.score < 9);
 
       // break;
       case FILTERS.DETRACTOR:
-        console.log(filter);
+        setActivePromoter("")
+        setActiveAll("")
+        setActiveNeutral("")
+        setActiveDetractor("activeComment")
         return data.filter((element) => element.score <= 6);
       // break;
 
       default:
+        setActivePromoter("")
+        setActiveDetractor("")
+        setActiveNeutral("")
+        setActiveAll("activeComment")
         return data;
       // break;
     }
@@ -58,7 +81,7 @@ const CommentPage = ({ data }) => {
     // setFeedbacks(feedbacks);
   };
 
-
+  
 
   return (
     <div>
@@ -66,9 +89,9 @@ const CommentPage = ({ data }) => {
         <div>
           <div className={comment.listMenu_button}>
             <button
-              open-active
               data-testid="all_data"
-              className={comment.listMenuAll_button}
+              // id={location.pathname === val.link ? comment.active : ""}
+              className={comment.listMenuAll_button + ' ' + activeAll}
               onClick={ () => {
                 setFeedbacks(onFilterChange(FILTERS.ALL));
                 
@@ -78,21 +101,24 @@ const CommentPage = ({ data }) => {
             </button>
             <button
               data-testid="promoter_data"
-              className={comment.listMenuAll_button}
+              
+              className={comment.listMenuAll_button + ' ' + activePromoter}
               onClick={() => setFeedbacks(onFilterChange(FILTERS.PROMOTER))}
             >
               PROMOTERS
             </button>
             <button
               data-testid="detractor_data"
-              className={comment.listMenuAll_button}
+            
+              className={comment.listMenuAll_button + ' ' + activeDetractor}
               onClick={() => setFeedbacks(onFilterChange(FILTERS.DETRACTOR))}
             >
               DETRACTORS
             </button>
             <button
               data-testid="neutral_data"
-              className={comment.listMenuAll_button}
+              
+              className={comment.listMenuAll_button + ' ' + activeNeutral}
               onClick={() => setFeedbacks(onFilterChange(FILTERS.NEUTRAL))}
             >
               NEUTRALS

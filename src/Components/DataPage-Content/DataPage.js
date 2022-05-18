@@ -124,7 +124,7 @@ const DataPage = ({ data }) => {
             className={styles.arrows}
             onClick={() => pageChanger("")}
           />
-          <h3> Page </h3>
+          <h3> PAGE </h3>
           <Pipe className={styles.pipe} />
           <h3>
             {data.length < 11

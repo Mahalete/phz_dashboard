@@ -3,11 +3,11 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 24px 24px 24px 0;
-  height: 38vh;
-  width: 45vw;
+  height: 35vh;
+  width: 35vw;
   position: absolute;
   left: 20vw;
-  margin: 10vh 1rem 2rem 4vw;
+  margin: 11vh 1rem 2rem 4vw;
 }
 
 .chartContainer {
@@ -27,7 +27,7 @@
 }
 
 .pieChart {
-  width: 100%;
+  width: 90%;
 }
 
 .chart p {

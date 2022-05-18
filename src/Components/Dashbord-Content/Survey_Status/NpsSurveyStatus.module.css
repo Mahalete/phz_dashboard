@@ -28,7 +28,8 @@
   width: 4vw;
 }
 select {
-  font-family: "Roboto";
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -38,6 +39,7 @@ select {
   border-radius: 5px;
   padding: 0.2rem;
 }
+
 select:focus {
   box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;

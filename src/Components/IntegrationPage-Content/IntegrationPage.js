@@ -25,11 +25,11 @@ const IntegrationPage = () => {
             "`}</p>
 
         <p>{` title="survey"`}</p>
-        <p>{`  src="https://phz-survey.herokuapp.com/survey"></iframe> `}</p>
+        <p>{`  src="${process.env.REACT_APP_SURVEY_URL}"></iframe> `}</p>
         <p>{`  <script>{window.addEventListener("message", (ev) => {`}</p>
         <p>{`  let iFrame = document.getElementById("iframe");`}</p>
         <p>{`  let body = document.getElementById("body");`}</p>
-        <p>{`  if (ev.origin === "https://phz-survey.herokuapp.com/") {`}</p>
+        <p>{`  if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {`}</p>
         <p>{` if (ev.data.message === "closed") {`}</p>
         <p>{`  body.style.setProperty("height", "100vh");`}</p>
         <p>{`  iFrame.style.setProperty("height", "10vh");`}</p>
@@ -66,14 +66,14 @@ const IntegrationPage = () => {
               z-index: 100;
             "
             title="survey"
-            src="https://phz-survey.herokuapp.com/survey"
+            src="${process.env.REACT_APP_SURVEY_URL}"
           ></iframe>
           <script>
             {
               window.addEventListener("message", (ev) => {
                 let iFrame = document.getElementById("iframe");
                 let body = document.getElementById("body");
-                if (ev.origin === "https://phz-survey.herokuapp.com/") {
+                if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {
                 if (ev.data.message === "closed") {
                   body.style.setProperty("height", "100vh");
                   iFrame.style.setProperty("height", "10vh");

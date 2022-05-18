@@ -35,15 +35,17 @@ const Header = ({ dateGiver }) => {
           if (location.pathname === val.link) {
             return (
               <div key={key}>
-                <p data-testid ={`title-${val.id}`} className={style.title}>{val.title}</p>
+                <p data-testid={`title-${val.id}`} className={style.title}>
+                  {val.title}
+                </p>
               </div>
             );
           }
           return null;
         })}
         <div className={style.datePickerContainer}>
-          <div data-testid = "datePicker" className={style.datePicker}>
-            <p className={style.startTitle}>Start_Date: </p>
+          <div data-testid="datePicker" className={style.datePicker}>
+            <p className={style.startTitle}>From: </p>
             <DatePicker
               wrapperClassName={style.startDatePicker}
               dateFormat="yyyy-MM-dd"
@@ -51,7 +53,7 @@ const Header = ({ dateGiver }) => {
               onChange={(date) => dateSetter("startDate", date)}
             />
 
-            <p className={style.endTitle}> End_Date: </p>
+            <p className={style.endTitle}> To: </p>
             <br></br>
             <DatePicker
               className={style.endDatePicker}
@@ -63,7 +65,12 @@ const Header = ({ dateGiver }) => {
         </div>
 
         <div className={style.titleRight}>
-          <img data-testid = "image" className={style.avatar} src={avatar} alt="avatar" />
+          <img
+            data-testid="image"
+            className={style.avatar}
+            src={avatar}
+            alt="avatar"
+          />
           <div className={style.userName}>
             <p className={style.fullName}>Antti Hätinen</p>
             <p className={style.ocupation}>CEO</p>

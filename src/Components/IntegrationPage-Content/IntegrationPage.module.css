@@ -59,3 +59,11 @@
   font-size: 16px;
   line-height: 19px;
 }
+
+.copy:hover {
+  background: #cda686;
+}
+
+.copy:active {
+  background: #b0550b;
+}

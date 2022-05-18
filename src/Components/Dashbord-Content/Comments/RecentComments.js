@@ -67,7 +67,7 @@ const Recent_comments = ({ data, filter }) => {
         <h1>Comments</h1>
         <Link to="/comment">See all</Link>
       </div>
-      <Scrollbars style={{ width: "20vw", height: "50vh" }}>
+      <Scrollbars style={{ height: "50vh" }}>
         <div className={style.comments}>
           {comment_data.length === 0 && (
             <p className={style.feedback_empty}>No comments found.</p>

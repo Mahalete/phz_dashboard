@@ -50,17 +50,17 @@
   bottom: 0;
   flex-direction: column;
 }
-
+.tableScroll {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
 .DataPageWrapper {
-  width: 72vw;
-  height: 80vh;
-  font-family: "Roboto";
+    width: 72vw;
+  height: 615px;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 170%;
   display: flex;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow-x: auto;
 }

@@ -72,3 +72,46 @@ a:active {
 .row .title {
   flex: 70%;
 }
+
+.datePickerContainer {
+  z-index: 3;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  font-size: 16px;
+  color: #a3a3a3;
+  position: absolute;
+  top: 42vh;
+  left: 1.8vw;
+}
+
+.datePicker {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  width: 15vw;
+  margin-top: 2vh;
+}
+
+.dateRangeTitle {
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 0.5vw;
+}
+
+.labelWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1vh;
+}
+
+.titles {
+  font-size: 14px;
+  margin: 0 0.5rem;
+  width: 5vw;
+  padding-top: 1vh;
+}

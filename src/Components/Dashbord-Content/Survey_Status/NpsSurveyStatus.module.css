@@ -15,7 +15,6 @@
 .title {
   display: flex;
   align-items: center;
-
 }
 
 .inputArea {
@@ -34,16 +33,17 @@ select {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  border: 1.5px solid rgba(210, 120, 45, 0.75) !important;
-  color: #6b6b6b;
-  height: 4vh;
-  
+  color: #d2782d;
+  border: 1px solid rgba(210, 120, 45, 0.45) !important;
+  height: 3.5vh;
+  border-radius: 5px;
+  padding: 0.2rem;
 }
+
 select:focus {
   box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   -moz-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   -webkit-box-shadow: 0 0 3px rgba(210, 120, 45, 0.15) !important;
   outline-offset: 0px !important;
   outline: none !important;
-  padding: 0.2rem;
 }

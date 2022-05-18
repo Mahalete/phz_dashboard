@@ -54,7 +54,7 @@
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 .DataPageWrapper {
-    width: 72vw;
+  width: 72vw;
   height: 615px;
   font-style: normal;
   font-weight: 500;
@@ -72,7 +72,6 @@
 .commentTable th {
   position: sticky;
   top: 0;
-  z-index: 1;
   background: #fff;
 }
 

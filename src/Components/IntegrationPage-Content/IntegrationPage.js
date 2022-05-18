@@ -19,7 +19,7 @@ const IntegrationPage = () => {
         <p>{`    z-index: 100;`}</p>
         <p>{`   border-radius: 10px;"`}</p>
         <p>{`   title="survey"`}</p>
-        <p>{`    src="${process.env.REACT_APP_SURVEY_URL}"></iframe>`}</p>
+        <p>{`    src="${process.env.REACT_APP_SURVEY_URL}/survey"></iframe>`}</p>
         <p>{`   <script>`}</p>
         <p>{`     {window.addEventListener("message", (ev) => {`}</p>
         <p>{`      let iFrame = document.getElementById("iframe");`}</p>
@@ -56,7 +56,7 @@ const IntegrationPage = () => {
           "
             
             title="survey"
-            src="${process.env.REACT_APP_SURVEY_URL}"
+            src="${process.env.REACT_APP_SURVEY_URL}/survey"
           ></iframe>
           <script>
             {window.addEventListener("message", (ev) => {

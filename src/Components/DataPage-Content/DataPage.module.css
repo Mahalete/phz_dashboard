@@ -11,33 +11,13 @@
   align-items: center;
   position: absolute;
   left: 20vw;
-  bottom: 0;
+  top: 12vh;
   flex-direction: column;
 }
 
 .centralize span {
   width: 2rem;
   text-align: center;
-}
-
-.nextPage {
-  display: flex;
-  flex-direction: row;
-  margin: 2vh 4vw 2vh 4vw;
-  width: 72vw;
-  height: 6vh;
-  align-items: center;
-}
-
-.pipe {
-  transform: rotate(90deg) scale(1.2);
-  margin: 29px;
-}
-
-.arrows {
-  margin: 21px;
-  cursor: pointer;
-  transform: scale(0.9);
 }
 
 .sorting {
@@ -83,7 +63,7 @@ h3 {
 }
 .thead {
   position: sticky;
-  top:0;
+  top: 0;
   background: white;
 }
 
@@ -96,7 +76,7 @@ h3 {
 .date {
   display: flex;
   width: 65px;
-  height: 50px;
+  height: 40px;
   align-items: center;
 }
 

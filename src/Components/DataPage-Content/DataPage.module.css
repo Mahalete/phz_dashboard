@@ -5,10 +5,9 @@
 }
 
 .centralize {
-  height: 90vh;
+  height: 100vh;
   width: 80vw;
   display: flex;
-  justify-content: center;
   align-items: center;
   position: absolute;
   left: 20vw;
@@ -23,7 +22,7 @@
 
 .nextPage {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   margin: 2vh 4vw 2vh 4vw;
   width: 72vw;
   height: 6vh;
@@ -31,14 +30,14 @@
 }
 
 .pipe {
-  transform: rotate(90deg) scale(2);
+  transform: rotate(90deg) scale(1.2);
   margin: 29px;
 }
 
 .arrows {
   margin: 21px;
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(0.9);
 }
 
 .sorting {
@@ -81,6 +80,11 @@ h3 {
 h3 {
   font-size: 13px;
   font-weight: 400;
+}
+.thead {
+  position: sticky;
+  top:0;
+  background: white;
 }
 
 .thead .trStyle {

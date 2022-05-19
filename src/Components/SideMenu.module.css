@@ -12,9 +12,6 @@
   align-items: center;
 }
 
-.logo {
-  margin-top: 2rem;
-}
 
 .side_menu_list {
   height: auto;
@@ -80,10 +77,16 @@ a:active {
   font-size: 16px;
   color: #a3a3a3;
   position: absolute;
-  top: 42vh;
+  top: 45vh;
   left: 1.8vw;
 }
-
+.line {
+  height: 1px;
+  width: 16vw;
+  background-color: #a3a3a3;
+  position: absolute;
+  top: 40vh;
+}
 .datePicker {
   display: flex;
   flex-direction: column;

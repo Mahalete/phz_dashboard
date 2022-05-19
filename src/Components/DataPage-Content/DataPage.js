@@ -66,7 +66,7 @@ const DataPage = ({ data }) => {
   } else if (sortingBase === "id") {
     if (answers[0].id > answers[1].id){
         setActiveScore("")
-        setActiveId("")
+        setActiveDate("")
         setActiveId("active")
       result = data.sort((a, b) => a.id - b.id)
     } else {
@@ -111,27 +111,31 @@ const DataPage = ({ data }) => {
     <div>
       <div className={styles.centralize}>
         <div className={styles.nextPage}>
-          <ArrowRight
-            data-testid="arrowRight"
-            className={styles.arrows}
-            onClick={() => pageChanger("next")}
-          />
-          <span>
-            <h3 data-testid="pageNumber">{pages}</h3>
-          </span>
-          <ArrowLeft
-            data-testid="arrowLeft"
-            className={styles.arrows}
-            onClick={() => pageChanger("")}
-          />
-          <h3> PAGE </h3>
-          <Pipe className={styles.pipe} />
-          <h3>
+        <h3>
             {data.length < 11
               ? answers.length
               : (pages - 1) * 10 + answers.length}{" "}
             / {data.length}
           </h3>
+          <Pipe className={styles.pipe} />
+          <h3> PAGE </h3>
+          <ArrowLeft
+            data-testid="arrowLeft"
+            className={styles.arrows}
+            onClick={() => pageChanger("")}
+          />
+          
+          <span>
+            <h3 data-testid="pageNumber">{pages}</h3>
+          </span>
+          <ArrowRight
+            data-testid="arrowRight"
+            className={styles.arrows}
+            onClick={() => pageChanger("next")}
+          />
+          
+         
+          
         </div>
         <div className={styles.DataPageWrapper}>
           <table data-testid="table">

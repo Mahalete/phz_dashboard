@@ -14,21 +14,29 @@ const SideMenu = ({ dateGiver }) => {
     new Date().setMonth(new Date().getMonth() - 6)
   );
   const [showEnd, setShowEnd] = useState(new Date());
+  const [startDateChange, setStartDateChange] = useState();
+  const [endDateChange, setEndDateChange] = useState();
 
   const dateSetter = (setter, date) => {
     if (setter === "startDate") {
       setStartDate(date);
       setShowStart(date);
+      setStartDateChange(true);
     } else {
       setEndDate(date);
       setShowEnd(date);
+      setEndDateChange(true);
     }
   };
 
   const filter = () => {
-    dateGiver(new Date(startDate), new Date(endDate));
-    setStartDate(new Date().setMonth(new Date().getMonth() - 6));
-    setEndDate(new Date());
+    if (startDateChange === true || endDateChange === true) {
+      dateGiver(new Date(startDate), new Date(endDate));
+      setStartDate(new Date().setMonth(new Date().getMonth() - 6));
+      setEndDate(new Date());
+      setStartDateChange(false);
+      setEndDateChange(false);
+    }
   };
 
   const reset = () => {
@@ -40,7 +48,6 @@ const SideMenu = ({ dateGiver }) => {
   let location = useLocation();
   return (
     <div data-testid="menu" className={styles.side_menu}>
-     
       <ul className={styles.side_menu_list}>
         {SideMenuData.map((val, key) => {
           return (
@@ -61,7 +68,6 @@ const SideMenu = ({ dateGiver }) => {
       <div className={styles.line}></div>
       <div className={styles.datePickerContainer}>
         {" "}
-        {/* <p className={styles.dateRangeTitle}>Date range</p> */}
         <div data-testid="datePicker" className={styles.datePicker}>
           <div className={styles.labelWrapper}>
             <p className={styles.titles}> From </p>

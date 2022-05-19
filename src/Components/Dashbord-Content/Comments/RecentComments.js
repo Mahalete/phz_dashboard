@@ -7,7 +7,6 @@ import { Scrollbars } from "rc-scrollbars";
 
 const Recent_comments = ({ data, filter }) => {
   const latestData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-  console.log(filter);
 
   let readyData = latestData.filter((element) => element.feedback.length > 0);
   const [feedbacks, setFeedbacks] = useState(readyData);
@@ -30,7 +29,6 @@ const Recent_comments = ({ data, filter }) => {
 
         break;
       case FILTERS.DETRACTOR:
-        console.log(filter, filteredData);
         filteredData = readyData.filter((element) => element.score <= 6);
         break;
 
@@ -38,17 +36,14 @@ const Recent_comments = ({ data, filter }) => {
         filteredData = readyData;
         break;
     }
-    console.log(filter, filteredData);
-    filteredData =
-      // filteredData.length > 20 ? filteredData.slice(0, 20) : filteredData;
-      setFeedbacks(filteredData);
+
+    setFeedbacks(filteredData);
   };
 
   //Display part og the paragraph wne greater than 20 characters
 
   const comment_data = feedbacks;
-  // .length > 4 ? feedbacks.slice(0, 4) : feedbacks;
-  //console.log(comment_data);
+
   const getFeedbackScoreStyle = (score) => {
     if (score >= 9) {
       return FILTERS.PROMOTER;

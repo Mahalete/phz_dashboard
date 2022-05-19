@@ -34,13 +34,12 @@
   width: 8rem;
   height: 2rem;
   margin: 1rem;
-  background: #d2782d;
+  background: #fff;
   border: 1px solid #d2782d;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 7px;
-  color: #ffffff;
-  font-family: "SF Pro Display";
+  color: #d2782d;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -50,13 +49,12 @@
   width: 8rem;
   height: 2rem;
   margin: 1rem;
-  background: #d2782d;
+  background: #fff;
   border: 1px solid #d2782d;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 7px;
-  color: #ffffff;
-  font-family: "SF Pro Display";
+  color: #d2782d;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -93,15 +91,14 @@
 }
 
 .copy {
-  height: 3rem;
+  height: 2.5rem;
   width: 12rem;
   background: #d2782d;
   border: 1px solid #d2782d;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 7px;
-  color: #ffffff;
-  font-family: "SF Pro Display";
+  color: #fff;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

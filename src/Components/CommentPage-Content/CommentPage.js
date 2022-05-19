@@ -86,7 +86,7 @@ const CommentPage = ({ data }) => {
   return (
     <div>
       <div className={comment.center_data}>
-        <div>
+        <div className={comment.listMenu}>
           <div className={comment.listMenu_button}>
             <button
               data-testid="all_data"
@@ -124,9 +124,10 @@ const CommentPage = ({ data }) => {
               NEUTRALS
             </button>
           </div>
-        </div>
-        <TableScrollbar height="615px">
+          </div>
+        
           <div className={comment.DataPageWrapper}>
+          {/* <TableScrollbar height="615px"> */}
             <table className={comment.commentTable} data-testid="tableA">
               <thead className={comment.column_headers}>
                 <tr className={comment.commentTr}>
@@ -149,7 +150,7 @@ const CommentPage = ({ data }) => {
                         name={val.id}
                         key={val.id}
                       >
-                        <td>{Moment(val.date).format("DD-MM-YYYY")}</td>
+                        <td>{Moment(val.date).format("DD.MM.YYYY")}</td>
                         <td>{val.score}</td>
                         <td>{val.feedback}</td>
                       </tr>
@@ -157,8 +158,9 @@ const CommentPage = ({ data }) => {
                   })}
               </tbody>
             </table>
+            {/* </TableScrollbar> */}
           </div>
-        </TableScrollbar>
+        
       </div>
     </div>
   );

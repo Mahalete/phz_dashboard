@@ -40,6 +40,7 @@ const SideMenu = ({ dateGiver }) => {
   let location = useLocation();
   return (
     <div data-testid="menu" className={styles.side_menu}>
+     
       <ul className={styles.side_menu_list}>
         {SideMenuData.map((val, key) => {
           return (
@@ -57,9 +58,10 @@ const SideMenu = ({ dateGiver }) => {
         })}
       </ul>
 
+      <div className={styles.line}></div>
       <div className={styles.datePickerContainer}>
         {" "}
-        <p className={styles.dateRangeTitle}>Date range</p>
+        {/* <p className={styles.dateRangeTitle}>Date range</p> */}
         <div data-testid="datePicker" className={styles.datePicker}>
           <div className={styles.labelWrapper}>
             <p className={styles.titles}> From </p>

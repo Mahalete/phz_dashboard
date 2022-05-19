@@ -28,10 +28,9 @@ h1 {
 }
 
 .title_feedback a {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 170%;
   color: #d2782d;
 }

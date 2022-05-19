@@ -35,7 +35,7 @@ const IntegrationPage = () => {
         <p>{`    iFrame.style.setProperty("left", ev.data.message.left);`}</p>
         <p>{`    iFrame.style.setProperty("bottom", ev.data.message.bottom);`}</p>
         <p>{`    iFrame.style.setProperty("display", ev.data.message.display);`}</p>
-        <p>{`    iFrame.style.setProperty("borderRadius", ev.data.message.border);}})}</script> </body>`}</p>
+        <p>{`    iFrame.style.setProperty("border", ev.data.message.border);}})}</script> </body>`}</p>
       </div>
       <button
         className={styles.copy}
@@ -73,7 +73,7 @@ const IntegrationPage = () => {
                 iFrame.style.setProperty("left", ev.data.message.left);
                 iFrame.style.setProperty("bottom", ev.data.message.bottom);
                 iFrame.style.setProperty("display", ev.data.message.display);
-                iFrame.style.setProperty("borderRadius", ev.data.message.border);
+                iFrame.style.setProperty("border", ev.data.message.border);
               }
             })}
           </script>

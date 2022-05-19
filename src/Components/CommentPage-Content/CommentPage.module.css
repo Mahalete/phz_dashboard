@@ -37,6 +37,7 @@
   background: white;
   font-size: 13px;
   margin-right: 80px;
+  cursor: pointer;
 }
 .active {
   background: rgb(212, 126, 53);
@@ -56,7 +57,7 @@
 }
 .DataPageWrapper {
   width: 72vw;
-  height: 615px;
+  height: 84vh;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

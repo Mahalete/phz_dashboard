@@ -1,10 +1,11 @@
 .IntegrationPage {
   width: 80vw;
-  height: 80vh;
+  height: 94vh;
   margin-left: 20vw;
-  margin-top: 15vh;
+  margin-top: 4vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   font-style: normal;
   line-height: 130%;
@@ -28,10 +29,10 @@
 }
 .integration_btn {
   display: flex;
-  margin-left: 20rem;
 }
 .javascript_btn {
-  width: 10%;
+  width: 8rem;
+  height: 2rem;
   margin: 1rem;
   background: #d2782d;
   border: 1px solid #d2782d;
@@ -46,7 +47,8 @@
   line-height: 19px;
 }
 .react_btn {
-  width: 10%;
+  width: 8rem;
+  height: 2rem;
   margin: 1rem;
   background: #d2782d;
   border: 1px solid #d2782d;
@@ -91,10 +93,8 @@
 }
 
 .copy {
-  margin-left: 60vw;
-  padding: 2px 13px;
-  width: 9vw;
-  height: 48px;
+  height: 3rem;
+  width: 12rem;
   background: #d2782d;
   border: 1px solid #d2782d;
   box-sizing: border-box;

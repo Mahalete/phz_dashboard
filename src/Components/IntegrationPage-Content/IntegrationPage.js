@@ -62,7 +62,7 @@ const IntegrationPage = () => {
       )}
       {!isShown && (
         <div data-testid="box" className={styles.box}>
-          <p>{` <body id="body" style="height: unset"> `}</p>
+          <p>{` <body id="body" style={{height: "unset"}}> `}</p>
           <p>{`    <iframe id="iframe"`}</p>
           <p>{`     style={{`}</p>
           <p>{`     height: "100vh",`}</p>
@@ -139,12 +139,12 @@ const IntegrationPage = () => {
           } else {
             navigator.clipboard.writeText(`
 
-             <body id="body" style="height: unset"> 
+             <body id="body" style={{height: "unset"}}> 
                <iframe id="iframe"
                 style={{
                 height: "100vh",
                 width: "100vw",
-                position: "absolute"
+                position: "absolute",
                 top: "0px",
                 Zindex: "100",
                 borderRadius: "10px"

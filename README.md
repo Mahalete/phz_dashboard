@@ -1,71 +1,96 @@
-# Getting Started with Create React App
+# PHZ NPS Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Project Description
 
-## Available Scripts
+Business College Helsinki school project with PHZ Full Stack. The dashboard displays the information about the employees satisfaction at the work place.
 
-In the project directory, you can run:
+### 1.1. Business Vision
 
-### `npm start`
+To make easy to use and clear dashboard for HR and CEO to access the information collected from employees about the satisfaction of working in the work place.
+All the vital information about the current NPS, feedbacks and NPS Trend can be found from one page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1.2. Task Management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Jira
+- Slack
+- Teams
+- GitHub
 
-### `npm test`
+### 1.3. Personas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Mahalete Haile @Mahalete
+- Rakhi Chirayil Chandran @rakhicc
+- Trang Nguyen @nguyenminhtrang2206
+- Maria Rosenholm @MariaRosenholm
 
-### `npm run build`
+### 1.4. Use Cases
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Based on employees responses they are placed into three categories: Neutrals, Promotors and Detractors.
+- NPS is calculated by Subtracting the percentage of Detractors from the percentage of Promoters
+- HR can see the latest feedbacks and act accordingly
+- CEO can see the NPS and based on that pay bonuses to HR
+- By following the NPS Trend HR and CEO can find out if the actions they have they taken have been efficient
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Read more!](https://www.netpromoter.com/know/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 2. Architecture
 
-### `npm run eject`
+### 2.1. Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Coding languages/frameworks/testing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React
+  - Axios
+  - Chart.js
+  - Moment
+  - DatePicker
+- CSS
+- Jest
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 3. Development Environment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3.1. Prerequisites
 
-## Learn More
+In the environmental variables you should have:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```.env
+REACT_APP_URL=BACKENDURL/api/npsdata
+REACT_APP_SURVEY_URL=SURVEYURL
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3.2. Start the Application
 
-### Code Splitting
+After pulling the newest code from Git.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- npm install
+- .env file in the root
+- npm start
 
-### Analyzing the Bundle Size
+### 3.3. Run Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- npm test
 
-### Making a Progressive Web App
+## 4. Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4.1. Prerequisites
 
-### Advanced Configuration
+To deploy you need to have:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- npm
+- node
 
-### Deployment
+In the environmental variables you should have:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```.env
+REACT_APP_URL=BACKENDURL/api/npsdata
+REACT_APP_SURVEY_URL=SURVEYURL
+```
 
-### `npm run build` fails to minify
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# phz_dashboard
+![Screenshot of the Dashboard](./screenshots/Dashboard.png)
+![Screenshot of the Dashboard NPS Trend line hidden in the graph](./screenshots/DashboardNoNPSTrend.png)
+![Screenshot of the Dashboard Bonus Limit visible in the graph](./screenshots/DashboardBonusLimit.png)
+![Screenshot of the Data page](./screenshots/DataPage.png)
+![Screenshot of the Comment page](./screenshots/CommentPage.png)
+![Screenshot of the Integration page](./screenshots/IntegrationPage.png)

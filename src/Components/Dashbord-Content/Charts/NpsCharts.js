@@ -22,7 +22,6 @@ const NPS_Charts = ({ data, setFilter }) => {
   data.forEach((element) => {
     scores.push(element.score);
   });
-  console.log(data, scores);
 
   let dedactor_val = 0;
   let promoter_val = 0;
@@ -89,7 +88,7 @@ const NPS_Charts = ({ data, setFilter }) => {
             radius={30}
             onClick={(event, selectedIndex) => {
               const queryString = pieChartData[selectedIndex].key;
-              console.log(event, selectedIndex, queryString);
+
               setFilter(queryString);
               // navigate(`/comment?filter=${queryString}`);
             }}

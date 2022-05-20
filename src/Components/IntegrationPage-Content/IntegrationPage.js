@@ -21,10 +21,15 @@ const IntegrationPage = () => {
         <button
           className={styles.javascript_btn}
           onClick={handleClickJavascript}
+          data-testid="Javascript_btn"
         >
           Javascript
         </button>
-        <button className={styles.react_btn} onClick={handleClickReact}>
+        <button
+          className={styles.react_btn}
+          onClick={handleClickReact}
+          data-testid="React_btn"
+        >
           React
         </button>
       </div>
@@ -95,6 +100,7 @@ const IntegrationPage = () => {
 
       <button
         className={styles.copy}
+        data-testid="Copy_btn"
         onClick={() => {
           if (isShown) {
             navigator.clipboard.writeText(` <body
@@ -111,7 +117,6 @@ const IntegrationPage = () => {
               z-index: 100;
               border-radius: 10px;
             "
-              
               title="survey"
               src="${process.env.REACT_APP_SURVEY_URL}/survey"
             ></iframe>
@@ -134,12 +139,10 @@ const IntegrationPage = () => {
                 }
               })}
             </script>
-          </body>
-            `);
+          </body>`);
           } else {
             navigator.clipboard.writeText(`
-
-             <body id="body" style={{height: "unset"}}> 
+            <body id="body" style={{height: "unset"}}> 
                <iframe id="iframe"
                 style={{
                 height: "100vh",

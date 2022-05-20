@@ -63,24 +63,24 @@ test('full SideMenu rendering/navigating data page', async () => {
         <SideMenu />
       </Router>,
     )
-    const user = userEvent.setup()
-    expect(screen.getByText(/dashboard/i)).toBeInTheDocument()
+  //   const user = userEvent.setup()
+  //   expect(screen.getByText(/dashboard/i)).toBeInTheDocument()
   
-    await user.click(screen.getByText(/graph/i))
+  //   await user.click(screen.getByText(/graph/i))
   
-    // check that the content changed to the new page
-    expect(screen.getByText(/Graph/i)).toBeInTheDocument()
-  })
+  //   // check that the content changed to the new page
+  //   expect(screen.getByText(/Graph/i)).toBeInTheDocument()
+  // })
 
-  test('rendering a component that uses useLocation', () => {
-    const history = createMemoryHistory()
-    const route = '/some-route'
-    history.push(route)
-    render(
-      <Router location={history.location} navigator={history}>
-        <SideMenu />
-      </Router>,
-    )
+  // test('rendering a component that uses useLocation', () => {
+  //   const history = createMemoryHistory()
+  //   const route = '/some-route'
+  //   history.push(route)
+  //   render(
+  //     <Router location={history.location} navigator={history}>
+  //       <SideMenu />
+  //     </Router>,
+  //   )
   
-    expect(screen.getByTestId('menu')).toBeTruthy()
+  //   expect(screen.getByTestId('menu')).toBeTruthy()
   }) 

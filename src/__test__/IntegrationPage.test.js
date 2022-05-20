@@ -13,17 +13,6 @@ test("There is h1 with a text 'Please copy the code below and add to your own we
   );
 });
 
-test(`There is instructions: You can adjust the size the of survey on your page by changing the
-values in the <iframe min-height: 100vh" width="100%">.`, () => {
-  render(<IntegrationPage />);
-
-  const instructions = screen.getByTestId("instructions");
-  expect(instructions).toBeInTheDocument();
-  expect(instructions.textContent).toEqual(
-    `You can adjust the size the of survey on your page by changing the values in the <iframe min-height: 100vh" width="100%">.`
-  );
-});
-
 test("There is div with text including '</iframe>'", () => {
   render(<IntegrationPage />);
 
@@ -35,7 +24,7 @@ test("There is div with text including '</iframe>'", () => {
 test("There is button with a text 'Click here to copy!'", () => {
   render(<IntegrationPage />);
 
-  const copy = screen.getByRole("button");
+  const copy = screen.getByTestId("Copy_btn");
   expect(copy).toBeInTheDocument();
   expect(copy.textContent).toEqual("Click here to copy!");
 });
@@ -54,18 +43,94 @@ test("When you click the button you get the code copied to your clipboard.", () 
   };
   global.navigator.clipboard = mockClipboard;
 
-  const copy = screen.getByRole("button");
+  const javascript_btn = screen.getByTestId("Javascript_btn");
+  const react_btn = screen.getByTestId("React_btn");
+
+  let copy = screen.getByTestId("Copy_btn");
+  fireEvent.click(javascript_btn);
+
   fireEvent.click(copy);
 
-  expect(navigator.clipboard.readText()).toEqual(`<html lang="en">
-          <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>Survey</title>
-          </head>
-          <body style="min-height: 100vh">
-          <iframe src="https://6250087de54f4a00086ddc56--profound-pithivier-7c3ab2.netlify.app/" style="border: none; min-height: 100vh" width="100%" ></iframe>
-          </body>
-          </html>`);
+  expect(navigator.clipboard.readText()).toEqual(` <body
+            id="body"
+            style="height: unset"
+          >
+            <iframe
+              id="iframe"
+              style="
+              height: 100vh;
+              width: 100vw;
+              position: absolute;
+              top: 0px;
+              z-index: 100;
+              border-radius: 10px;
+            "
+              title="survey"
+              src="${process.env.REACT_APP_SURVEY_URL}/survey"
+            ></iframe>
+            <script>
+              {window.addEventListener("message", (ev) => {
+                let iFrame = document.getElementById("iframe");
+                let body = document.getElementById("body");
+                if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") {
+                  body.style.setProperty("height", ev.data.message.bodyHeight);
+                  body.style.setProperty("position", ev.data.message.bodyPosition);
+                  body.style.setProperty("top", ev.data.message.bodyTop);
+                  body.style.setProperty("left", ev.data.message.bodyLeft);
+                  iFrame.style.setProperty("height", ev.data.message.iFrameHeight);
+                  iFrame.style.setProperty("width", ev.data.message.width);
+                  iFrame.style.setProperty("top", ev.data.message.top);
+                  iFrame.style.setProperty("left", ev.data.message.left);
+                  iFrame.style.setProperty("bottom", ev.data.message.bottom);
+                  iFrame.style.setProperty("display", ev.data.message.display);
+                  iFrame.style.setProperty("border", ev.data.message.border);
+                }
+              })}
+            </script>
+          </body>`
+    
+  );
+  const copy2 = screen.getByTestId("Copy_btn");
+  fireEvent.click(react_btn);
+
+  fireEvent.click(copy2);
+
+  expect(navigator.clipboard.readText()).toEqual(`
+            <body id="body" style={{height: "unset"}}> 
+               <iframe id="iframe"
+                style={{
+                height: "100vh",
+                width: "100vw",
+                position: "absolute",
+                top: "0px",
+                Zindex: "100",
+                borderRadius: "10px"
+                }}
+              title="survey"
+               src="${process.env.REACT_APP_SURVEY_URL}/survey"></iframe>
+               <script>
+                 {window.addEventListener("message", (ev) => {
+                let iFrame = document.getElementById("iframe");
+                let body = document.getElementById("body");
+                if (ev.origin === "${process.env.REACT_APP_SURVEY_URL}") 
+                {
+                body.style.setProperty("height", ev.data.message.bodyHeight);
+                body.style.setProperty("position", ev.data.message.bodyPosition);
+                body.style.setProperty("top", ev.data.message.bodyTop);
+                body.style.setProperty("left", ev.data.message.bodyLeft);
+                iFrame.style.setProperty("height", ev.data.message.iFrameHeight);
+                iFrame.style.setProperty("width", ev.data.message.width);
+                iFrame.style.setProperty("top", ev.data.message.top);
+                iFrame.style.setProperty("left", ev.data.message.left);
+                iFrame.style.setProperty("bottom", ev.data.message.bottom);
+                iFrame.style.setProperty("display", ev.data.message.display);
+                iFrame.style.setProperty("border", ev.data.message.border);
+            }})}
+               </script>
+               </body>
+            `
+    
+  );
 });
+
+

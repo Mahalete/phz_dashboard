@@ -4,13 +4,12 @@ import Dashboard from "./Components/Dashbord-Content/Dashboard";
 import CommentPage from "./Components/CommentPage-Content/CommentPage";
 import DataPage from "./Components/DataPage-Content/DataPage";
 import IntegrationPage from "./Components/IntegrationPage-Content/IntegrationPage";
+import SideMenu from "./Components/SideMenu";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 import moment from "moment";
-
-import SideMenu from "./Components/SideMenu";
 
 function App() {
   const [npsdata, setNpsdata] = useState([]);
@@ -62,7 +61,6 @@ function App() {
 
   return (
     <div className="App">
-      {/*<Header dateGiver={setDates} /> */}
       <SideMenu dateGiver={setDates} />
       <Routes>
         <Route
